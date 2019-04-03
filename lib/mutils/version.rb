@@ -1,0 +1,3 @@
+module Mutils
+  VERSION = "0.1.0"
+end
