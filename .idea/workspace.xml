@@ -4,7 +4,6 @@
     <list default="true" id="658962d4-a271-46af-87b6-851a73295ace" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/mutils/serialization/base_serializer.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/mutils/serialization/base_serializer.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/mutils/serialization/serialization_core.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/mutils/serialization/serialization_core.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/mutils/version.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/mutils/version.rb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -63,7 +62,7 @@
       <workItem from="1565086932063" duration="3733000" />
       <workItem from="1565100371427" duration="2808000" />
       <workItem from="1565106880134" duration="36000" />
-      <workItem from="1565108033146" duration="739000" />
+      <workItem from="1565108033146" duration="2212000" />
     </task>
     <servers />
   </component>
