@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="658962d4-a271-46af-87b6-851a73295ace" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/mutils.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mutils.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/mutils/serialization/base_serializer.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/mutils/serialization/base_serializer.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/mutils/serialization/serialization_core.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/mutils/serialization/serialization_core.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/mutils.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/mutils.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/mutils/concerns/paginate.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/mutils/serialization.rb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/mutils/version.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/mutils/version.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mutils.gemspec" beforeDir="false" afterPath="$PROJECT_DIR$/mutils.gemspec" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,11 +30,12 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/lib/mutils" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/lib/mutils/serilization" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/mutils/serialization" />
+      <recent name="$PROJECT_DIR$/lib/mutils" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -60,7 +65,7 @@
       <workItem from="1554721011648" duration="7000" />
       <workItem from="1557298080715" duration="417000" />
       <workItem from="1565086932063" duration="3733000" />
-      <workItem from="1565100371427" duration="39000" />
+      <workItem from="1565100371427" duration="1914000" />
     </task>
     <servers />
   </component>
