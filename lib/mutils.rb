@@ -1,6 +1,6 @@
-require "mutils/version"
+require 'mutils/version'
 
 module Mutils
-  class Error < StandardError; end
-  # Your code goes here...
+  class Error < StandardError;
+  end
 end
