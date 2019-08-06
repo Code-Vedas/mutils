@@ -1,0 +1,8 @@
+Description:
+    Generates a serializer for the given model.
+
+Example:
+    rails generate serializer User
+
+    This will create:
+        app/serializers/user_serializer.rb
