@@ -3,7 +3,7 @@ module Mutils
     # BaseSerializer
     module BaseSerializer
       extend ActiveSupport::Concern
-      include SerializationCore
+      include Mutils::Serialization::SerializationCore
 
       def initialize(object, options = {})
         self.class.scope = object
@@ -40,16 +40,22 @@ module Mutils
 
         if self.class.belongs_to_relationships
           self.class.belongs_to_relationships.keys.each do |f|
-            if self.class.options[:includes] && self.class.options[:includes].include?(hash[f])
-              hash[f] = self.class.belongs_to_relationships[f].new(scope.send(f)).as_json
+            always_include = self.class.belongs_to_relationships[f][:always_include]
+            always_include = always_include && always_include == true
+            if always_include || (self.class.options[:includes] && self.class.options[:includes].include?(f))
+              klass = self.class.belongs_to_relationships[f][:serializer]
+              hash[f] = klass.new(scope.send(f)).as_json
             end
           end
         end
 
         if self.class.has_many_relationships
           self.class.has_many_relationships.keys.each do |f|
-            if self.class.options[:includes] && self.class.options[:includes].include?(hash[f])
-              hash[f] = self.class.has_many_relationships[f].new(scope.send(f)).as_json
+            always_include = self.class.belongs_to_relationships[f][:always_include]
+            always_include = always_include && always_include == true
+            if always_include || (self.class.options[:includes] && self.class.options[:includes].include?(f))
+              klass = self.class.has_many_relationships[f][:serializer]
+              hash[f] = klass.new(scope.send(f)).as_json
             end
           end
         end
