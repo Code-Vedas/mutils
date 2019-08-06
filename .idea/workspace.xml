@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="658962d4-a271-46af-87b6-851a73295ace" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/mutils/serialization.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/mutils/serialization.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/mutils/serialization/base_serializer.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/mutils/serialization/base_serializer.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/mutils/serialization/serialization_core.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/mutils/serialization/serialization_core.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/mutils/version.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/mutils/version.rb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -58,7 +59,7 @@
       <workItem from="1554271874779" duration="1796000" />
       <workItem from="1554721011648" duration="7000" />
       <workItem from="1557298080715" duration="417000" />
-      <workItem from="1565086932063" duration="1490000" />
+      <workItem from="1565086932063" duration="1639000" />
     </task>
     <servers />
   </component>
