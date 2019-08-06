@@ -6,6 +6,7 @@ module Mutils
       included do
         class << self
           attr_accessor :scope,
+                        :options,
                         :method_to_serialize,
                         :attributes_to_serialize,
                         :array_index,
