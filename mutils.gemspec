@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Nitesh Purohit"]
   spec.email         = ["nitesh.purohit.it@gmail.com"]
 
-  spec.summary       = "mutils utilies for models"
-  spec.description   = "mutils utilies for models"
+  spec.summary       = "mutils utilies for rails app"
+  spec.description   = "mutils utilies for rails app"
   spec.homepage      = "https://github.com/niteshpurohit/mutils"
   spec.license       = "MIT"
 
