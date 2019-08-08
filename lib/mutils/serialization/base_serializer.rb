@@ -51,7 +51,7 @@ module Mutils
 
         if self.class.has_many_relationships
           self.class.has_many_relationships.keys.each do |f|
-            always_include = self.class.belongs_to_relationships[f][:always_include]
+            always_include = self.class.has_many_relationships[f][:always_include]
             always_include = always_include && always_include == true
             if always_include || (self.class.options[:includes] && self.class.options[:includes].include?(f))
               klass = self.class.has_many_relationships[f][:serializer]
