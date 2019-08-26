@@ -104,6 +104,10 @@ module Mutils
         end
       end
 
+      def get_object
+        self.class.scope
+      end
+
       private
 
       def scope
