@@ -7,7 +7,7 @@ gemfile do
   gem 'kalibera'
   gem 'benchmark-memory', require: 'benchmark/memory'
 
-  gem 'mutils', '>= 0.2.9'
+  gem 'mutils', '0.2.11'
 
   gem 'activesupport'
 
@@ -122,7 +122,7 @@ module BluePrint
   end
 end
 
-module Ams
+module Mutils
   class Label
     include Mutils::Serialization::BaseSerializer
     attributes :id, :name, :color
@@ -136,8 +136,8 @@ module Ams
   class Issue
     include Mutils::Serialization::BaseSerializer
     attributes :id, :number, :title
-    has_many :labels, serializer: Label, always_include: true
-    belongs_to :user, serializer: User, always_include: true
+    has_many :labels, serializer: Mutils::Label, always_include: true
+    belongs_to :user, serializer: Mutils::User, always_include: true
   end
 end
 
@@ -208,7 +208,7 @@ serializers = [
     },
     {
         name: :mutils,
-        serializer: -> { Issue.new(issues).as_json },
+        serializer: -> { Mutils::Issue.new(issues).as_json },
         output_inspector: ->(output) { output.first }
     },
     {
