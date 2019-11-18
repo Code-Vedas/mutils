@@ -13,12 +13,10 @@ module Mutils
       def as_json(options = {})
         super(options)
         if scope_is_collection?
-          array = []
-          self.class.scope.each_with_index do |r, index|
+          self.class.scope.map.with_index { |_r, index|
             self.class.array_index = index
-            array << hashed_result
-          end
-          array
+            hashed_result
+          }
         else
           hashed_result
         end
@@ -27,37 +25,29 @@ module Mutils
       def hashed_result
         hash = {}
         if scope
-          if self.class.attributes_to_serialize
-            self.class.attributes_to_serialize.keys.each do |f|
-              hash[f] = scope[self.class.attributes_to_serialize[f]]
+          self.class.attributes_to_serialize&.keys&.each do |f|
+            hash[f] = scope[self.class.attributes_to_serialize[f]]
+          end
+
+          self.class.method_to_serialize&.keys&.each do |f|
+            hash[f] = send(self.class.method_to_serialize[f])
+          end
+
+          self.class.belongs_to_relationships&.keys&.each do |f|
+            always_include = self.class.belongs_to_relationships[f][:always_include]
+            always_include &&= always_include == true
+            if always_include || (self.class.options[:includes]&.include?(f))
+              klass = self.class.belongs_to_relationships[f][:serializer]
+              hash[f] = klass.new(scope.send(f)).as_json
             end
           end
 
-          if self.class.method_to_serialize
-            self.class.method_to_serialize.keys.each do |f|
-              hash[f] = send(self.class.method_to_serialize[f])
-            end
-          end
-
-          if self.class.belongs_to_relationships
-            self.class.belongs_to_relationships.keys.each do |f|
-              always_include = self.class.belongs_to_relationships[f][:always_include]
-              always_include = always_include && always_include == true
-              if always_include || (self.class.options[:includes] && self.class.options[:includes].include?(f))
-                klass = self.class.belongs_to_relationships[f][:serializer]
-                hash[f] = klass.new(scope.send(f)).as_json
-              end
-            end
-          end
-
-          if self.class.has_many_relationships
-            self.class.has_many_relationships.keys.each do |f|
-              always_include = self.class.has_many_relationships[f][:always_include]
-              always_include = always_include && always_include == true
-              if always_include || (self.class.options[:includes] && self.class.options[:includes].include?(f))
-                klass = self.class.has_many_relationships[f][:serializer]
-                hash[f] = klass.new(scope.send(f)).as_json
-              end
+          self.class.has_many_relationships&.keys&.each do |f|
+            always_include = self.class.has_many_relationships[f][:always_include]
+            always_include &&= always_include == true
+            if always_include || (self.class.options[:includes]&.include?(f))
+              klass = self.class.has_many_relationships[f][:serializer]
+              hash[f] = klass.new(scope.send(f)).as_json
             end
           end
         end
@@ -71,12 +61,12 @@ module Mutils
       class_methods do
         def attributes(*attributes_list)
           self.attributes_to_serialize = {} if attributes_to_serialize.nil?
-          attributes_list.each { |attr| attributes_to_serialize[attr] = attr } if attributes_list
+          attributes_list&.each { |attr| attributes_to_serialize[attr] = attr }
         end
 
         def custom_methods(*method_list)
           self.method_to_serialize = {} if method_to_serialize.nil?
-          method_list.each { |attr| method_to_serialize[attr] = attr } if method_list
+          method_list&.each { |attr| method_to_serialize[attr] = attr }
         end
 
         def belongs_to(relationship_name, options = {})
