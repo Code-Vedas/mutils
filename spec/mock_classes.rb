@@ -1,9 +1,17 @@
+class Room
+  attr_accessor :name
+
+  def initialize(name)
+    self.name = name
+  end
+end
 class House
-  attr_accessor :name, :number
+  attr_accessor :name, :number, :rooms
 
   def initialize(name, number)
     self.name = name
     self.number = number
+    self.rooms = [Room.new(SecureRandom.hex(2)), Room.new(SecureRandom.hex(2)), Room.new(SecureRandom.hex(2))]
   end
 end
 class User
@@ -17,10 +25,14 @@ class User
 end
 
 class HouseSerializer < Mutils::Serialization::BaseSerializer
-  custom_methods :house_tag
+  custom_methods :house_tag, :rooms_names
 
   def house_tag(scope)
     "#{scope.name}--#{scope.number}"
+  end
+
+  def rooms_names(scope)
+    scope.rooms.map(&:name).join(',')
   end
 end
 

@@ -7,48 +7,28 @@ module Mutils
     module SerializationResults
 
       def form_result
-        mutex = Mutex.new
-
         if scope_is_collection?
-          scope.map { |local_scope| hashed_result(local_scope, mutex) }
+          scope.map { |local_scope| hashed_result(local_scope) }
         else
-          hashed_result(scope, mutex)
+          hashed_result(scope)
         end
       end
 
-      def hashed_result(local_scope, mutex)
+      def hashed_result(local_scope)
         hash = {}
         if local_scope
-          threads = []
-          mutex.synchronize do
-            threads << Thread.new do
-              attributes_to_serialize = self.class.attributes_to_serialize
-              attributes_to_serialize&.keys&.each do |f|
-                hash[f] = local_scope.send(attributes_to_serialize[f])
-              end
-            end
+          attributes_to_serialize = self.class.attributes_to_serialize
+          attributes_to_serialize&.keys&.each do |f|
+            hash[f] = local_scope.send(attributes_to_serialize[f])
           end
-          threads << Thread.new do
-            mutex.synchronize do
-              method_to_serialize = self.class.method_to_serialize
-              method_to_serialize&.keys&.each do |f|
-                hash[f] = send(method_to_serialize[f], local_scope)
-              end
-            end
+          method_to_serialize = self.class.method_to_serialize
+          method_to_serialize&.keys&.each do |f|
+            hash[f] = send(method_to_serialize[f], local_scope)
           end
-          threads << Thread.new do
-            mutex.synchronize do
-              belongs_to_relationships = self.class.belongs_to_relationships
-              hash = hash.merge hash_relationships(local_scope, belongs_to_relationships)
-            end
-          end
-          threads << Thread.new do
-            mutex.synchronize do
-              has_many_relationships = self.class.has_many_relationships
-              hash = hash.merge hash_relationships(local_scope, has_many_relationships)
-            end
-          end
-          threads.map(&:join)
+          belongs_to_relationships = self.class.belongs_to_relationships
+          hash = hash.merge hash_relationships(local_scope, belongs_to_relationships)
+          has_many_relationships = self.class.has_many_relationships
+          hash = hash.merge hash_relationships(local_scope, has_many_relationships)
         end
         hash
       end
