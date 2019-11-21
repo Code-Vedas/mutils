@@ -7,7 +7,7 @@ gemfile do
   gem 'kalibera'
   gem 'benchmark-memory', require: 'benchmark/memory'
 
-  gem 'mutils', '0.2.11'
+  gem 'mutils', '0.2.14'
 
   gem 'activesupport'
 
@@ -123,18 +123,15 @@ module BluePrint
 end
 
 module Mutils
-  class Label
-    include Mutils::Serialization::BaseSerializer
+  class Label < Mutils::Serialization::BaseSerializer
     attributes :id, :name, :color
   end
 
-  class User
-    include Mutils::Serialization::BaseSerializer
+  class User < Mutils::Serialization::BaseSerializer
     attributes :id, :login
   end
 
-  class Issue
-    include Mutils::Serialization::BaseSerializer
+  class Issue < Mutils::Serialization::BaseSerializer
     attributes :id, :number, :title
     has_many :labels, serializer: Mutils::Label, always_include: true
     belongs_to :user, serializer: Mutils::User, always_include: true

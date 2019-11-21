@@ -1,113 +1,76 @@
+# frozen_string_literal: true
+
+# module Mutils
 module Mutils
   module Serialization
     # BaseSerializer
-    module BaseSerializer
-      extend ActiveSupport::Concern
-      include Mutils::Serialization::SerializationCore
+    class BaseSerializer
+      include Mutils::Serialization::SerializationIncludes
+      include Mutils::Serialization::SerializationMethods
+      attr_accessor :scope, :options
 
       def initialize(object, options = {})
-        self.class.scope = object
-        self.class.options = options
+        self.scope = object
+        self.options = options
       end
 
       def as_json(options = {})
-        super(options)
+        form_result
+      end
+
+      def to_h
+        form_result
+      end
+
+      def form_result
         if scope_is_collection?
-          self.class.scope.map.with_index { |_r, index|
-            self.class.array_index = index
-            hashed_result
-          }
+          scope.map { |local_scope| hashed_result(local_scope) }
         else
-          hashed_result
+          hashed_result(scope)
         end
       end
 
-      def hashed_result
+      def hashed_result(local_scope)
         hash = {}
-        if scope
-          self.class.attributes_to_serialize&.keys&.each do |f|
-            hash[f] = scope[self.class.attributes_to_serialize[f]]
+        if local_scope
+          attributes_to_serialize = self.class.attributes_to_serialize
+          attributes_to_serialize&.keys&.each do |f|
+            hash[f] = local_scope.send(attributes_to_serialize[f])
           end
 
-          self.class.method_to_serialize&.keys&.each do |f|
-            hash[f] = send(self.class.method_to_serialize[f])
+          method_to_serialize = self.class.method_to_serialize
+          method_to_serialize&.keys&.each do |f|
+            hash[f] = send(method_to_serialize[f], local_scope)
           end
 
-          self.class.belongs_to_relationships&.keys&.each do |f|
-            always_include = self.class.belongs_to_relationships[f][:always_include]
-            always_include &&= always_include == true
-            if always_include || (self.class.options[:includes]&.include?(f))
-              klass = self.class.belongs_to_relationships[f][:serializer]
-              hash[f] = klass.new(scope.send(f)).as_json
-            end
-          end
+          belongs_to_relationships = self.class.belongs_to_relationships
+          hash = hash.merge hash_relationships(local_scope, belongs_to_relationships)
 
-          self.class.has_many_relationships&.keys&.each do |f|
-            always_include = self.class.has_many_relationships[f][:always_include]
-            always_include &&= always_include == true
-            if always_include || (self.class.options[:includes]&.include?(f))
-              klass = self.class.has_many_relationships[f][:serializer]
-              hash[f] = klass.new(scope.send(f)).as_json
-            end
+          has_many_relationships = self.class.has_many_relationships
+          hash = hash.merge hash_relationships(local_scope, has_many_relationships)
+        end
+        hash
+      end
+
+      def hash_relationships(local_scope, relationships)
+        hash = {}
+        relationships&.keys&.each do |f|
+          always_include = relationships[f][:always_include]
+          always_include = always_include.nil? ? false : always_include == true
+          if always_include || (options[:includes]&.include?(f))
+            klass = relationships[f][:serializer]
+            hash[f] = klass.new(local_scope.send(f)).as_json
           end
         end
         hash
       end
 
       def scope_is_collection?
-        self.class.scope.respond_to?(:size) && !self.class.scope.respond_to?(:each_pair)
-      end
-
-      class_methods do
-        def attributes(*attributes_list)
-          self.attributes_to_serialize = {} if attributes_to_serialize.nil?
-          attributes_list&.each { |attr| attributes_to_serialize[attr] = attr }
-        end
-
-        def custom_methods(*method_list)
-          self.method_to_serialize = {} if method_to_serialize.nil?
-          method_list&.each { |attr| method_to_serialize[attr] = attr }
-        end
-
-        def belongs_to(relationship_name, options = {})
-          if options[:serializer].nil?
-            raise "Serializer is Required for belongs_to :#{relationship_name}.\nDefine it like:\nbelongs_to :#{relationship_name}, serializer: SERIALIZER_CLASS"
-          end
-          raise 'Serializer class not defined' unless class_exists? options[:serializer]
-
-          self.belongs_to_relationships = {} if belongs_to_relationships.nil?
-          belongs_to_relationships[relationship_name] = options
-        end
-
-        def has_many(relationship_name, options = {})
-          if options[:serializer].nil?
-            raise "Serializer is Required for has_many :#{relationship_name}.\nDefine it like:\nhas_many :#{relationship_name}, serializer: SERIALIZER_CLASS"
-          end
-          raise 'Serializer class not defined' unless class_exists? options[:serializer]
-
-          self.has_many_relationships = {} if has_many_relationships.nil?
-          has_many_relationships[relationship_name] = options
-        end
-
-        alias_method :has_one, :belongs_to
-
-        def class_exists?(class_name)
-          eval("defined?(#{class_name}) && #{class_name}.is_a?(Class)") == true
-        end
+        scope.respond_to?(:size) && !scope.respond_to?(:each_pair)
       end
 
       def get_object
-        self.class.scope
-      end
-
-      private
-
-      def scope
-        if scope_is_collection?
-          self.class.scope[self.class.array_index]
-        else
-          self.class.scope
-        end
+        scope
       end
     end
   end

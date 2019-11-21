@@ -1,13 +1,14 @@
+# frozen_string_literal: true
+
+# Module Mutils
 module Mutils
   module Serialization
-    # Module SerializationCore
-    module SerializationCore
+    # Module SerializationIncludes
+    module SerializationIncludes
       extend ActiveSupport::Concern
       included do
         class << self
-          attr_accessor :scope,
-                        :options,
-                        :method_to_serialize,
+          attr_accessor :method_to_serialize,
                         :attributes_to_serialize,
                         :array_index,
                         :belongs_to_relationships,
