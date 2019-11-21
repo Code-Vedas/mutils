@@ -1,5 +1,7 @@
 require 'bundler/inline'
 
+require_relative './lib/mutils'
+
 gemfile do
   source 'https://rubygems.org'
   gem 'oj'
@@ -7,7 +9,7 @@ gemfile do
   gem 'kalibera'
   gem 'benchmark-memory', require: 'benchmark/memory'
 
-  gem 'mutils', '0.2.14'
+  # gem 'mutils', '0.2.14'
 
   gem 'activesupport'
 
@@ -236,6 +238,9 @@ Benchmark.bmbm do |b|
 end
 
 %i[ips memory].each do |bench|
+  puts '##################################################'
+  puts "START #{bench}"
+  puts '##################################################'
   Benchmark.send(bench) do |b|
     b.config(time: 10, warmup: 5, stats: :bootstrap, confidence: 95) if b.respond_to?(:config)
 
