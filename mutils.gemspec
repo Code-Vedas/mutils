@@ -22,5 +22,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'bundler', '~> 2.0'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_runtime_dependency('activesupport', ['>= 4.2'])
+  spec.add_runtime_dependency('parallel', ['>= 1.19.0'])
   spec.add_development_dependency 'rspec-rails'
 end

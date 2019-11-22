@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+require 'json/ext'
 # module Mutils
 module Mutils
   module Serialization
@@ -16,15 +16,15 @@ module Mutils
       end
 
       def as_json(_options = {})
-        form_result
+        to_h
       end
 
       def to_h
-        form_result
+        generate_hash
       end
 
-      def scope_is_collection?
-        scope.respond_to?(:size) && !scope.respond_to?(:each_pair)
+      def to_json(_options = {})
+        JSON.generate(to_h)
       end
     end
   end

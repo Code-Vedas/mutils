@@ -1,6 +1,5 @@
 require_relative 'mutils/version'
 require 'active_support/concern'
-require 'active_support/dependencies/autoload'
 require_relative 'mutils/serialization/serialization_results'
 require_relative 'mutils/serialization/serialization_includes'
 require_relative 'mutils/serialization/serialization_methods'

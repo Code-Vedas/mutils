@@ -4,15 +4,16 @@ RSpec.describe Mutils do
     expect(Mutils::VERSION).not_to be nil
   end
   it 'it should serialize simple object' do
-    hash = UserSerializer.new(User.new('FirstName', 'LastName', nil)).to_h
-    puts hash.inspect
+    houses1 = [House.new('ha', 1), House.new('hb', 2)]
+    serializer = UserSerializer.new(User.new('FirstName', 'LastName', houses1))
+    puts serializer.to_h.inspect
   end
   it 'it should serialize simple array of objects' do
 
     houses1 = [House.new('ha', 1), House.new('hb', 2)]
     houses2 = [House.new('hp', 1), House.new('hq', 2)]
 
-    hash = UserSerializer.new([User.new('FirstName1', 'LastName1', houses1), User.new('FirstName2', 'LastName2', houses2)]).to_h
-    puts hash.inspect
+    serializer = UserSerializer.new([User.new('FirstName1', 'LastName1', houses1), User.new('FirstName2', 'LastName2', houses2)])
+    puts serializer.to_h.inspect
   end
 end
