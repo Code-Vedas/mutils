@@ -54,7 +54,7 @@ Attributes are fields in the model itself. You can reference them by below examp
 # frozen_string_literal: true
 
 # User Serializer
-class User1Serializer < Mutils::Serialization::BaseSerializer
+class UserSerializer < Mutils::Serialization::BaseSerializer
   attributes :id, :first_name, :last_name, :email
 end
 ```
@@ -113,4 +113,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Mutils project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/mutils/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Mutils project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/niteshpurohit/mutils/blob/master/CODE_OF_CONDUCT.md).
