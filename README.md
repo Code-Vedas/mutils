@@ -1,33 +1,111 @@
 # Mutils
+## Introduction
+`mutils` is collection of useful modules for `ruby on rails` which is tested and benchmarked against high load.
 
+These collection of modules are built by developer for developers :-)
 ## Installation
 
 Add this line to your application's Gemfile:
-
 ```ruby
 gem 'mutils'
 ```
-
 And then execute:
 
-    $ bundle
+    $ bundle install
 
 Or install it yourself as:
 
     $ gem install mutils
 
+## Modules
+| Sno 	|        Name       	| Status 	|
+|:---:	|:-----------------:	|:------:	|
+|  1  	| Serializer - JSON 	|  Beta  	|
+|  2  	|  Serializer - XML 	|  In-Dev  	|
+|  3    | Active Storage Helpers | In-Dev |
 ## Usage
+### Serializer - JSON
+JSON Serializer for Active Models 
 
+#### Generate Serializer by command
+```shell script
+rails g serializer User id first_name last_name email
 
-## Development
+OUTPUT
+Running via Spring preloader in process xxxxx
+      create  app/serializers/user_serializer.rb
+```
+You will get serializer in app/serializers/user_serializer.rb
+```ruby
+# frozen_string_literal: true
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+# User Serializer
+class UserSerializer < Mutils::Serialization::BaseSerializer
+  attributes :id, :first_name, :last_name, :email
+end
+```
+#### Decorations Available
+1. Attributes
+2. Custom Methods
+3. Relations
+##### Attributes
+Attributes are fields in the model itself. You can reference them by below example
+```ruby
+# frozen_string_literal: true
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+# User Serializer
+class User1Serializer < Mutils::Serialization::BaseSerializer
+  attributes :id, :first_name, :last_name, :email
+end
+```
+##### Custom Methods
+Custom methods take exactly one mandatory `parameter` which is `scope` its an instance of the model.
+```ruby
+# frozen_string_literal: true
 
+# User Serializer
+class UserSerializer < Mutils::Serialization::BaseSerializer
+  attributes :id, :first_name, :last_name, :email
+  custom_methods :full_name
+  
+  def full_name(scope)
+    "#{scope.first_name} #{scope.last_name}"
+  end
+end
+```
+##### Relations
+Relations such as `has_many`, `belongs_to`, `has_one` can be used as follows
+1. Every relation must be provided with their own serializer
+2. `always_include` option can be used to instruct `Serializer` to always include this relation
+3. `always_include` by default is disabled, relations which are not `always_include` can be included while using the serializer. Refer to next section for this usage
+
+```ruby
+# frozen_string_literal: true
+
+# User Serializer
+class UserSerializer < Mutils::Serialization::BaseSerializer
+  attributes :id, :first_name, :last_name, :email
+  belongs_to :company, serializer: CompanySerializer, always_include: true
+  has_many :comments, serializer: CommentSerializer
+  has_one :account, serializer: AccountSerializer
+  
+  def full_name(scope)
+    "#{scope.first_name} #{scope.last_name}"
+  end
+end
+```
+Usage: Use anywhere by
+
+```ruby
+user = User.first
+options = {includes: [:comments,:account]}
+UserSerializer.new(user,options).to_h
+# or
+UserSerializer.new(user,options).to_json
+```
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/niteshpurohit/mutils. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug Reports and PR's are welcomed in this repository kindly follow guidelines from `.github` directory.
 
 ## License
 

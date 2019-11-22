@@ -1,6 +1,6 @@
 require 'bundler/inline'
 
-require_relative './lib/mutils'
+require_relative '../lib//mutils'
 
 gemfile do
   source 'https://rubygems.org'
@@ -8,8 +8,6 @@ gemfile do
   gem 'benchmark-ips', require: 'benchmark/ips'
   gem 'kalibera'
   gem 'benchmark-memory', require: 'benchmark/memory'
-
-  # gem 'mutils', '0.2.14'
 
   gem 'activesupport'
 
@@ -21,9 +19,6 @@ gemfile do
 
   # https://github.com/procore/blueprinter
   gem 'blueprinter'
-
-  # https://github.com/rails-api/active_model_serializers/tree/0-10-stable
-  gem 'active_model_serializers', '~> 0.10.0'
 
   # https://github.com/trailblazer/roar
   # https://github.com/trailblazer/representable
