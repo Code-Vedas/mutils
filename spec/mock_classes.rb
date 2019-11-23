@@ -40,11 +40,11 @@ end
 class HouseSerializer < Mutils::Serialization::BaseSerializer
   custom_methods :house_tag, :rooms_names
 
-  def house_tag(scope)
+  def house_tag
     "#{scope.name}--#{scope.number}"
   end
 
-  def rooms_names(scope)
+  def rooms_names
     scope.rooms.map(&:name).join(',')
   end
 end
@@ -55,7 +55,7 @@ class UserSerializer < Mutils::Serialization::BaseSerializer
   has_many :houses, serializer: HouseSerializer, always_include: true
   belongs_to :country, serializer: CountrySerializer, always_include: true
 
-  def full_name(scope)
+  def full_name
     "#{scope.first_name} #{scope.last_name}"
   end
 
