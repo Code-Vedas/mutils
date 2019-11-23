@@ -27,7 +27,6 @@ Gem::Specification.new do |spec|
 
   spec.metadata = {
       "bug_tracker_uri" => "https://github.com/niteshpurohit/mutils/issues",
-      "documentation_uri" => "https://api.rubyonrails.org/v#{Mutils::VERSION}/",
       "source_code_uri" => "https://github.com/rails/rails/tree/v#{Mutils::VERSION}"
   }
 end
