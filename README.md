@@ -103,6 +103,7 @@ UserSerializer.new(user,options).to_h
 # or
 UserSerializer.new(user,options).to_json
 ```
+
 ## Contributing
 
 Bug Reports and PR's are welcomed in this repository kindly follow guidelines from `.github` directory.
