@@ -61,7 +61,9 @@ class UserSerializer < Mutils::Serialization::BaseSerializer
 end
 ```
 ##### Custom Methods
-Custom methods take exactly one mandatory `parameter` which is `scope` its an instance of the model.
+Custom methods used in Serializer can be useful for cases as below.
+`scope` will be available to reference object in Serializer in below case its `user`
+
 ```ruby
 # frozen_string_literal: true
 
@@ -70,7 +72,7 @@ class UserSerializer < Mutils::Serialization::BaseSerializer
   attributes :id, :first_name, :last_name, :email
   custom_methods :full_name
   
-  def full_name(scope)
+  def full_name
     "#{scope.first_name} #{scope.last_name}"
   end
 end
@@ -91,7 +93,7 @@ class UserSerializer < Mutils::Serialization::BaseSerializer
   has_many :comments, serializer: CommentSerializer
   has_one :account, serializer: AccountSerializer
   
-  def full_name(scope)
+  def full_name
     "#{scope.first_name} #{scope.last_name}"
   end
 end
