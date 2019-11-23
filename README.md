@@ -105,7 +105,9 @@ user = User.first
 options = {includes: [:comments,:account]}
 UserSerializer.new(user,options).to_h
 # or
-UserSerializer.new(user,options).to_json
+users = User.all
+options = {includes: [:account]}
+UserSerializer.new(users,options).to_json
 ```
 
 ## Contributing
