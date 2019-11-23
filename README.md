@@ -44,10 +44,12 @@ class UserSerializer < Mutils::Serialization::BaseSerializer
   attributes :id, :first_name, :last_name, :email
 end
 ```
+
 #### Decorations Available
 1. Attributes
 2. Custom Methods
 3. Relations
+
 ##### Attributes
 Attributes are fields in the model itself. You can reference them by below example
 ```ruby
