@@ -1,3 +1,6 @@
+
+[![Gem Version](https://badge.fury.io/rb/mutils.svg)](https://badge.fury.io/rb/mutils)
+
 # Mutils
 ## Introduction
 `mutils` is collection of useful modules for `ruby on rails` which is tested and benchmarked against high load.

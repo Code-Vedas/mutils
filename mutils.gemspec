@@ -3,24 +3,31 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'mutils/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'mutils'
-  spec.version       = Mutils::VERSION
-  spec.authors       = ['Nitesh Purohit']
-  spec.email         = ['nitesh.purohit.it@gmail.com']
+  spec.name = 'mutils'
+  spec.version = Mutils::VERSION
+  spec.authors = ['Nitesh Purohit']
+  spec.email = ['nitesh.purohit.it@gmail.com']
 
-  spec.summary       = 'mutils Utilities for rails app'
-  spec.description   = 'mutils Utilities for rails app'
-  spec.homepage      = 'https://github.com/niteshpurohit/mutils'
-  spec.license       = 'MIT'
-  spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
+  spec.summary = 'mutils Utilities for rails app'
+  spec.description = 'mutils Utilities for rails app'
+  spec.homepage = 'https://github.com/niteshpurohit/mutils'
+  spec.license = 'MIT'
+  spec.files = Dir.chdir(File.expand_path('..', __FILE__)) do
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   end
-  spec.bindir        = 'exe'
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.bindir = 'exe'
+  spec.executables = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
-
+  spec.required_ruby_version = '>= 2.5.0'
+  spec.required_rubygems_version = '>= 1.8.11'
   spec.add_development_dependency 'bundler', '~> 2.0'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_runtime_dependency('activesupport', ['>= 4.2'])
   spec.add_development_dependency 'rspec-rails'
+
+  spec.metadata = {
+      bug_tracker_uri: 'https://github.com/niteshpurohit/mutils/issues',
+      documentation_uri: "https://api.rubyonrails.org/v#{Mutils::VERSION}/",
+      source_code_uri: "https://github.com/rails/rails/tree/v#{Mutils::VERSION}"
+  }
 end
