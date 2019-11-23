@@ -8,11 +8,12 @@ module Mutils
       include Mutils::Serialization::SerializationIncludes
       include Mutils::Serialization::SerializationMethods
       include Mutils::Serialization::SerializationResults
-      attr_accessor :scope, :options
+      attr_accessor :scope, :options, :mutex
 
       def initialize(object, options = {})
         self.scope = object
         self.options = options
+        self.mutex = Mutex.new
       end
 
       def as_json(_options = {})

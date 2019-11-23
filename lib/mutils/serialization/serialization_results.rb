@@ -9,49 +9,63 @@ module Mutils
       def generate_hash
         if scope
           if scope_is_collection?
-            scope.map { |local_scope| hashed_result(local_scope) }
+            scope.map { |inner_scope| self.class.new(inner_scope, options).generate_hash }
           else
-            hashed_result(scope)
+            hashed_result
           end
         else
           {}
         end
       end
 
-      def hashed_result(local_scope)
+      def hashed_result
         relationships = [self.class.belongs_to_relationships, self.class.has_many_relationships]
-        [fetch_attributes(local_scope, self.class.attributes_to_serialize&.keys),
-         invoke_sends(self, self.class.method_to_serialize&.keys, local_scope),
-         hash_relationships(local_scope, relationships)].reduce(&:merge)
+        [fetch_attributes(self.class.attributes_to_serialize&.keys),
+         call_methods(self.class.method_to_serialize&.keys),
+         hash_relationships(relationships)].reduce(&:merge)
       end
 
-      def fetch_attributes(object, keys)
+      def fetch_attributes(keys)
+        invoke_sends_async(keys)
+      end
+
+      def call_methods(keys)
+        invoke_sends(keys, true)
+      end
+
+      def invoke_sends(keys, call_method = nil)
         hash = {}
-        threads = []
         keys&.each do |key|
-          threads << Thread.new { hash[key] = object.send(key) }
+          invoke_send(hash, key, call_method)
         end
-        threads.map(&:join)
         hash
       end
 
-      def invoke_sends(object, keys, local_scope)
+      def invoke_sends_async(keys, call_method = nil)
         hash = {}
-        threads = []
+        runners = []
         keys&.each do |key|
-          threads << Thread.new { hash[key] = object.send(key, local_scope) }
+          runners << Thread.new do
+            mutex.synchronize { invoke_send(hash, key, call_method) }
+          end
         end
-        threads.map(&:join)
+        runners.map(&:join)
         hash
       end
 
-      def hash_relationships(local_scope, relationships_array)
+      def invoke_send(hash, key, call_method = nil)
+        hash[key] = send(key) if call_method
+        hash[key] = scope.send(key) unless call_method
+        hash
+      end
+
+      def hash_relationships(relationships_array)
         relationships = relationships_array.compact.reduce(&:merge)
         hash = {}
         relationships&.keys&.each do |key|
           if check_if_included(relationships, key)
             klass = relationships[key][:serializer]
-            hash[key] = klass.new(local_scope.send(key)).to_h
+            hash[key] = klass.new(scope.send(key)).to_h
           end
         end
         hash
