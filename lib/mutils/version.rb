@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Mutils
-  VERSION = '0.2.25'.freeze
+  VERSION = '0.2.25'
 end

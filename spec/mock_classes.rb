@@ -49,7 +49,7 @@ end
 class UserSerializer < Mutils::Serialization::BaseSerializer
   attributes :first_name, :last_name
   custom_methods :full_name
-  has_many :houses, serializer: HouseSerializer, always_include: true
+  has_many :houses, serializer: 'HouseSerializer', always_include: true
   belongs_to :country, serializer: CountrySerializer, always_include: true
 
   def full_name
