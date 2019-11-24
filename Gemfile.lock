@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    mutils (0.2.22)
+    mutils (0.2.24)
       activesupport (>= 4.2)
 
 GEM
