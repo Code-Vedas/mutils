@@ -7,7 +7,6 @@ module Mutils
     module SerializationMethods
       extend ActiveSupport::Concern
       # Module ClassMethods
-      # rubocop:disable Metrics/LineLength
       module ClassMethods
         def name_tag(name_tag, root = false)
           self.serializer_name = name_tag
@@ -44,7 +43,6 @@ module Mutils
 
         alias has_one belongs_to
 
-        # rubocop:disable Style/PredicateName
         def has_many(relationship_name, options = {})
           check_for_class('has_many', relationship_name, options[:serializer])
 
@@ -54,7 +52,6 @@ module Mutils
         end
 
         def class_exists?(class_name)
-          # rubocop:disable Style/RescueModifier
           klass = class_name.to_s.constantize rescue nil
           klass && defined?(klass) && klass.is_a?(Class)
         end

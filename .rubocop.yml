@@ -1,2 +1,12 @@
+inherit_from: .rubocop_todo.yml
+
 AllCops:
   TargetRubyVersion: "2.5.0"
+Naming/FileName:
+  Exclude:
+    - 'benchmark/benchmark-serializer-json.rb'
+Style/Documentation:
+  Exclude:
+    - 'spec/**/*'
+    - 'test/**/*'
+    - 'benchmark/benchmark-serializer-json.rb'

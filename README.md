@@ -23,8 +23,8 @@ Or install it yourself as:
 ## Modules
 | Sno 	|        Name       	| Status 	|
 |:---:	|:-----------------:	|:------:	|
-|  1  	| Serializer - JSON 	|  Beta  	|
-|  2  	|  Serializer - XML 	|  Beta  	|
+|  1  	| Serializer - JSON 	|  Done  	|
+|  2  	|  Serializer - XML 	|  Done  	|
 |  3    | Active Storage Helpers | In-Dev |
 ## Usage
 ### Serializer - JSON

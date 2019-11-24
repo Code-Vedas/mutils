@@ -4,7 +4,6 @@
 module Mutils
   module Serialization
     # Module SerializationResults
-    # rubocop:disable Metrics/LineLength
     module SerializationResults
       def generate_hash
         if scope

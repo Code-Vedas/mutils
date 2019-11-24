@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Room
   attr_accessor :name
 
@@ -17,7 +19,7 @@ end
 class Country
   attr_accessor :name
 
-  def initialize (name)
+  def initialize(name)
     self.name = name
   end
 end
@@ -55,5 +57,4 @@ class UserSerializer < Mutils::Serialization::BaseSerializer
   def full_name
     "#{scope.first_name} #{scope.last_name}"
   end
-
 end

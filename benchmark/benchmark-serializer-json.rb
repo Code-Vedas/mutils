@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'bundler/inline'
 
 require_relative '../lib//mutils'
@@ -180,41 +182,41 @@ labels = Array.new(4) { |i| Label.new(i, "Label #{i}", 'ffffff') }
 issues = Array.new(10_000) { |i| Issue.new(i, i, "Issue #{i}", users.sample, labels.sample(rand(2..4))) }
 
 serializers = [
-    {
-        name: :as_json,
-        serializer: -> { issues.as_json },
-        output_inspector: ->(output) { output.first }
-    },
-    {
-        name: :fast_jsonapi,
-        serializer: -> { FastJsonApi::IssueSerializer.new(issues, include: [:labels, :user]).serializable_hash },
-        output_inspector: ->(output) { output[:data].first }
-    },
-    {
-        name: :grape_entity,
-        serializer: -> { GrapeEntity::Issue.represent(issues).as_json },
-        output_inspector: ->(output) { output.first }
-    },
-    {
-        name: :blueprinter,
-        serializer: -> { BluePrint::Issue.render_as_hash(issues) },
-        output_inspector: ->(output) { output.first }
-    },
-    {
-        name: :mutils,
-        serializer: -> { Mutils::Issue.new(issues).as_json },
-        output_inspector: ->(output) { output.first }
-    },
-    {
-        name: :roar,
-        serializer: -> { ROAR::IssueRepresenter.for_collection.new(issues).as_json },
-        output_inspector: ->(output) { output.first }
-    },
-    {
-        name: :panko,
-        serializer: -> { Panko::ArraySerializer.new(issues, each_serializer: PANKO::IssueSerializer).as_json },
-        output_inspector: ->(output) { output['subjects'].first }
-    }
+  {
+    name: :as_json,
+    serializer: -> { issues.as_json },
+    output_inspector: ->(output) { output.first }
+  },
+  {
+    name: :fast_jsonapi,
+    serializer: -> { FastJsonApi::IssueSerializer.new(issues, include: %i[labels user]).serializable_hash },
+    output_inspector: ->(output) { output[:data].first }
+  },
+  {
+    name: :grape_entity,
+    serializer: -> { GrapeEntity::Issue.represent(issues).as_json },
+    output_inspector: ->(output) { output.first }
+  },
+  {
+    name: :blueprinter,
+    serializer: -> { BluePrint::Issue.render_as_hash(issues) },
+    output_inspector: ->(output) { output.first }
+  },
+  {
+    name: :mutils,
+    serializer: -> { Mutils::Issue.new(issues).as_json },
+    output_inspector: ->(output) { output.first }
+  },
+  {
+    name: :roar,
+    serializer: -> { ROAR::IssueRepresenter.for_collection.new(issues).as_json },
+    output_inspector: ->(output) { output.first }
+  },
+  {
+    name: :panko,
+    serializer: -> { Panko::ArraySerializer.new(issues, each_serializer: PANKO::IssueSerializer).as_json },
+    output_inspector: ->(output) { output['subjects'].first }
+  }
 ]
 
 # Display output
