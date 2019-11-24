@@ -123,7 +123,9 @@ class UserSerializer < Mutils::Serialization::BaseSerializer
     "#{scope.first_name} #{scope.last_name}"
   end
 end
-Usage: Use anywhere by
+```ruby
+
+#### Usage: Use anywhere by
 
 ```ruby
 user = User.first
