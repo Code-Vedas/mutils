@@ -1,6 +1,6 @@
 
 [![Gem Version](https://badge.fury.io/rb/mutils.svg)](https://badge.fury.io/rb/mutils)
-
+[![Coverage Status](https://coveralls.io/repos/github/niteshpurohit/mutils/badge.svg?branch=feature/coverall)](https://coveralls.io/github/niteshpurohit/mutils?branch=feature/coverall)
 # Mutils
 ## Introduction
 `mutils` is collection of useful modules for `ruby on rails` which is tested and benchmarked against high load.
