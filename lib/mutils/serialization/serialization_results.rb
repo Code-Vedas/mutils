@@ -80,6 +80,18 @@ module Mutils
       def scope_is_collection?
         scope.respond_to?(:size) && !scope.respond_to?(:each_pair)
       end
+
+      def class_name
+        if scope_is_collection?
+          format_class_name(scope[0]).pluralize
+        else
+          format_class_name(scope)
+        end
+      end
+
+      def format_class_name(object)
+        object.class.to_s.downcase
+      end
     end
   end
 end

@@ -27,6 +27,14 @@ module Mutils
       def to_json(_options = {})
         JSON.generate(to_h)
       end
+
+      def to_xml
+        to_h.to_xml(root: class_name, skip_instruct: true, indent: 2)
+      end
+
+      def as_xml
+        to_xml
+      end
     end
   end
 end

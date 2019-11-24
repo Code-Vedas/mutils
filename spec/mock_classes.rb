@@ -11,10 +11,7 @@ class House
   def initialize(name, number)
     self.name = name
     self.number = number
-    s1 = (0...8).map { (65 + rand(26)).chr }.join
-    s2 = (0...8).map { (65 + rand(26)).chr }.join
-    s3 = (0...8).map { (65 + rand(26)).chr }.join
-    self.rooms = [Room.new(s1), Room.new(s2), Room.new(s3)]
+    self.rooms = [Room.new('room1'), Room.new('room2'), Room.new('room3')]
   end
 end
 class Country
