@@ -28,6 +28,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec-json_expectations'
   spec.add_development_dependency 'rspec-rails'
   spec.add_development_dependency 'rspec-xml_helpers'
+  spec.add_development_dependency 'coveralls'
 
   spec.metadata = {
     'bug_tracker_uri' => 'https://github.com/niteshpurohit/mutils/issues',
