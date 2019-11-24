@@ -1,3 +1,5 @@
+changelog:
+	github_changelog_generator --user niteshpurohit --project mutils
 build:
 	bundle exec rake build
 release: build
