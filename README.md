@@ -52,6 +52,7 @@ end
 1. Attributes
 2. Custom Methods
 3. Relations
+3. name_tag
 
 ##### Attributes
 Attributes are fields in the model itself. You can reference them by below example
@@ -101,6 +102,27 @@ class UserSerializer < Mutils::Serialization::BaseSerializer
   end
 end
 ```
+##### name_tag
+name_tag is used to provide custom name to serializer output keys for json or tags for xml
+
+**Options**
+  - ``name_tag 'Person', true`` # Include Person or People in JSON serialization as root, true|false this only implies to root serializer
+  - ``name_tag 'Person', false`` # not Include Person or People in JSON serialization as root, true|false this only implies to root serializer
+  - ``name_tag 'Person'`` # same as ``name_tag 'Person', false``
+  - without name_tag, actual class name of scope object inside serializer will be used 
+```ruby
+# frozen_string_literal: true
+
+# User Serializer
+class UserSerializer < Mutils::Serialization::BaseSerializer
+  name_tag 'Person', true
+  attributes :id, :first_name, :last_name, :email
+  custom_methods :full_name
+  
+  def full_name
+    "#{scope.first_name} #{scope.last_name}"
+  end
+end
 Usage: Use anywhere by
 
 ```ruby
