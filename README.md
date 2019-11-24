@@ -1,4 +1,5 @@
 
+ ![](https://ruby-gem-downloads-badge.herokuapp.com/mutils?type=total&color=brightgreen)
 [![Gem Version](https://badge.fury.io/rb/mutils.svg)](https://badge.fury.io/rb/mutils)
 [![Coverage Status](https://coveralls.io/repos/github/niteshpurohit/mutils/badge.svg?branch=feature/coverall)](https://coveralls.io/github/niteshpurohit/mutils?branch=feature/coverall)
 [![Build Status](https://travis-ci.com/niteshpurohit/mutils.svg?branch=master)](https://travis-ci.com/niteshpurohit/mutils)
