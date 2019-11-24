@@ -10,6 +10,8 @@ module Mutils
         class << self
           attr_accessor :method_to_serialize,
                         :attributes_to_serialize,
+                        :serializer_name,
+                        :include_root,
                         :array_index,
                         :belongs_to_relationships,
                         :has_many_relationships

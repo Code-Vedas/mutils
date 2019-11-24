@@ -7,6 +7,12 @@ module Mutils
     module SerializationMethods
       extend ActiveSupport::Concern
       module ClassMethods
+
+        def name_tag(name_tag, root = false)
+          self.serializer_name = name_tag
+          self.include_root = root
+        end
+
         def attributes(*attributes_list)
           self.attributes_to_serialize = {} if attributes_to_serialize.nil?
           attributes_list&.each { |attr| attributes_to_serialize[attr] = attr }

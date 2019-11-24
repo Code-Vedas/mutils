@@ -9,6 +9,7 @@ module Mutils
       def generate_hash
         if scope
           if scope_is_collection?
+            options[:child] = true
             scope.map { |inner_scope| self.class.new(inner_scope, options).generate_hash }
           else
             hashed_result
@@ -90,7 +91,11 @@ module Mutils
       end
 
       def format_class_name(object)
-        object.class.to_s.downcase
+        if self.class.serializer_name&.length&.positive?
+          self.class.serializer_name
+        else
+          object.class.to_s.downcase
+        end
       end
     end
   end
