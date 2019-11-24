@@ -123,7 +123,7 @@ class UserSerializer < Mutils::Serialization::BaseSerializer
     "#{scope.first_name} #{scope.last_name}"
   end
 end
-```ruby
+```
 
 #### Usage: Use anywhere by
 
