@@ -1,4 +1,9 @@
 # Changelog
+## [v0.2.27](https://github.com/niteshpurohit/mutils/tree/v0.2.27) (2019-11-25)
+
+[Full Changelog](https://github.com/niteshpurohit/mutils/compare/v0.2.26...v0.2.27)
+**Changes:**
+- Code smells fixed.
 
 ## [v0.2.26](https://github.com/niteshpurohit/mutils/tree/v0.2.26) (2019-11-24)
 
