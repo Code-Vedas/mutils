@@ -4,12 +4,11 @@ require 'json/ext'
 # module Mutils
 module Mutils
   module Serialization
-    # BaseSerializer
+    # BaseSerializer: inherit this class to get Serializer functionality
     class BaseSerializer
       include Mutils::Serialization::SerializationIncludes
       include Mutils::Serialization::SerializationMethods
       include Mutils::Serialization::SerializationResults
-      attr_accessor :scope, :options, :mutex
 
       def initialize(object, options = {})
         options[:child] = false unless options[:child]
@@ -41,6 +40,10 @@ module Mutils
       def as_xml(_options = {})
         to_xml
       end
+
+      private
+
+      attr_accessor :scope, :options, :mutex
     end
   end
 end
