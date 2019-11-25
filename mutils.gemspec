@@ -22,13 +22,13 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
   spec.required_ruby_version = '>= 2.5.0'
   spec.required_rubygems_version = '>= 1.8.11'
-  spec.add_development_dependency 'bundler', '~> 2.0'
-  spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_runtime_dependency('activesupport', ['>= 4.2'])
+  spec.add_development_dependency 'bundler', '~> 2.0'
+  spec.add_development_dependency 'coveralls'
+  spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec-json_expectations'
   spec.add_development_dependency 'rspec-rails'
   spec.add_development_dependency 'rspec-xml_helpers'
-  spec.add_development_dependency 'coveralls'
 
   spec.metadata = {
     'bug_tracker_uri' => 'https://github.com/niteshpurohit/mutils/issues',
