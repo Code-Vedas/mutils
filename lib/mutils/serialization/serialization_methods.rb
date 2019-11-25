@@ -34,21 +34,24 @@ module Mutils
           raise "Serializer class not defined for relationship: #{relationship_name}"
         end
 
-        def belongs_to(relationship_name, options = {})
-          check_for_class('belongs_to', relationship_name, options[:serializer])
-          options[:serializer] = options[:serializer].to_s.constantize
+        def belongs_to(relationship_name, options = {}, option_name = 'belongs_to')
+          options = prepare_options(relationship_name, options, option_name)
           self.belongs_to_relationships = {} if belongs_to_relationships.nil?
           belongs_to_relationships[relationship_name] = options
         end
 
         alias has_one belongs_to
 
-        def has_many(relationship_name, options = {})
-          check_for_class('has_many', relationship_name, options[:serializer])
-
-          options[:serializer] = options[:serializer].to_s.constantize
+        def has_many(relationship_name, options = {}, option_name = 'has_many')
+          options = prepare_options(relationship_name, options, option_name)
           self.has_many_relationships = {} if has_many_relationships.nil?
           has_many_relationships[relationship_name] = options
+        end
+
+        def prepare_options(relationship_name, options, option_name)
+          check_for_class(option_name, relationship_name, options[:serializer])
+          options[:serializer] = options[:serializer].to_s.constantize
+          options
         end
 
         def class_exists?(class_name)
