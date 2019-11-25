@@ -1,5 +1,5 @@
-
- ![](https://ruby-gem-downloads-badge.herokuapp.com/mutils?type=total&color=brightgreen)
+[![Maintainability](https://api.codeclimate.com/v1/badges/2c937dd6d25937ec41bd/maintainability)](https://codeclimate.com/github/niteshpurohit/mutils/maintainability)
+![](https://ruby-gem-downloads-badge.herokuapp.com/mutils?type=total&color=brightgreen)
 [![Gem Version](https://badge.fury.io/rb/mutils.svg)](https://badge.fury.io/rb/mutils)
 [![Coverage Status](https://coveralls.io/repos/github/niteshpurohit/mutils/badge.svg?branch=feature/coverall)](https://coveralls.io/github/niteshpurohit/mutils?branch=feature/coverall)
 [![Build Status](https://travis-ci.com/niteshpurohit/mutils.svg?branch=master)](https://travis-ci.com/niteshpurohit/mutils)
@@ -27,7 +27,7 @@ Or install it yourself as:
 |:---:	|:-----------------:	|:------:	|
 |  1  	| Serializer - JSON 	|  Done  	|
 |  2  	|  Serializer - XML 	|  Done  	|
-|  3    | Active Storage Helpers | In-Dev |
+
 ## Usage
 ### Serializer - JSON
 JSON Serializer for Active Models 
