@@ -34,7 +34,7 @@ JSON Serializer for Active Models
 
 #### Generate Serializer by command
 ```shell script
-rails g serializer User id first_name last_name email
+rails g mutils:serializer User id first_name last_name email
 
 OUTPUT
 Running via Spring preloader in process xxxxx
@@ -127,16 +127,25 @@ class UserSerializer < Mutils::Serialization::BaseSerializer
 end
 ```
 
-#### Usage: Use anywhere by
+## Usage: Use anywhere by
 
 ```ruby
 user = User.first
 options = {includes: [:comments,:account]}
 UserSerializer.new(user,options).to_h
-# or
+```
+###or
+```ruby
 users = User.all
 options = {includes: [:account]}
 UserSerializer.new(users,options).to_json
+```
+###or in controllers
+```ruby
+users = User.all
+options = {includes: [:account]}
+users_serializer =UserSerializer.new(users,options)
+render json: users_serializer
 ```
 
 ## Contributing
