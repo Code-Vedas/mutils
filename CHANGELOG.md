@@ -4,8 +4,6 @@
 - Serializer scoped into mutils
 
 [Full Changelog](https://github.com/niteshpurohit/mutils/compare/v0.2.27...v0.2.28)
-**Changes:**
-- Code smells fixed.
 
 ## [v0.2.27](https://github.com/niteshpurohit/mutils/tree/v0.2.27) (2019-11-25)
 
