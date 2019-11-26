@@ -3,7 +3,7 @@
 **Changes:**
 - Serializer scoped into mutils
 
-[Full Changelog](https://github.com/niteshpurohit/mutils/compare/v0.2.26...v0.2.28)
+[Full Changelog](https://github.com/niteshpurohit/mutils/compare/v0.2.27...v0.2.28)
 **Changes:**
 - Code smells fixed.
 
