@@ -1,4 +1,10 @@
 # Changelog
+## [v0.2.28](https://github.com/niteshpurohit/mutils/tree/v0.2.28) (2019-11-27)
+**Changes:**
+- Serializer scoped into mutils
+
+[Full Changelog](https://github.com/niteshpurohit/mutils/compare/v0.2.27...v0.2.28)
+
 ## [v0.2.27](https://github.com/niteshpurohit/mutils/tree/v0.2.27) (2019-11-25)
 
 [Full Changelog](https://github.com/niteshpurohit/mutils/compare/v0.2.26...v0.2.27)
