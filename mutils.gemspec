@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('activesupport', ['>= 4.2'])
   spec.add_development_dependency 'bundler', '~> 2.0'
   spec.add_development_dependency 'coveralls'
-  spec.add_development_dependency 'rake', '~> 10.0'
+  spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rspec-json_expectations'
   spec.add_development_dependency 'rspec-rails'
   spec.add_development_dependency 'rspec-xml_helpers'
