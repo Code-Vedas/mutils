@@ -8,13 +8,10 @@ module Mutils
       extend ActiveSupport::Concern
       included do
         class << self
-          attr_accessor :method_to_serialize,
-                        :attributes_to_serialize,
-                        :serializer_name,
+          attr_accessor :serializer_name,
                         :include_root,
-                        :array_index,
-                        :belongs_to_relationships,
-                        :has_many_relationships
+                        :relationships,
+                        :attributes_to_serialize
         end
       end
     end

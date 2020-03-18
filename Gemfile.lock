@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    mutils (0.2.31)
+    mutils (0.2.32)
       activesupport (>= 4.2)
 
 GEM
@@ -119,4 +119,4 @@ DEPENDENCIES
   rspec-xml_helpers
 
 BUNDLED WITH
-   2.0.2
+   2.1.4

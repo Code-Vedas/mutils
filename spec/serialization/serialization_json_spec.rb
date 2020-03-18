@@ -48,4 +48,51 @@ RSpec.describe 'Mutils::Serialization::JSON' do
     serializer.to_json
     expect(serializer.to_h[:houses].length).to eq(40_000)
   end
+  it 'it should not have car and bike' do
+    houses = [House.new('ha', 1)]
+    user = User.new('FirstName', 'LastName', houses)
+    user.cars = [Car.new('123'), Car.new('456')]
+    user.bikes = [Bike.new('abc'), Bike.new('xyz')]
+    serializer = UserSerializer.new(user)
+    expect(serializer.to_json).to include_json(USER_WITH_HOUSES_JSON)
+    result = serializer.to_h
+    expect(result[:houses].length).to eq(1)
+    expect(result[:cars]).to eq(nil)
+    expect(result[:bikes]).to eq(nil)
+  end
+
+  it 'it should have cars not bikes' do
+    houses = [House.new('ha', 1)]
+    user = User.new('FirstName', 'LastName', houses)
+    user.cars = [Car.new('123'), Car.new('456')]
+    user.bikes = [Bike.new('abc'), Bike.new('xyz')]
+    serializer = UserSerializer.new(user, includes: [:cars])
+    result = serializer.to_h
+    expect(result[:houses].length).to eq(1)
+    expect(result[:cars].length).to eq(2)
+    expect(result[:bikes]).to eq(nil)
+  end
+
+  it 'it should have bikes not cars' do
+    houses = [House.new('ha', 1)]
+    user = User.new('FirstName', 'LastName', houses)
+    user.cars = [Car.new('123'), Car.new('456')]
+    user.bikes = [Bike.new('abc'), Bike.new('xyz')]
+    serializer = UserSerializer.new(user, includes: [:bikes])
+    result = serializer.to_h
+    expect(result[:houses].length).to eq(1)
+    expect(result[:bikes].length).to eq(2)
+    expect(result[:cars]).to eq(nil)
+  end
+  it 'it should have bikes and cars' do
+    houses = [House.new('ha', 1)]
+    user = User.new('FirstName', 'LastName', houses)
+    user.cars = [Car.new('123'), Car.new('456')]
+    user.bikes = [Bike.new('abc'), Bike.new('xyz')]
+    serializer = UserSerializer.new(user, includes: [:bikes, :cars])
+    result = serializer.to_h
+    expect(result[:houses].length).to eq(1)
+    expect(result[:bikes].length).to eq(2)
+    expect(result[:cars].length).to eq(2)
+  end
 end

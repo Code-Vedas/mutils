@@ -14,28 +14,30 @@ module Mutils
         end
 
         def attributes(*attributes_list)
-          self.attributes_to_serialize = {} if attributes_to_serialize.nil?
-          attributes_list&.each { |attr| attributes_to_serialize[attr] = attr }
+          parse_attributes_methods(attributes_list, 'attribute')
         end
 
         def custom_methods(*method_list)
-          self.method_to_serialize = {} if method_to_serialize.nil?
-          method_list&.each { |attr| method_to_serialize[attr] = attr }
+          parse_attributes_methods(method_list, 'method')
         end
 
-        def belongs_to(relationship_name, options = {}, option_name = 'belongs_to')
+        def parse_attributes_methods(list, type)
+          self.attributes_to_serialize = {} if attributes_to_serialize.nil?
+          list&.each do |attr|
+            value = { method: type == 'method' }
+            attributes_to_serialize[attr] = value
+          end
+        end
+
+        def relationship(relationship_name, options = {}, option_name = 'belongs_to')
           options = prepare_options(relationship_name, options, option_name)
-          self.belongs_to_relationships = {} if belongs_to_relationships.nil?
-          belongs_to_relationships[relationship_name] = options
+          self.relationships = {} if relationships.nil?
+          relationships[relationship_name] = options
         end
 
-        alias has_one belongs_to
-
-        def has_many(relationship_name, options = {}, option_name = 'has_many')
-          options = prepare_options(relationship_name, options, option_name)
-          self.has_many_relationships = {} if has_many_relationships.nil?
-          has_many_relationships[relationship_name] = options
-        end
+        alias belongs_to relationship
+        alias has_many relationship
+        alias has_one relationship
 
         def prepare_options(relationship_name, options, option_name)
           class_name = options[:serializer]
@@ -47,6 +49,7 @@ module Mutils
           raise "Serializer class not defined for relationship: #{relationship_name}" unless class_exists? class_name
 
           options[:serializer] = class_name.to_s.constantize
+          options[:option_name] = option_name
           options
         end
 
@@ -54,6 +57,7 @@ module Mutils
           klass = class_name.to_s.constantize rescue nil
           klass && defined?(klass) && klass.is_a?(Class)
         end
+
       end
     end
   end
