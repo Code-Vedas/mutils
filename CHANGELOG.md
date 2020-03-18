@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.2.32](https://github.com/niteshpurohit/mutils/tree/v0.2.32) (2020-03-18)
+
+[Full Changelog](https://github.com/niteshpurohit/mutils/compare/v0.2.31...v0.2.32)
+
+**Merged pull requests:**
+
+- Feature/improve performance [\#21](https://github.com/niteshpurohit/mutils/pull/21) ([niteshpurohit](https://github.com/niteshpurohit))
+
 ## [v0.2.31](https://github.com/niteshpurohit/mutils/tree/v0.2.31) (2020-03-18)
 
 [Full Changelog](https://github.com/niteshpurohit/mutils/compare/v0.2.30...v0.2.31)
