@@ -15,7 +15,6 @@ module Mutils
         options[:child] = false unless options[:child]
         self.scope = object
         self.options = options
-        self.mutex = Mutex.new
       end
 
       def as_json(_options = {})
@@ -45,7 +44,7 @@ module Mutils
       private
 
       attr_writer :scope
-      attr_accessor :options, :mutex
+      attr_accessor :options
     end
   end
 end

@@ -19,62 +19,28 @@ module Mutils
       end
 
       def hashed_result
-        relationships = [self.class.belongs_to_relationships, self.class.has_many_relationships]
-        [fetch_attributes(self.class.attributes_to_serialize&.keys),
-         call_methods(self.class.method_to_serialize&.keys),
-         hash_relationships(relationships)].reduce(&:merge)
+        [fetch_attributes(self.class.attributes_to_serialize),
+         hash_relationships(self.class.relationships)].reduce(&:merge)
       end
 
-      def fetch_attributes(keys)
-        invoke_sends_async(keys)
-      end
-
-      def call_methods(keys)
-        invoke_sends(keys, true)
-      end
-
-      def invoke_sends(keys, call_method = nil)
+      def fetch_attributes(attributes)
         hash = {}
-        keys&.each do |key|
-          invoke_send(hash, key, call_method)
+        attributes&.keys&.each do |key|
+          hash[key] = attributes[key.to_s.to_sym][:method] ? send(key) : scope.send(key)
         end
-        hash
-      end
-
-      def invoke_sends_async(keys, call_method = nil)
-        hash = {}
-        runners = []
-        keys&.each do |key|
-          runners << Thread.new do
-            mutex.synchronize { invoke_send(hash, key, call_method) }
-          end
-        end
-        runners.map(&:join)
-        hash
-      end
-
-      def invoke_send(hash, key, call_method = nil)
-        hash[key] = send(key) if call_method
-        hash[key] = scope.send(key) unless call_method
         hash
       end
 
       def hash_relationships(relationships_array)
-        relationships = relationships_array.compact.reduce(&:merge)
+        relationships = relationships_array&.compact
         hash = {}
-        relationships&.keys&.each do |key|
-          if check_if_included(relationships, key)
-            klass = relationships[key][:serializer]
-            hash[key] = klass.new(scope.send(key)).to_h
-          end
-        end
+        relationships&.keys&.each { |key| check_if_included(relationships, key) && (hash[key] = relationships[key][:serializer].new(scope.send(key)).to_h) }
         hash
       end
 
       def check_if_included(relationships, key)
-        always_include = relationships[key][:always_include]
-        always_include = always_include.nil? ? false : always_include == true
-        always_include || (options[:includes]&.include?(key))
+        always_include = relationships[key][:always_include] == true
+        always_include || options[:includes]&.include?(key)
       end
 
       def scope_is_collection?
