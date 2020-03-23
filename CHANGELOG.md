@@ -3,6 +3,9 @@
 ## [v0.2.32](https://github.com/niteshpurohit/mutils/tree/v0.2.32) (2020-03-18)
 
 [Full Changelog](https://github.com/niteshpurohit/mutils/compare/v0.2.31...v0.2.32)
+**Improvement:**
+- Less Memory Used
+- Greator Performance
 
 **Merged pull requests:**
 
