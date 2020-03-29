@@ -26,7 +26,7 @@ module Mutils
       def fetch_attributes(attributes)
         hash = {}
         attributes&.keys&.each do |key|
-          hash[key] = attributes[key.to_s.to_sym][:method] ? send(key) : scope.send(key)
+          check_if_included(attributes, key) && (hash[key] = attributes[key][:method] ? send(key) : scope.send(key))
         end
         hash
       end

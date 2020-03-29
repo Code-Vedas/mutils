@@ -57,9 +57,20 @@ class BikeSerializer < Mutils::Serialization::BaseSerializer
   attributes :number
 end
 class HouseSerializer < Mutils::Serialization::BaseSerializer
-  custom_methods :house_tag, :rooms_names
+  custom_methods :house_tag
+  custom_method :rooms_names, true
+  custom_method :house_tag_underscore
+  custom_method :house_tag_plus, false
 
   def house_tag
+    "#{scope.name}--#{scope.number}"
+  end
+
+  def house_tag_underscore
+    "#{scope.name}--#{scope.number}"
+  end
+
+  def house_tag_plus
     "#{scope.name}--#{scope.number}"
   end
 
