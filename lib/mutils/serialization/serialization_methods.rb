@@ -14,19 +14,25 @@ module Mutils
         end
 
         def attributes(*attributes_list)
-          parse_attributes_methods(attributes_list, 'attribute')
+          parse_attributes_methods(attributes_list, 'attributes')
         end
 
-        def custom_methods(*method_list)
-          parse_attributes_methods(method_list, 'method')
+        def custom_methods(*attributes_list)
+          parse_attributes_methods(attributes_list, 'method')
         end
 
         def parse_attributes_methods(list, type)
           self.attributes_to_serialize = {} if attributes_to_serialize.nil?
           list&.each do |attr|
-            value = { method: type == 'method' }
+            value = { method: type == 'method', always_include: true }
             attributes_to_serialize[attr] = value
           end
+        end
+
+        def custom_method(method_name, always_include = false)
+          self.attributes_to_serialize = {} if attributes_to_serialize.nil?
+          value = { method: true, always_include: always_include }
+          attributes_to_serialize[method_name] = value
         end
 
         def relationship(relationship_name, options = {}, option_name = 'belongs_to')
