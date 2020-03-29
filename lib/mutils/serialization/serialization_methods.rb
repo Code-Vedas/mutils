@@ -24,7 +24,7 @@ module Mutils
         def parse_attributes_methods(list, type)
           self.attributes_to_serialize = {} if attributes_to_serialize.nil?
           list&.each do |attr|
-            value = {method: type == 'method', always_include: true}
+            value = { method: type == 'method', always_include: true }
             attributes_to_serialize[attr] = value
           end
         end
@@ -39,7 +39,7 @@ module Mutils
 
         def add_single_attribute(method_name, always_include, type)
           self.attributes_to_serialize = {} if attributes_to_serialize.nil?
-          value = {method: type == 'method', always_include: always_include}
+          value = { method: type == 'method', always_include: always_include }
           attributes_to_serialize[method_name] = value
         end
 
