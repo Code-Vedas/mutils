@@ -1,11 +1,27 @@
 # Changelog
 
+## [v0.2.34](https://github.com/niteshpurohit/mutils/tree/v0.2.34) (2020-03-29)
+
+[Full Changelog](https://github.com/niteshpurohit/mutils/compare/v0.2.33...v0.2.34)
+
+**Merged pull requests:**
+
+- Feature/attribute can be optional [\#27](https://github.com/niteshpurohit/mutils/pull/27) ([niteshpurohit](https://github.com/niteshpurohit))
+
+## [v0.2.33](https://github.com/niteshpurohit/mutils/tree/v0.2.33) (2020-03-29)
+
+[Full Changelog](https://github.com/niteshpurohit/mutils/compare/v0.2.32...v0.2.33)
+
+**Merged pull requests:**
+
+- Added new custom\_method in serializer to control if include method [\#26](https://github.com/niteshpurohit/mutils/pull/26) ([niteshpurohit](https://github.com/niteshpurohit))
+- Update CHANGELOG.md [\#25](https://github.com/niteshpurohit/mutils/pull/25) ([niteshpurohit](https://github.com/niteshpurohit))
+- Create .codeclimate.yml [\#24](https://github.com/niteshpurohit/mutils/pull/24) ([niteshpurohit](https://github.com/niteshpurohit))
+- changelog: v0.2.32 [\#22](https://github.com/niteshpurohit/mutils/pull/22) ([niteshpurohit](https://github.com/niteshpurohit))
+
 ## [v0.2.32](https://github.com/niteshpurohit/mutils/tree/v0.2.32) (2020-03-18)
 
 [Full Changelog](https://github.com/niteshpurohit/mutils/compare/v0.2.31...v0.2.32)
-**Improvement:**
-- Less Memory Used
-- Greator Performance
 
 **Merged pull requests:**
 
