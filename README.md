@@ -64,6 +64,8 @@ Attributes are fields in the model itself. You can reference them by below examp
 # User Serializer
 class UserSerializer < Mutils::Serialization::BaseSerializer
   attributes :id, :first_name, :last_name, :email
+  ## OR
+  attribute :email, false ## this will allow to selectively include email
 end
 ```
 ##### Custom Methods
@@ -76,7 +78,11 @@ Custom methods used in Serializer can be useful for cases as below.
 # User Serializer
 class UserSerializer < Mutils::Serialization::BaseSerializer
   attributes :id, :first_name, :last_name, :email
+  ###
   custom_methods :full_name
+  ## OR
+  custom_method :full_name, false   ## this will allow to selectively include full_name
+  ### 
   
   def full_name
     "#{scope.first_name} #{scope.last_name}"
