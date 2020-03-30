@@ -29,16 +29,17 @@ module Mutils
           end
         end
 
-        def attribute(method_name, always_include = false)
-          add_single_attribute(method_name, always_include, 'attribute')
+        def attribute(method_name, options = {})
+          add_single_attribute(method_name, options, 'attribute')
         end
 
-        def custom_method(method_name, always_include = false)
-          add_single_attribute(method_name, always_include, 'method')
+        def custom_method(method_name, options = {})
+          add_single_attribute(method_name, options, 'method')
         end
 
-        def add_single_attribute(method_name, always_include, type)
+        def add_single_attribute(method_name, options, type)
           self.attributes_to_serialize = {} if attributes_to_serialize.nil?
+          always_include = options[:always_include].nil? ? false : options[:always_include]
           value = { method: type == 'method', always_include: always_include }
           attributes_to_serialize[method_name] = value
         end
@@ -64,6 +65,7 @@ module Mutils
 
           options[:serializer] = class_name.to_s.constantize
           options[:option_name] = option_name
+          options[:label] = options[:label]
           options
         end
 

@@ -65,7 +65,7 @@ Attributes are fields in the model itself. You can reference them by below examp
 class UserSerializer < Mutils::Serialization::BaseSerializer
   attributes :id, :first_name, :last_name, :email
   ## OR
-  attribute :email, false ## this will allow to selectively include email
+  attribute :email, {always_include: true} ## this will allow to selectively include email
 end
 ```
 ##### Custom Methods
@@ -81,7 +81,7 @@ class UserSerializer < Mutils::Serialization::BaseSerializer
   ###
   custom_methods :full_name
   ## OR
-  custom_method :full_name, false   ## this will allow to selectively include full_name
+  custom_method :full_name, {always_include: true}   ## this will allow to selectively include full_name
   ### 
   
   def full_name
@@ -94,14 +94,18 @@ Relations such as `has_many`, `belongs_to`, `has_one` can be used as follows
 1. Every relation must be provided with their own serializer
 2. `always_include` option can be used to instruct `Serializer` to always include this relation
 3. `always_include` by default is disabled, relations which are not `always_include` can be included while using the serializer. Refer to next section for this usage
-
+4. `label` option can be used to override model class name while serializing
 ```ruby
 # frozen_string_literal: true
 
 # User Serializer
 class UserSerializer < Mutils::Serialization::BaseSerializer
   attributes :id, :first_name, :last_name, :email
+  
   belongs_to :company, serializer: CompanySerializer, always_include: true
+  ##OR
+  belongs_to :company, serializer: CompanySerializer, always_include: true, label: 'organization'   ##<== important to give singular name
+  
   has_many :comments, serializer: CommentSerializer
   has_one :account, serializer: AccountSerializer
   

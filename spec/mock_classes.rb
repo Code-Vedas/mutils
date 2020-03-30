@@ -58,9 +58,9 @@ class BikeSerializer < Mutils::Serialization::BaseSerializer
 end
 class HouseSerializer < Mutils::Serialization::BaseSerializer
   custom_methods :house_tag
-  custom_method :rooms_names, true
+  custom_method :rooms_names, always_include: true
   custom_method :house_tag_underscore
-  custom_method :house_tag_plus, false
+  custom_method :house_tag_plus, always_include: false
 
   def house_tag
     "#{scope.name}--#{scope.number}"
@@ -84,7 +84,7 @@ class UserSerializer < Mutils::Serialization::BaseSerializer
   custom_methods :full_name
   has_many :houses, serializer: 'HouseSerializer', always_include: true
   belongs_to :country, serializer: CountrySerializer, always_include: true
-  has_many :cars, serializer: CarSerializer
+  has_many :cars, serializer: CarSerializer, label: 'car'
   has_many :bikes, serializer: BikeSerializer, always_include: false
 
   def full_name
