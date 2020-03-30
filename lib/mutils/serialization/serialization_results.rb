@@ -34,7 +34,17 @@ module Mutils
       def hash_relationships(relationships_array)
         relationships = relationships_array&.compact
         hash = {}
-        relationships&.keys&.each { |key| check_if_included(relationships, key) && (hash[key] = relationships[key][:serializer].new(scope.send(key)).to_h) }
+        relationships&.keys&.each do |key|
+          object = scope.send(key)
+          label = relationships[key][:label]
+          name = key
+          if label
+            name = label.underscore
+            name = name.pluralize if collection? object
+            name = name.to_sym
+          end
+          check_if_included(relationships, key) && (hash[name] = relationships[key][:serializer].new(object).to_h)
+        end
         hash
       end
 
@@ -45,6 +55,10 @@ module Mutils
 
       def scope_is_collection?
         scope.respond_to?(:size) && !scope.respond_to?(:each_pair)
+      end
+
+      def collection?(object)
+        object.respond_to?(:size) && !object.respond_to?(:each_pair)
       end
 
       def class_name
