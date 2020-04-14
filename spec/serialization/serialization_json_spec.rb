@@ -21,9 +21,9 @@ RSpec.describe 'Mutils::Serialization::JSON' do
   it 'it should serialize method with not always_included' do
     house = House.new('ha', 1)
     serializer = HouseSerializer.new(house, includes: [:house_tag_underscore])
-    expect(serializer.to_h[:house_tag_underscore]).to eq("ha--1")
+    expect(serializer.to_h[:house_tag_underscore]).to eq('ha--1')
     serializer = HouseSerializer.new(house, includes: [:house_tag_plus])
-    expect(serializer.to_h[:house_tag_plus]).to eq("ha--1")
+    expect(serializer.to_h[:house_tag_plus]).to eq('ha--1')
   end
   it 'it should serialize users JSON' do
     houses1 = [House.new('ha', 1), House.new('hb', 2)]
@@ -96,7 +96,7 @@ RSpec.describe 'Mutils::Serialization::JSON' do
     user = User.new('FirstName', 'LastName', houses)
     user.cars = [Car.new('123'), Car.new('456')]
     user.bikes = [Bike.new('abc'), Bike.new('xyz')]
-    serializer = UserSerializer.new(user, includes: [:bikes, :cars])
+    serializer = UserSerializer.new(user, includes: %i[bikes cars])
     result = serializer.to_h
     expect(result[:houses].length).to eq(1)
     expect(result[:bikes].length).to eq(2)

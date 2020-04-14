@@ -5,7 +5,9 @@ module Mutils
   module Serialization
     # Module SerializationCore
     module SerializationMethods
-      extend ActiveSupport::Concern
+      def self.included(base)
+        base.extend ClassMethods
+      end
       # Module ClassMethods
       module ClassMethods
         def name_tag(name_tag, root = nil)
@@ -66,17 +68,16 @@ module Mutils
           raise "Serializer class not defined for relationship: #{relationship_name}" unless class_exists? class_name
           raise "if: should be a Proc object for attribute #{relationship_name}" if options[:if] && (options[:if].class.to_s != 'Proc')
 
-          options[:serializer] = class_name.to_s.constantize
+          options[:serializer] = Object.const_get class_name.to_s
           options[:option_name] = option_name
           options[:label] = options[:label]
           options
         end
 
         def class_exists?(class_name)
-          klass = class_name.to_s.constantize rescue nil
+          klass = Object.const_get class_name.to_s rescue nil
           klass && defined?(klass) && klass.is_a?(Class)
         end
-
       end
     end
   end

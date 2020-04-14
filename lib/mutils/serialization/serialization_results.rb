@@ -36,11 +36,10 @@ module Mutils
         hash = {}
         relationships&.keys&.each do |key|
           object = scope.send(key)
-          label = relationships[key][:label]
           name = key
-          if label
-            name = label.underscore
-            name = name.pluralize if collection? object
+          if (label = relationships[key][:label])
+            name = Lib::Helper.instance.underscore label
+            Lib::Helper.instance.collection?(object) && (name = Lib::Helper.instance.pluralize(name))
             name = name.to_sym
           end
           check_if_included(relationships, key) && (hash[name] = relationships[key][:serializer].new(object).to_h)
@@ -56,16 +55,12 @@ module Mutils
       end
 
       def scope_is_collection?
-        scope.respond_to?(:size) && !scope.respond_to?(:each_pair)
-      end
-
-      def collection?(object)
-        object.respond_to?(:size) && !object.respond_to?(:each_pair)
+        Lib::Helper.instance.collection? scope
       end
 
       def class_name
         if scope_is_collection?
-          format_class_name(scope[0]).pluralize
+          Lib::Helper.name.pluralize(format_class_name(scope[0]))
         else
           format_class_name(scope)
         end

@@ -26,7 +26,6 @@ Or install it yourself as:
 | Sno 	|        Name       	| Status 	|
 |:---:	|:-----------------:	|:------:	|
 |  1  	| Serializer - JSON 	|  Done  	|
-|  2  	|  Serializer - XML 	|  Done  	|
 
 ## Usage
 ### Serializer - JSON
@@ -142,7 +141,7 @@ class UserSerializer < Mutils::Serialization::BaseSerializer
 end
 ```
 ##### name_tag
-name_tag is used to provide custom name to serializer output keys for json or tags for xml
+name_tag is used to provide custom name to serializer output keys for json
 
 **Options**
   - ``name_tag 'Person', true`` # Include Person or People in JSON serialization as root, true|false this only implies to root serializer
