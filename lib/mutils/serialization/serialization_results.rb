@@ -49,8 +49,11 @@ module Mutils
       end
 
       def check_if_included(relationships, key)
+        return relationships[key][:if].call(scope) unless relationships[key][:if].nil? || scope_is_collection?
+
         always_include = relationships[key][:always_include] == true
         always_include || options[:includes]&.include?(key)
+
       end
 
       def scope_is_collection?
