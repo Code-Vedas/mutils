@@ -53,7 +53,6 @@ module Mutils
 
         always_include = relationships[key][:always_include] == true
         always_include || options[:includes]&.include?(key)
-
       end
 
       def scope_is_collection?
