@@ -1,4 +1,13 @@
 # frozen_string_literal: true
+class UserConditional
+  attr_accessor :name
+  attr_accessor :users
+
+  def initialize(name, users)
+    self.name = name
+    self.users = users
+  end
+end
 
 class Room
   attr_accessor :name
@@ -46,6 +55,10 @@ class User
     self.houses = houses
     self.country = Country.new('India')
   end
+end
+class UserConditionalSerializer < Mutils::Serialization::BaseSerializer
+  attribute :name, if: proc { |scope| scope.name == 'mutils' }
+  has_many :users, if: proc { |scope| scope.name == 'mutils_with_array' }, serializer: UserConditionalSerializer
 end
 class CountrySerializer < Mutils::Serialization::BaseSerializer
   attributes :name

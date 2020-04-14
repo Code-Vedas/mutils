@@ -102,4 +102,22 @@ RSpec.describe 'Mutils::Serialization::JSON' do
     expect(result[:bikes].length).to eq(2)
     expect(result[:cars].length).to eq(2)
   end
+  it 'it should return user name with mutils: testing conditional attributes' do
+    user = UserConditional.new('mutils', nil)
+    serializer = UserConditionalSerializer.new(user)
+    result = serializer.to_h
+    expect(result[:name]).to eq('mutils')
+    expect(result[:users]).to eq(nil)
+  end
+  it 'it should return user name with mutils: testing conditional relationship' do
+    user1 = UserConditional.new('mutils', nil)
+    user2 = UserConditional.new('mutils', nil)
+    user = UserConditional.new('mutils_with_array', [user1, user2])
+    serializer = UserConditionalSerializer.new(user)
+    result = serializer.to_h
+    expect(result[:name]).to eq(nil)
+    expect(result[:users].length).to eq(2)
+    expect(result[:users][0][:name]).to eq('mutils')
+    expect(result[:users][1][:name]).to eq('mutils')
+  end
 end

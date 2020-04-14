@@ -52,9 +52,11 @@ end
 
 #### Decorations Available
 1. Attributes
-2. Custom Methods
-3. Relations
-3. name_tag
+2. Relations
+3. Conditional Attributes
+4. Conditional Relations
+5. Custom Methods
+6. name_tag
 
 ##### Attributes
 Attributes are fields in the model itself. You can reference them by below example
@@ -66,27 +68,6 @@ class UserSerializer < Mutils::Serialization::BaseSerializer
   attributes :id, :first_name, :last_name, :email
   ## OR
   attribute :email, {always_include: true} ## this will allow to selectively include email
-end
-```
-##### Custom Methods
-Custom methods used in Serializer can be useful for cases as below.
-`scope` will be available to reference object in Serializer in below case its `user`
-
-```ruby
-# frozen_string_literal: true
-
-# User Serializer
-class UserSerializer < Mutils::Serialization::BaseSerializer
-  attributes :id, :first_name, :last_name, :email
-  ###
-  custom_methods :full_name
-  ## OR
-  custom_method :full_name, {always_include: true}   ## this will allow to selectively include full_name
-  ### 
-  
-  def full_name
-    "#{scope.first_name} #{scope.last_name}"
-  end
 end
 ```
 ##### Relations
@@ -108,6 +89,52 @@ class UserSerializer < Mutils::Serialization::BaseSerializer
   
   has_many :comments, serializer: CommentSerializer
   has_one :account, serializer: AccountSerializer
+  
+  def full_name
+    "#{scope.first_name} #{scope.last_name}"
+  end
+end
+```
+##### Conditional Attributes
+Attributes are fields in the model itself. You can reference them by below example
+```ruby
+# frozen_string_literal: true
+
+# User Serializer
+class UserSerializer < Mutils::Serialization::BaseSerializer
+  attributes :id, :first_name, :last_name
+  attribute :email, if: proc { |scope| scope.name == 'mutils' } ## Email will only serialize if user's name is 'mutils'
+end
+```
+    in proc {|scope|}, scope is object which is being serialized
+##### Conditional Relations
+Attributes are fields in the model itself. You can reference them by below example
+```ruby
+# frozen_string_literal: true
+
+# User Serializer
+class UserSerializer < Mutils::Serialization::BaseSerializer
+  attributes :id, :first_name, :last_name
+  has_many :comments, serializer: CommentSerializer, if: proc { |scope| scope.name == 'mutils' } ## comments will only serialize if user's name is 'mutils'
+  belongs_to :account, serializer: AccountSerializer, if: proc { |scope| scope.name != 'mutils' } ## account will only serialize if user's name is not 'mutils'
+end
+```
+    in proc {|scope|}, scope is object which is being serialized    
+##### Custom Methods
+Custom methods used in Serializer can be useful for cases as below.
+`scope` will be available to reference object in Serializer in below case its `user`
+
+```ruby
+# frozen_string_literal: true
+
+# User Serializer
+class UserSerializer < Mutils::Serialization::BaseSerializer
+  attributes :id, :first_name, :last_name, :email
+  ###
+  custom_methods :full_name
+  ## OR
+  custom_method :full_name, {always_include: true}   ## this will allow to selectively include full_name
+  ### 
   
   def full_name
     "#{scope.first_name} #{scope.last_name}"

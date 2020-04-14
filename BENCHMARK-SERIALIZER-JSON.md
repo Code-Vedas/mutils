@@ -2,81 +2,82 @@
 ruby benchmark/benchmark-serializer-json.rb
 
 Rehearsal ------------------------------------------------
-fast_jsonapi   0.469146   0.003692   0.472838 (  0.482972)
-==>mutils      0.343414   0.002338   0.345752 (  0.350116)
-as_json        0.349795   0.002601   0.352396 (  0.355537)
-grape_entity   2.123932   0.008031   2.131963 (  2.142096)
-blueprinter    0.729144   0.005669   0.734813 (  0.737173)
-roar           1.815007   0.015412   1.830419 (  1.831867)
-panko          0.324755   0.000970   0.325725 (  0.325953)
---------------------------------------- total: 6.193906sec
+fast_jsonapi   0.424546   0.001081   0.425627 (  0.426322)
+mutils         0.333449   0.002400   0.335849 (  0.336298)
+as_json        0.332414   0.002972   0.335386 (  0.336236)
+grape_entity   1.996070   0.007464   2.003534 (  2.009630)
+blueprinter    0.946221   0.007744   0.953965 (  0.966492)
+roar           1.783576   0.021304   1.804880 (  1.812488)
+panko          0.427139   0.011038   0.438177 (  0.438584)
+--------------------------------------- total: 6.297418sec
 
                    user     system      total        real
-fast_jsonapi   0.326813   0.000479   0.327292 (  0.328071)
-==>mutils      0.228319   0.000145   0.228464 (  0.228649)
-as_json        0.252139   0.000242   0.252381 (  0.252570)
-grape_entity   1.820288   0.008052   1.828340 (  1.837977)
-blueprinter    0.656481   0.001270   0.657751 (  0.659753)
-roar           1.592949   0.008122   1.601071 (  1.604941)
-panko          0.260401   0.000433   0.260834 (  0.261211)
+fast_jsonapi   0.333992   0.000488   0.334480 (  0.335098)
+mutils         0.243903   0.000213   0.244116 (  0.244320)
+as_json        0.256087   0.000481   0.256568 (  0.256873)
+grape_entity   1.754575   0.014044   1.768619 (  1.784909)
+blueprinter    0.764821   0.007226   0.772047 (  0.783732)
+roar           1.588941   0.013764   1.602705 (  1.613852)
+panko          0.266022   0.000613   0.266635 (  0.267224)
 
 Warming up --------------------------------------
         fast_jsonapi     1.000  i/100ms
-           ==>mutils     1.000  i/100ms
+              mutils     1.000  i/100ms
              as_json     1.000  i/100ms
         grape_entity     1.000  i/100ms
          blueprinter     1.000  i/100ms
                 roar     1.000  i/100ms
                panko     1.000  i/100ms
 Calculating -------------------------------------
-        fast_jsonapi      2.215  (± 5.1%) i/s -     22.000  in  10.107915s
-           ==>mutils      3.136  (± 3.0%) i/s -     32.000  in  10.281530s
-             as_json      3.455  (± 3.1%) i/s -     35.000  in  10.229037s
-        grape_entity      0.509  (± 7.2%) i/s -      6.000  in  11.844870s
-         blueprinter      1.337  (± 3.9%) i/s -     14.000  in  10.537541s
-                roar      0.613  (± 2.2%) i/s -      7.000  in  11.441661s
-               panko      3.527  (± 2.9%) i/s -     36.000  in  10.292679s
+        fast_jsonapi      2.359  (± 2.8%) i/s -     24.000  in  10.216600s
+              mutils      3.072  (± 3.0%) i/s -     31.000  in  10.158407s
+             as_json      3.389  (± 2.4%) i/s -     34.000  in  10.083233s
+        grape_entity      0.522  (± 5.0%) i/s -      6.000  in  11.508761s
+         blueprinter      1.282  (± 5.1%) i/s -     13.000  in  10.241835s
+                roar      0.600  (± 3.6%) i/s -      7.000  in  11.678579s
+               panko      3.575  (± 2.0%) i/s -     36.000  in  10.108404s
                    with 95.0% confidence
 
 Comparison:
-               panko:        3.5 i/s
-             as_json:        3.5 i/s - same-ish: difference falls within error
-           ==>mutils:        3.1 i/s - 1.13x  (± 0.05) slower
-        fast_jsonapi:        2.2 i/s - 1.59x  (± 0.09) slower
-         blueprinter:        1.3 i/s - 2.64x  (± 0.13) slower
-                roar:        0.6 i/s - 5.76x  (± 0.21) slower
-        grape_entity:        0.5 i/s - 6.93x  (± 0.53) slower
+               panko:        3.6 i/s
+             as_json:        3.4 i/s - 1.05x  (± 0.03) slower
+              mutils:        3.1 i/s - 1.16x  (± 0.04) slower
+        fast_jsonapi:        2.4 i/s - 1.52x  (± 0.05) slower
+         blueprinter:        1.3 i/s - 2.79x  (± 0.15) slower
+                roar:        0.6 i/s - 5.96x  (± 0.25) slower
+        grape_entity:        0.5 i/s - 6.85x  (± 0.37) slower
                    with 95.0% confidence
 
 Calculating -------------------------------------
-        fast_jsonapi    62.946M memsize (     0.000  retained)
-                       981.039k objects (     0.000  retained)
+        fast_jsonapi    62.874M memsize (     0.000  retained)
+                       980.009k objects (     0.000  retained)
                         50.000  strings (     0.000  retained)
-           ==>mutils    65.112M memsize (     0.000  retained)
-                       721.156k objects (     0.000  retained)
+              mutils    65.007M memsize (     0.000  retained)
+                       719.920k objects (     0.000  retained)
                          0.000  strings (     0.000  retained)
-             as_json    98.148M memsize (     0.000  retained)
-                         1.683M objects (     0.000  retained)
+             as_json    97.962M memsize (     0.000  retained)
+                         1.680M objects (     0.000  retained)
                          8.000  strings (     0.000  retained)
-        grape_entity   245.776M memsize (     0.000  retained)
-                         2.524M objects (     0.000  retained)
+        grape_entity   245.360M memsize (     0.000  retained)
+                         2.520M objects (     0.000  retained)
                          4.000  strings (     0.000  retained)
-         blueprinter    71.856M memsize (     0.000  retained)
-                       661.154k objects (     0.000  retained)
+         blueprinter    86.924M memsize (     0.000  retained)
+                       959.876k objects (     0.000  retained)
                          0.000  strings (     0.000  retained)
-                roar   221.022M memsize (     0.000  retained)
-                         1.823M objects (     0.000  retained)
+                roar   220.492M memsize (     0.000  retained)
+                         1.820M objects (     0.000  retained)
                          1.000  strings (     0.000  retained)
-               panko    98.153M memsize (     0.000  retained)
-                         1.683M objects (     0.000  retained)
+               panko    97.966M memsize (     0.000  retained)
+                         1.680M objects (     0.000  retained)
                         13.000  strings (     0.000  retained)
 
 Comparison:
-        fast_jsonapi:   62945864 allocated
-           =>>mutils:   65111936 allocated - 1.03x more
-         blueprinter:   71856304 allocated - 1.14x more
-             as_json:   98148488 allocated - 1.56x more
-               panko:   98153072 allocated - 1.56x more
-                roar:  221022344 allocated - 3.51x more
-        grape_entity:  245775576 allocated - 3.90x morre
+        fast_jsonapi:   62873552 allocated
+              mutils:   65007392 allocated - 1.03x more
+         blueprinter:   86923712 allocated - 1.38x more
+             as_json:   97961544 allocated - 1.56x more
+               panko:   97966128 allocated - 1.56x more
+                roar:  220492312 allocated - 3.51x more
+        grape_entity:  245360488 allocated - 3.90x more
+
 ```
