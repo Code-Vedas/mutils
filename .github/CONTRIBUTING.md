@@ -3,11 +3,11 @@
 We love pull requests from everyone. By participating in this project, you
 agree to abide by the [code of conduct].
 
-[code of conduct]: https://github.com/niteshpurohit/mutils/blob/master/CODE_OF_CONDUCT.md
+[code of conduct]: https://github.com/Code-Vedas/mutils/blob/master/CODE_OF_CONDUCT.md
 
 Fork, then clone the repo:
 
-    git clone git@github.com:niteshpurohit/mutils.git
+    git clone git@github.com:Code-Vedas/mutils.git
 
 Set up your machine:
 
@@ -23,7 +23,7 @@ Make your change. Add tests for your change. Make the tests pass:
 
 Push to your fork and [submit a pull request][pr].
 
-[pr]: https://github.com/niteshpurohit/mutils/compare/
+[pr]: https://github.com/Code-Vedas/mutils/compare/
 
 At this point you're waiting on us. We like to at least comment on pull requests
 within three business days (and, typically, one business day). We may suggest

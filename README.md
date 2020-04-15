@@ -1,8 +1,8 @@
-[![Maintainability](https://api.codeclimate.com/v1/badges/2c937dd6d25937ec41bd/maintainability)](https://codeclimate.com/github/niteshpurohit/mutils/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/2c937dd6d25937ec41bd/maintainability)](https://codeclimate.com/github/Code-Vedas/mutils/maintainability)
 ![](https://ruby-gem-downloads-badge.herokuapp.com/mutils?type=total&color=brightgreen)
 [![Gem Version](https://badge.fury.io/rb/mutils.svg)](https://badge.fury.io/rb/mutils)
-[![Coverage Status](https://coveralls.io/repos/github/niteshpurohit/mutils/badge.svg?branch=feature/coverall)](https://coveralls.io/github/niteshpurohit/mutils?branch=feature/coverall)
-[![Build Status](https://travis-ci.com/niteshpurohit/mutils.svg?branch=master)](https://travis-ci.com/niteshpurohit/mutils)
+[![Coverage Status](https://coveralls.io/repos/github/Code-Vedas/mutils/badge.svg?branch=feature/coverall)](https://coveralls.io/github/Code-Vedas/mutils?branch=feature/coverall)
+[![Build Status](https://travis-ci.com/Code-Vedas/mutils.svg?branch=master)](https://travis-ci.com/Code-Vedas/mutils)
 # Mutils
 ## Introduction
 `mutils` is collection of useful modules for `ruby on rails` which is tested and benchmarked against high load.
@@ -194,4 +194,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Mutils project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/niteshpurohit/mutils/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Mutils project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/Code-Vedas/mutils/blob/master/CODE_OF_CONDUCT.md).
