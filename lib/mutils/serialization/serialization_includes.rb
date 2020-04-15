@@ -11,7 +11,8 @@ module Mutils
             attr_accessor :serializer_name,
                           :include_root,
                           :relationships,
-                          :attributes_to_serialize
+                          :attributes_to_serialize,
+                          :attributes_to_serialize_blocks
           end
         end
       end

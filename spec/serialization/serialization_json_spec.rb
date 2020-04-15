@@ -120,4 +120,20 @@ RSpec.describe 'Mutils::Serialization::JSON' do
     expect(result[:users][0][:name]).to eq('mutils')
     expect(result[:users][1][:name]).to eq('mutils')
   end
+  it 'it should have full name: block style attributes' do
+    user = User.new('FirstName', 'LastName', nil)
+    serializer = UserBlocksSerializer.new(user)
+    result = serializer.to_h
+    expect(result[:first_name]).to eq('FirstName')
+    expect(result[:last_name]).to eq('LastName')
+    expect(result[:full_name]).to eq('FirstName LastName')
+  end
+  it 'it should have full name: block style attributes with params' do
+    user = User.new('FirstName', 'LastName', nil)
+    serializer = UserBlocksParamsSerializer.new(user, {params: 'II'})
+    result = serializer.to_h
+    expect(result[:first_name]).to eq('FirstName')
+    expect(result[:last_name]).to eq('LastName')
+    expect(result[:full_name]).to eq('FirstName LastName II')
+  end
 end
