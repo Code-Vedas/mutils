@@ -1,5 +1,25 @@
 # Changelog
 
+## [v0.2.36](https://github.com/niteshpurohit/mutils/tree/v0.2.36) (2020-04-14)
+
+[Full Changelog](https://github.com/niteshpurohit/mutils/compare/v0.2.35...v0.2.36)
+
+**Merged pull requests:**
+
+- Remove active support dep [\#34](https://github.com/niteshpurohit/mutils/pull/34) ([niteshpurohit](https://github.com/niteshpurohit))
+- Conditional attributes and relations [\#32](https://github.com/niteshpurohit/mutils/pull/32) ([niteshpurohit](https://github.com/niteshpurohit))
+- chore: add more ruby version and os to test [\#31](https://github.com/niteshpurohit/mutils/pull/31) ([niteshpurohit](https://github.com/niteshpurohit))
+
+## [v0.2.35](https://github.com/niteshpurohit/mutils/tree/v0.2.35) (2020-03-30)
+
+[Full Changelog](https://github.com/niteshpurohit/mutils/compare/v0.2.34...v0.2.35)
+
+**Merged pull requests:**
+
+- new option 'label' for relations [\#30](https://github.com/niteshpurohit/mutils/pull/30) ([niteshpurohit](https://github.com/niteshpurohit))
+- added custom\_method and attribute example [\#29](https://github.com/niteshpurohit/mutils/pull/29) ([niteshpurohit](https://github.com/niteshpurohit))
+- chore: update changelog [\#28](https://github.com/niteshpurohit/mutils/pull/28) ([niteshpurohit](https://github.com/niteshpurohit))
+
 ## [v0.2.34](https://github.com/niteshpurohit/mutils/tree/v0.2.34) (2020-03-29)
 
 [Full Changelog](https://github.com/niteshpurohit/mutils/compare/v0.2.33...v0.2.34)
