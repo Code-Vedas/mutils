@@ -8,6 +8,27 @@
 `mutils` is collection of useful modules for `ruby on rails` which is tested and benchmarked against high load.
 
 These collection of modules are built by developer for developers :-)
+# Table of Contents
+
+* [Features](#features)
+* [Installation](#installation)
+* [Usage](#usage)
+  * [Rails Generator](#rails-generator)
+  * [Attributes](#attributes)
+  * [Relations](#relations)
+  * [Conditional Attributes](#conditional-attributes)
+  * [Conditional Relations](#conditional-relations)
+  * [Attributes Block](#attributes-blocks)
+  * [Attributes Block with Params](#attributes-blocks-with-params)
+  * [Custom Methods](#custom-methods)
+  * [Name Tag](#name-tag)
+  * [Sample Usage](#sample-usage)
+
+## Features
+* Simple declaration syntax similar to Active Model Serializer
+* Realtionships support `belongs_to', `has_many`, `has_one`
+* Block style attributes with params
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -22,16 +43,9 @@ Or install it yourself as:
 
     $ gem install mutils
 
-## Modules
-| Sno 	|        Name       	| Status 	|
-|:---:	|:-----------------:	|:------:	|
-|  1  	| Serializer - JSON 	|  Done  	|
+## Usage 
 
-## Usage
-### Serializer - JSON
-JSON Serializer for Active Models 
-
-#### Generate Serializer by command
+### Rails Generator
 ```shell script
 rails g mutils:serializer User id first_name last_name email
 
@@ -49,15 +63,7 @@ class UserSerializer < Mutils::Serialization::BaseSerializer
 end
 ```
 
-#### Decorations Available
-1. Attributes
-2. Relations
-3. Conditional Attributes
-4. Conditional Relations
-5. Custom Methods
-6. name_tag
-
-##### Attributes
+### Attributes
 Attributes are fields in the model itself. You can reference them by below example
 ```ruby
 # frozen_string_literal: true
@@ -69,7 +75,7 @@ class UserSerializer < Mutils::Serialization::BaseSerializer
   attribute :email, {always_include: true} ## this will allow to selectively include email
 end
 ```
-##### Relations
+### Relations
 Relations such as `has_many`, `belongs_to`, `has_one` can be used as follows
 1. Every relation must be provided with their own serializer
 2. `always_include` option can be used to instruct `Serializer` to always include this relation
@@ -94,7 +100,7 @@ class UserSerializer < Mutils::Serialization::BaseSerializer
   end
 end
 ```
-##### Conditional Attributes
+### Conditional Attributes
 Attributes are fields in the model itself. You can reference them by below example
 ```ruby
 # frozen_string_literal: true
@@ -106,7 +112,7 @@ class UserSerializer < Mutils::Serialization::BaseSerializer
 end
 ```
     in proc {|scope|}, scope is object which is being serialized
-##### Conditional Relations
+### Conditional Relations
 Attributes are fields in the model itself. You can reference them by below example
 ```ruby
 # frozen_string_literal: true
@@ -119,7 +125,40 @@ class UserSerializer < Mutils::Serialization::BaseSerializer
 end
 ```
     in proc {|scope|}, scope is object which is being serialized    
-##### Custom Methods
+### Attributes Blocks
+While writting attribute a block can be provided for useful transformations like `full_name` as shown below
+```ruby
+# frozen_string_literal: true
+
+# User Serializer
+class UserSerializer < Mutils::Serialization::BaseSerializer
+  attributes :id, :first_name, :last_name, :email
+  attribute :full_name do |object|
+    "#{object.first_name} #{object.last_name}"
+  end
+end
+```
+### Attributes Blocks with Params
+While writting attribute a block can be provided for useful transformations like `full_name` as shown below
+```ruby
+# frozen_string_literal: true
+
+# User Serializer
+class UserSerializer < Mutils::Serialization::BaseSerializer
+  attributes :id, :first_name, :last_name, :email
+  attribute :is_owner do |object,params|
+    params[:owner].id == object.id ? true:false
+  end
+end
+```
+```ruby
+# in controller
+
+user = current_user
+owner = owner_user
+render json: UserSerializer.new(user,{params:{owner:owner}})
+```
+### Custom Methods
 Custom methods used in Serializer can be useful for cases as below.
 `scope` will be available to reference object in Serializer in below case its `user`
 
@@ -140,7 +179,7 @@ class UserSerializer < Mutils::Serialization::BaseSerializer
   end
 end
 ```
-##### name_tag
+### Name Tag
 name_tag is used to provide custom name to serializer output keys for json
 
 **Options**
@@ -163,7 +202,7 @@ class UserSerializer < Mutils::Serialization::BaseSerializer
 end
 ```
 
-## Usage: Use anywhere by
+### Sample Usage
 
 ```ruby
 user = User.first
