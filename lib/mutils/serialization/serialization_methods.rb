@@ -8,6 +8,7 @@ module Mutils
       def self.included(base)
         base.extend ClassMethods
       end
+
       # Module ClassMethods
       module ClassMethods
         def name_tag(name_tag, root = nil)
@@ -31,10 +32,16 @@ module Mutils
           end
         end
 
-        def attribute(method_name, options = {})
+        def attribute(method_name, options = {}, &proc)
           raise "if: should be a Proc object for attribute #{method_name}" if options[:if] && (options[:if].class.to_s != 'Proc')
 
-          add_single_attribute(method_name, options, 'attribute')
+          if proc.class.to_s == 'Proc'
+            self.attributes_to_serialize_blocks = {} if attributes_to_serialize_blocks.nil?
+            options[:block] = proc
+            attributes_to_serialize_blocks[method_name] = options
+          else
+            add_single_attribute(method_name, options, 'attribute')
+          end
         end
 
         def custom_method(method_name, options = {})

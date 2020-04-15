@@ -91,7 +91,18 @@ class HouseSerializer < Mutils::Serialization::BaseSerializer
     scope.rooms.map(&:name).join(',')
   end
 end
-
+class UserBlocksSerializer < Mutils::Serialization::BaseSerializer
+  attributes :first_name, :last_name
+  attribute :full_name do |user|
+    "#{user.first_name} #{user.last_name}"
+  end
+end
+class UserBlocksParamsSerializer < Mutils::Serialization::BaseSerializer
+  attributes :first_name, :last_name
+  attribute :full_name do |user, params|
+    "#{user.first_name} #{user.last_name} #{params}"
+  end
+end
 class UserSerializer < Mutils::Serialization::BaseSerializer
   attributes :first_name, :last_name
   custom_methods :full_name

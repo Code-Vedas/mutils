@@ -19,8 +19,17 @@ module Mutils
       end
 
       def hashed_result
-        [fetch_attributes(self.class.attributes_to_serialize),
+        [fetch_block_attributes(self.class.attributes_to_serialize_blocks),
+         fetch_attributes(self.class.attributes_to_serialize),
          hash_relationships(self.class.relationships)].reduce(&:merge)
+      end
+
+      def fetch_block_attributes(attributes)
+        hash = {}
+        attributes&.keys&.each do |key|
+          hash[key] = attributes[key][:block].call(scope, options[:params])
+        end
+        hash
       end
 
       def fetch_attributes(attributes)
