@@ -1,18 +1,25 @@
 # frozen_string_literal: true
+require 'coveralls'
+require 'simplecov'
+SimpleCov.formatters = [SimpleCov::Formatter::HTMLFormatter, Coveralls::SimpleCov::Formatter]
+SimpleCov.start do
+  add_filter '/generators/'
+  add_filter '/spec/'
+  add_group 'Lib', '/lib/'
+  add_group 'Lib:Method', '/methods/'
+  add_group 'Lib:Results', '/results/'
+end
 
 require 'bundler/setup'
-require 'mutils'
-require 'coveralls'
+require_relative '../lib/mutils'
 
-Coveralls.wear!
+require 'benchmark'
+require 'rspec-benchmark'
 
 RSpec.configure do |config|
-  # Enable flags like --only-failures and --next-failure
+  config.include RSpec::Benchmark::Matchers
   config.example_status_persistence_file_path = '.rspec_status'
-
-  # Disable RSpec exposing methods globally on `Module` and `main`
   config.disable_monkey_patching!
-
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end

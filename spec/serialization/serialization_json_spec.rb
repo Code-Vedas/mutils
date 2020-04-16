@@ -130,10 +130,44 @@ RSpec.describe 'Mutils::Serialization::JSON' do
   end
   it 'it should have full name: block style attributes with params' do
     user = User.new('FirstName', 'LastName', nil)
-    serializer = UserBlocksParamsSerializer.new(user, {params: 'II'})
+    serializer = UserBlocksParamsSerializer.new(user, { params: 'II' })
     result = serializer.to_h
     expect(result[:first_name]).to eq('FirstName')
     expect(result[:last_name]).to eq('LastName')
     expect(result[:full_name]).to eq('FirstName LastName II')
+  end
+  it 'it should serialize house JSON: NameTag: Array' do
+    houses = [House.new('ha', 1), House.new('ha', 2)]
+    serializer = HouseSerializerNameTag.new(houses)
+    result1 = JSON.parse(serializer.to_json)
+    result = serializer.to_h
+    expect(result1["houses"].length).to eq(2)
+    expect(result.length).to eq(2)
+  end
+  it 'it should serialize house JSON: NameTag: Single' do
+    houses = House.new('ha', 1)
+    serializer = HouseSerializerNameTag2.new(houses)
+    result1 = JSON.parse(serializer.to_json)
+    result = serializer.to_h
+    expect(result1['house']['house_tag']).to eq("ha--1")
+    expect(result[:house_tag]).to eq("ha--1")
+  end
+  it 'Throws Exception when serializer for relation is not given' do
+    begin
+      class UserSerializerFailing < Mutils::Serialization::BaseSerializer
+        has_many :bikes, serializer: nil, always_include: false
+      end
+    rescue RuntimeError
+      expect(true).to be(true)
+    end
+  end
+  it 'Throws Exception when serializer for relation is not valid' do
+    begin
+      class UserSerializerFailing < Mutils::Serialization::BaseSerializer
+        has_many :bikes, serializer: 'MyClass', always_include: false
+      end
+    rescue RuntimeError
+      expect(true).to be(true)
+    end
   end
 end

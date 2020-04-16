@@ -27,6 +27,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'coveralls'
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rspec'
+  spec.add_development_dependency 'rspec-benchmark'
   spec.add_development_dependency 'rspec-json_expectations'
 
   spec.metadata = {
