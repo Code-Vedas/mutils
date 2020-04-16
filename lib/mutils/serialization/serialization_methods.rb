@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative 'methods/main'
 require_relative 'methods/relations'
 require_relative 'methods/attributes'

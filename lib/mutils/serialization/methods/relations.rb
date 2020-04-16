@@ -30,11 +30,10 @@ module Mutils
           raise "Serializer class not defined for relationship: #{relationship_name}" unless class_exists? class_name
 
           options[:serializer] = class_name.to_s
-          options[:always_include].nil? ? false : options[:always_include]
+          options[:always_include] = options[:always_include].nil? ? false : options[:always_include]
           options[:label] = Lib::Helper.instance.underscore options[:label] || relationship_name
           options
         end
-
       end
     end
   end

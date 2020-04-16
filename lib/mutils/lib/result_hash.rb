@@ -5,7 +5,6 @@ module Mutils
   module Lib
     # ResultHash: Store result using this class.
     class ResultHash
-
       def initialize
         self._hash = {}
       end

@@ -14,7 +14,11 @@ module Mutils
         end
 
         def class_exists?(class_name)
-          klass = Mutils::Lib::Helper.instance.constantize(class_name.to_s) rescue nil
+          klass = begin
+                    Mutils::Lib::Helper.instance.constantize(class_name.to_s)
+                  rescue StandardError
+                    nil
+                  end
           klass && defined?(klass) && klass.is_a?(Class)
         end
       end

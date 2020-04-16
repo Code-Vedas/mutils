@@ -5,4 +5,3 @@ AllCops:
   Exclude:
     - 'spec/**/*'
     - 'test/**/*'
-    - 'benchmark/benchmark-serializer-json.rb'
