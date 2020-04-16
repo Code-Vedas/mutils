@@ -33,14 +33,6 @@ module Mutils
         JSON.generate(as_json, options)
       end
 
-      def to_xml(_options = {})
-        to_h.to_xml(root: class_name, skip_instruct: true, indent: 2)
-      end
-
-      def as_xml(_options = {})
-        to_xml
-      end
-
       private
 
       attr_writer :scope

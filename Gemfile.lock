@@ -1,12 +1,16 @@
 PATH
   remote: .
   specs:
-    mutils (0.2.36)
+    mutils (0.2.37)
       dry-inflector
+      oj
 
 GEM
   remote: https://rubygems.org/
   specs:
+    benchmark-malloc (0.2.0)
+    benchmark-perf (0.6.0)
+    benchmark-trend (0.4.0)
     coveralls (0.8.23)
       json (>= 1.8, < 3)
       simplecov (~> 0.16.1)
@@ -18,11 +22,17 @@ GEM
     dry-inflector (0.2.0)
     json (2.3.0)
     json (2.3.0-java)
+    oj (3.10.6)
     rake (13.0.1)
     rspec (3.9.0)
       rspec-core (~> 3.9.0)
       rspec-expectations (~> 3.9.0)
       rspec-mocks (~> 3.9.0)
+    rspec-benchmark (0.6.0)
+      benchmark-malloc (~> 0.2)
+      benchmark-perf (~> 0.6)
+      benchmark-trend (~> 0.4)
+      rspec (>= 3.0)
     rspec-core (3.9.1)
       rspec-support (~> 3.9.1)
     rspec-expectations (3.9.1)
@@ -55,6 +65,7 @@ DEPENDENCIES
   mutils!
   rake (~> 13.0)
   rspec
+  rspec-benchmark
   rspec-json_expectations
 
 BUNDLED WITH

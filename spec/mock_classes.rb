@@ -53,7 +53,7 @@ class User
     self.first_name = first_name
     self.last_name = last_name
     self.houses = houses
-    self.country = Country.new('India')
+    self.country = Country.new('Country')
   end
 end
 class UserConditionalSerializer < Mutils::Serialization::BaseSerializer

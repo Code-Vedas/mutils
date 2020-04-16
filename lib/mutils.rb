@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'dry/inflector'
+require 'oj'
 require_relative 'mutils/version'
 require_relative 'mutils/lib/helper'
 require_relative 'mutils/serialization/serialization_results'

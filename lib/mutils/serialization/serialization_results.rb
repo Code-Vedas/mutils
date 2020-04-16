@@ -45,13 +45,10 @@ module Mutils
         hash = {}
         relationships&.keys&.each do |key|
           object = scope.send(key)
-          name = key
-          if (label = relationships[key][:label])
-            name = Lib::Helper.instance.underscore label
-            Lib::Helper.instance.collection?(object) && (name = Lib::Helper.instance.pluralize(name))
-            name = name.to_sym
-          end
-          check_if_included(relationships, key) && (hash[name] = relationships[key][:serializer].new(object).to_h)
+          name = relationships[key][:label]
+          Lib::Helper.instance.collection?(object) && (name = Lib::Helper.instance.pluralize(name))
+          name = name.to_sym
+          check_if_included(relationships, key) && (hash[name] = Lib::Helper.instance.constantize(relationships[key][:serializer]).new(object).to_h)
         end
         hash
       end
