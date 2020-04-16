@@ -23,7 +23,6 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 2.5.0'
   spec.required_rubygems_version = '>= 1.8.11'
   spec.add_dependency('dry-inflector')
-  spec.add_dependency('oj')
   spec.add_development_dependency 'bundler', '~> 2.0'
   spec.add_development_dependency 'coveralls'
   spec.add_development_dependency 'rake', '~> 13.0'

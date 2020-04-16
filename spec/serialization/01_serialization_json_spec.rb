@@ -4,7 +4,7 @@ require_relative '../mock_classes'
 require_relative './expect_output'
 require 'rspec/json_expectations'
 
-RSpec.describe 'Mutils::Serialization::JSON' do
+RSpec.describe 'Mutils::Serialization::JSON', general: true do
   it 'it should serialize user to JSON' do
     houses = nil
     serializer = UserSerializer.new(User.new('FirstName', 'LastName', houses))

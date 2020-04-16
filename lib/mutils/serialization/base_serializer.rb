@@ -18,11 +18,9 @@ module Mutils
       end
 
       def as_json(_options = {})
-        if options[:child] || !self.class.include_root
-          to_h
-        else
-          { class_name => to_h }
-        end
+        hash = to_h
+        hash = { class_name => to_h } unless options[:child] || !self.class.include_root
+        hash
       end
 
       def to_h

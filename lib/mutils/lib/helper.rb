@@ -4,7 +4,7 @@ require 'singleton'
 # module Mutils
 module Mutils
   module Lib
-    # BaseSerializer: inherit this class to get Serializer functionality
+    # Helper: caching expensive repetitive operations
     class Helper
       include Singleton
 

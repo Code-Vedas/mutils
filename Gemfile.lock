@@ -3,7 +3,6 @@ PATH
   specs:
     mutils (0.2.37)
       dry-inflector
-      oj
 
 GEM
   remote: https://rubygems.org/
@@ -22,7 +21,6 @@ GEM
     dry-inflector (0.2.0)
     json (2.3.0)
     json (2.3.0-java)
-    oj (3.10.6)
     rake (13.0.1)
     rspec (3.9.0)
       rspec-core (~> 3.9.0)
