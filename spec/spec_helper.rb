@@ -1,12 +1,20 @@
 # frozen_string_literal: true
+require 'coveralls'
+require 'simplecov'
+SimpleCov.formatters = [SimpleCov::Formatter::HTMLFormatter, Coveralls::SimpleCov::Formatter]
+SimpleCov.start do
+  add_filter '/generators/'
+  add_filter '/spec/'
+  add_group 'Lib', '/lib/'
+  add_group 'Lib:Method', '/methods/'
+  add_group 'Lib:Results', '/results/'
+end
 
 require 'bundler/setup'
-require 'mutils'
-require 'coveralls'
+require_relative '../lib/mutils'
+
 require 'benchmark'
 require 'rspec-benchmark'
-
-Coveralls.wear!
 
 RSpec.configure do |config|
   config.include RSpec::Benchmark::Matchers
@@ -14,11 +22,5 @@ RSpec.configure do |config|
   config.disable_monkey_patching!
   config.expect_with :rspec do |c|
     c.syntax = :expect
-  end
-  if ENV['PERFORMANCE_ONLY'] == 'true' || ENV['PERFORMANCE_ONLY'] == true
-    config.filter_run_excluding general: true
-  end
-  if ENV['TRAVIS'] == 'true' || ENV['TRAVIS'] == true
-    config.filter_run_excluding performance: true
   end
 end

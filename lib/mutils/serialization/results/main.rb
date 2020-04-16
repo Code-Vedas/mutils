@@ -40,7 +40,7 @@ module Mutils
 
         def class_name
           if scope_is_collection?
-            Lib::Helper.name.pluralize(format_class_name(scope[0]))
+            Lib::Helper.instance.pluralize(format_class_name(scope[0]))
           else
             format_class_name(scope)
           end
