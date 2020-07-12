@@ -26,7 +26,7 @@ These collection of modules are built by developer for developers :-)
 
 ## Features
 * Simple declaration syntax similar to Active Model Serializer
-* Realtionships support `belongs_to', `has_many`, `has_one`
+* Realtionships support `belongs_to`, `has_many`, `has_one`
 * Block style attributes with params
 
 ## Installation
