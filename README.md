@@ -89,7 +89,7 @@ class UserSerializer < Mutils::Serialization::BaseSerializer
   attributes :id, :first_name, :last_name, :email
   
   belongs_to :company, serializer: CompanySerializer, always_include: true
-  ##OR
+  ## OR
   belongs_to :company, serializer: CompanySerializer, always_include: true, label: 'organization'   ##<== important to give singular name
   
   has_many :comments, serializer: CommentSerializer
@@ -209,13 +209,13 @@ user = User.first
 options = {includes: [:comments,:account]}
 UserSerializer.new(user,options).to_h
 ```
-###or
+### or
 ```ruby
 users = User.all
 options = {includes: [:account]}
 UserSerializer.new(users,options).to_json
 ```
-###or in controllers
+### or in controllers
 ```ruby
 users = User.all
 options = {includes: [:account]}
