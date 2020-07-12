@@ -234,3 +234,7 @@ The gem is available as open source under the terms of the [MIT License](https:/
 ## Code of Conduct
 
 Everyone interacting in the Mutils project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/code-vedas/mutils/blob/master/CODE_OF_CONDUCT.md).
+
+## Security
+
+For security refer to [security](https://github.com/Code-Vedas/mutils/blob/master/SECURITY.md) document.
