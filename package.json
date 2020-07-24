@@ -10,10 +10,17 @@
   "devDependencies": {
     "@commitlint/cli": "^9.1.1",
     "@commitlint/config-angular": "^9.1.1",
-    "husky": "^4.2.5"
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11"
+  },
+  "lint-staged": {
+    "*.{rb}": [
+      "bundle exec rubocop lib"
+    ]
   },
   "husky": {
     "hooks": {
+      "pre-commit": "lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   }
