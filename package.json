@@ -68,11 +68,7 @@
       },
       {
         "path": "@semantic-release/exec",
-        "cmd": "echo \"Latest Tag: $(git describe --tags \"$(git rev-list --tags --max-count=1)\")\""
-      },
-      {
-        "path": "@semantic-release/exec",
-        "cmd": "echo \"$(git describe --tags \"$(git rev-list --tags --max-count=1)\")\" > Version"
+        "cmd": "echo \"v${nextRelease.version}\" > Version"
       },
       {
         "path": "@semantic-release/exec",
@@ -88,7 +84,7 @@
           "CHANGELOG.md",
           "Version"
         ],
-        "message": "build(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+        "message": "build(release): v${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
     ],
     "publish": [
