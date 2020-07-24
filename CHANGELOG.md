@@ -5,8 +5,7 @@
 
 * **semantic-release:** enable semantic-release ([aa9c28f](https://github.com/Code-Vedas/mutils/commit/aa9c28fb8da7fcd1915a189bda22f8421a566eee))
 
-# Changelog
-## [v1.0.0](https://github.com/code-vedas/mutils/tree/v0.2.36) (2020-04-17)
+## [1.0.0](https://github.com/code-vedas/mutils/tree/v0.2.36) (2020-04-17)
 
 [Full Changelog](https://github.com/code-vedas/mutils/compare/v0.2.36...v1.0.0)
 
@@ -19,7 +18,7 @@
 - Code refactored 
 - Using cache for expensive operations
 
-## [v0.2.36](https://github.com/code-vedas/mutils/tree/v0.2.36) (2020-04-14)
+## [0.2.36](https://github.com/code-vedas/mutils/tree/v0.2.36) (2020-04-14)
 
 [Full Changelog](https://github.com/code-vedas/mutils/compare/v0.2.35...v0.2.36)
 
@@ -29,7 +28,7 @@
 - Conditional attributes and relations [\#32](https://github.com/code-vedas/mutils/pull/32) ([niteshpurohit](https://github.com/niteshpurohit))
 - chore: add more ruby version and os to test [\#31](https://github.com/code-vedas/mutils/pull/31) ([niteshpurohit](https://github.com/niteshpurohit))
 
-## [v0.2.35](https://github.com/code-vedas/mutils/tree/v0.2.35) (2020-03-30)
+## [0.2.35](https://github.com/code-vedas/mutils/tree/v0.2.35) (2020-03-30)
 
 [Full Changelog](https://github.com/code-vedas/mutils/compare/v0.2.34...v0.2.35)
 
@@ -39,7 +38,7 @@
 - added custom\_method and attribute example [\#29](https://github.com/code-vedas/mutils/pull/29) ([niteshpurohit](https://github.com/niteshpurohit))
 - chore: update changelog [\#28](https://github.com/code-vedas/mutils/pull/28) ([niteshpurohit](https://github.com/niteshpurohit))
 
-## [v0.2.34](https://github.com/code-vedas/mutils/tree/v0.2.34) (2020-03-29)
+## [0.2.34](https://github.com/code-vedas/mutils/tree/v0.2.34) (2020-03-29)
 
 [Full Changelog](https://github.com/code-vedas/mutils/compare/v0.2.33...v0.2.34)
 
@@ -47,7 +46,7 @@
 
 - Feature/attribute can be optional [\#27](https://github.com/code-vedas/mutils/pull/27) ([niteshpurohit](https://github.com/niteshpurohit))
 
-## [v0.2.33](https://github.com/code-vedas/mutils/tree/v0.2.33) (2020-03-29)
+## [0.2.33](https://github.com/code-vedas/mutils/tree/v0.2.33) (2020-03-29)
 
 [Full Changelog](https://github.com/code-vedas/mutils/compare/v0.2.32...v0.2.33)
 
@@ -58,7 +57,7 @@
 - Create .codeclimate.yml [\#24](https://github.com/code-vedas/mutils/pull/24) ([niteshpurohit](https://github.com/niteshpurohit))
 - changelog: v0.2.32 [\#22](https://github.com/code-vedas/mutils/pull/22) ([niteshpurohit](https://github.com/niteshpurohit))
 
-## [v0.2.32](https://github.com/code-vedas/mutils/tree/v0.2.32) (2020-03-18)
+## [0.2.32](https://github.com/code-vedas/mutils/tree/v0.2.32) (2020-03-18)
 
 [Full Changelog](https://github.com/code-vedas/mutils/compare/v0.2.31...v0.2.32)
 
@@ -66,7 +65,7 @@
 
 - Feature/improve performance [\#21](https://github.com/code-vedas/mutils/pull/21) ([niteshpurohit](https://github.com/niteshpurohit))
 
-## [v0.2.31](https://github.com/code-vedas/mutils/tree/v0.2.31) (2020-03-18)
+## [0.2.31](https://github.com/code-vedas/mutils/tree/v0.2.31) (2020-03-18)
 
 [Full Changelog](https://github.com/code-vedas/mutils/compare/v0.2.30...v0.2.31)
 
@@ -75,7 +74,7 @@
 - Update version.rb [\#20](https://github.com/code-vedas/mutils/pull/20) ([niteshpurohit](https://github.com/niteshpurohit))
 - Rake 13.0 [\#19](https://github.com/code-vedas/mutils/pull/19) ([niteshpurohit](https://github.com/niteshpurohit))
 
-## [v0.2.30](https://github.com/code-vedas/mutils/tree/v0.2.30) (2020-03-17)
+## [0.2.30](https://github.com/code-vedas/mutils/tree/v0.2.30) (2020-03-17)
 
 [Full Changelog](https://github.com/code-vedas/mutils/compare/v0.2.29...v0.2.30)
 
@@ -83,7 +82,7 @@
 
 - Deps [\#18](https://github.com/code-vedas/mutils/pull/18) ([niteshpurohit](https://github.com/niteshpurohit))
 
-## [v0.2.29](https://github.com/code-vedas/mutils/tree/v0.2.29) (2019-12-07)
+## [0.2.29](https://github.com/code-vedas/mutils/tree/v0.2.29) (2019-12-07)
 
 [Full Changelog](https://github.com/code-vedas/mutils/compare/v0.2.28...v0.2.29)
 
@@ -91,7 +90,7 @@
 
 - Scope Variable bug [\#14](https://github.com/code-vedas/mutils/pull/14) ([niteshpurohit](https://github.com/niteshpurohit))
 
-## [v0.2.28](https://github.com/code-vedas/mutils/tree/v0.2.28) (2019-11-26)
+## [0.2.28](https://github.com/code-vedas/mutils/tree/v0.2.28) (2019-11-26)
 
 [Full Changelog](https://github.com/code-vedas/mutils/compare/v0.2.27...v0.2.28)
 
@@ -99,7 +98,7 @@
 
 - Feature/scoped generator [\#13](https://github.com/code-vedas/mutils/pull/13) ([niteshpurohit](https://github.com/niteshpurohit))
 
-## [v0.2.27](https://github.com/code-vedas/mutils/tree/v0.2.27) (2019-11-25)
+## [0.2.27](https://github.com/code-vedas/mutils/tree/v0.2.27) (2019-11-25)
 
 [Full Changelog](https://github.com/code-vedas/mutils/compare/v0.2.26...v0.2.27)
 
@@ -116,11 +115,11 @@
 - Update README.md [\#7](https://github.com/code-vedas/mutils/pull/7) ([niteshpurohit](https://github.com/niteshpurohit))
 - Update README.md [\#6](https://github.com/code-vedas/mutils/pull/6) ([niteshpurohit](https://github.com/niteshpurohit))
 
-## [v0.2.26](https://github.com/code-vedas/mutils/tree/v0.2.26) (2019-11-24)
+## [0.2.26](https://github.com/code-vedas/mutils/tree/v0.2.26) (2019-11-24)
 
 [Full Changelog](https://github.com/code-vedas/mutils/compare/v0.2.25...v0.2.26)
 
-## [v0.2.25](https://github.com/code-vedas/mutils/tree/v0.2.25) (2019-11-24)
+## [0.2.25](https://github.com/code-vedas/mutils/tree/v0.2.25) (2019-11-24)
 
 [Full Changelog](https://github.com/code-vedas/mutils/compare/885f96959dd3701ac20ed0981b920be753c00db0...v0.2.25)
 
