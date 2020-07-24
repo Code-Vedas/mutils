@@ -82,7 +82,7 @@
         "path": "@semantic-release/git",
         "assets": [
           "CHANGELOG.md",
-          "VERSION"
+          "Version"
         ],
         "message": "build(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
