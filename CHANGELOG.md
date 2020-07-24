@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/Code-Vedas/mutils/compare/v1.0.0...v1.0.1) (2020-07-24)
+
+
+### Bug Fixes
+
+* **semantic-release:** enable semantic-release ([aa9c28f](https://github.com/Code-Vedas/mutils/commit/aa9c28fb8da7fcd1915a189bda22f8421a566eee))
+
 # Changelog
 ## [v1.0.0](https://github.com/code-vedas/mutils/tree/v0.2.36) (2020-04-17)
 
