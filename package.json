@@ -76,7 +76,7 @@
       },
       {
         "path": "@semantic-release/exec",
-        "cmd": "sh gemdeploy.sh"
+        "cmd": "./gemdeploy.sh"
       },
       {
         "path": "@semantic-release/git",
