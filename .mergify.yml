@@ -1,8 +1,0 @@
-pull_request_rules:
-  - name: automatic approve for Owner
-    conditions:
-      - author=niteshpurohit
-      - status-success=Travis CI - Pull Request
-    actions:
-      review:
-        message: 'LGTM'
