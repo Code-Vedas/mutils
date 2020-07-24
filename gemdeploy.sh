@@ -1,4 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/bash
+
+set -euo pipefail
 
 mkdir -p $HOME/.gem
 touch $HOME/.gem/credentials
