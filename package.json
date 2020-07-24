@@ -68,11 +68,15 @@
       },
       {
         "path": "@semantic-release/exec",
-        "cmd": "echo \"$(git describe --tags \"$(git rev-list --tags --max-count=1)\")\" | { gemtag=$(< /dev/stdin); export GEMTAG=$gemtag; };"
+        "cmd": "echo \"Latest Tag: $(git describe --tags \"$(git rev-list --tags --max-count=1)\")\""
       },
       {
         "path": "@semantic-release/exec",
-        "cmd": "echo $GEMTAG > Version"
+        "cmd": "echo \"$(git describe --tags \"$(git rev-list --tags --max-count=1)\")\" > Version"
+      },
+      {
+        "path": "@semantic-release/exec",
+        "cmd": "echo \"Deploying Version: $(cat Version)\""
       },
       {
         "path": "@semantic-release/exec",
