@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 module Mutils
-  VERSION = '1.0.0'
+  VERSION = File.read("Version").split("\n").first
 end

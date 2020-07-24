@@ -10,8 +10,17 @@
   "devDependencies": {
     "@commitlint/cli": "^9.1.1",
     "@commitlint/config-angular": "^9.1.1",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/exec": "^5.0.0",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/github": "^7.0.7",
     "husky": "^4.2.5",
-    "lint-staged": "^10.2.11"
+    "lint-staged": "^10.2.11",
+    "semantic-release": "^17.1.1"
+  },
+  "scripts": {
+    "copyfiles": "cp -r CHANGELOG.md dist/CHANGELOG.md && cp -r dist/package.json src/package.json",
+    "semantic-release": "semantic-release"
   },
   "lint-staged": {
     "*.{rb}": [
@@ -23,5 +32,63 @@
       "pre-commit": "lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
+  },
+  "release": {
+    "branch": "master",
+    "ci": false,
+    "verifyConditions": [
+      "@semantic-release/changelog",
+      "@semantic-release/git",
+      "@semantic-release/github"
+    ],
+    "analyzeCommits": [
+      "@semantic-release/commit-analyzer"
+    ],
+    "generateNotes": {
+      "path": "@semantic-release/release-notes-generator",
+      "preset": "angular",
+      "parserOpts": {
+        "noteKeywords": [
+          "BREAKING CHANGE",
+          "BREAKING CHANGES",
+          "BREAKING"
+        ]
+      },
+      "writerOpts": {
+        "commitsSort": [
+          "scope",
+          "subject"
+        ]
+      }
+    },
+    "prepare": [
+      {
+        "path": "@semantic-release/changelog",
+        "changelogFile": "CHANGELOG.md"
+      },
+      {
+        "path": "@semantic-release/exec",
+        "cmd": "echo \"$(git describe --tags \"$(git rev-list --tags --max-count=1)\")\" | { gemtag=$(< /dev/stdin); export GEMTAG=$gemtag; };"
+      },
+      {
+        "path": "@semantic-release/exec",
+        "cmd": "echo $GEMTAG > Version"
+      },
+      {
+        "path": "@semantic-release/exec",
+        "cmd": "sh gemdeploy.sh"
+      },
+      {
+        "path": "@semantic-release/git",
+        "assets": [
+          "CHANGELOG.md",
+          "VERSION"
+        ],
+        "message": "build(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+      }
+    ],
+    "publish": [
+      "@semantic-release/github"
+    ]
   }
 }
