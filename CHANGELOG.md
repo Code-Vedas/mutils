@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/Code-Vedas/mutils/compare/v1.0.1...v1.1.0) (2020-08-15)
+
+
+### Features
+
+* **params:** conditional if:Proc get params as second attribute ([55a3b08](https://github.com/Code-Vedas/mutils/commit/55a3b08fee52c0dbef2b22c6e4f468389f8c53a4))
+
 ## [1.0.1](https://github.com/Code-Vedas/mutils/compare/v1.0.0...v1.0.1) (2020-07-24)
 
 
