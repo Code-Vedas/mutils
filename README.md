@@ -101,7 +101,11 @@ class UserSerializer < Mutils::Serialization::BaseSerializer
 end
 ```
 ### Conditional Attributes
-Attributes are fields in the model itself. You can reference them by below example
+Serializer can have conditional attributes with `if: Proc` 
+`if: Proc` block can receive `scope` and `params` as arguments
+
+- __in proc {|scope|}__, scope is object which is being serialized
+- __in proc {|scope,params|}__, scope is object which is being serialized and params is hash given to Serializer as second arguments in {params:anything}
 ```ruby
 # frozen_string_literal: true
 
@@ -109,11 +113,20 @@ Attributes are fields in the model itself. You can reference them by below examp
 class UserSerializer < Mutils::Serialization::BaseSerializer
   attributes :id, :first_name, :last_name
   attribute :email, if: proc { |scope| scope.name == 'mutils' } ## Email will only serialize if user's name is 'mutils'
+  # OR with Params
+  attribute :email, if: proc { |scope,params| params && params[:show_email] == true } ## Email will only serialize if params[:show_email] is true
 end
+
+UserSerializer.new(user) # Without params
+UserSerializer.new(user,{params:{show_email:true}}) # With params
 ```
-    in proc {|scope|}, scope is object which is being serialized
+
 ### Conditional Relations
-Attributes are fields in the model itself. You can reference them by below example
+Serializer can have conditional relations with `if: Proc` 
+`if: Proc` block can receive `scope` and `params` as arguments
+
+- __in proc {|scope|}__, scope is object which is being serialized
+- __in proc {|scope,params|}__, scope is object which is being serialized and params is hash given to Serializer as second arguments in {params:anything}
 ```ruby
 # frozen_string_literal: true
 
@@ -122,9 +135,15 @@ class UserSerializer < Mutils::Serialization::BaseSerializer
   attributes :id, :first_name, :last_name
   has_many :comments, serializer: CommentSerializer, if: proc { |scope| scope.name == 'mutils' } ## comments will only serialize if user's name is 'mutils'
   belongs_to :account, serializer: AccountSerializer, if: proc { |scope| scope.name != 'mutils' } ## account will only serialize if user's name is not 'mutils'
+  # OR with Params
+  belongs_to :account, serializer: AccountSerializer, if: proc { |scope,params| params && params[:show_account] == true } ## account will only serialize if params[:show_account] is true
 end
+
+UserSerializer.new(user) # Without params
+UserSerializer.new(user,{params:{show_account:true}}) # With params
+
 ```
-    in proc {|scope|}, scope is object which is being serialized    
+    
 ### Attributes Blocks
 While writting attribute a block can be provided for useful transformations like `full_name` as shown below
 ```ruby

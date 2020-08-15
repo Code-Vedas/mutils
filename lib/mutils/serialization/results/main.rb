@@ -29,7 +29,7 @@ module Mutils
         end
 
         def check_if_included(s_options, key)
-          return s_options[:if].call(scope) unless s_options[:if].nil? || scope_is_collection?
+          return s_options[:if].call(scope, options[:params]) unless s_options[:if].nil? || scope_is_collection?
 
           s_options[:always_include] || options[:includes]&.include?(key)
         end

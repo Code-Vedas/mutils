@@ -64,7 +64,9 @@ end
 
 class UserConditionalSerializer < Mutils::Serialization::BaseSerializer
   attribute :name, if: proc { |scope| scope.name == 'mutils' }
-  has_many :users, if: proc { |scope| scope.name == 'mutils_with_array' }, serializer: UserConditionalSerializer
+  has_many :users, if: proc { |scope, params|
+    scope.name == 'mutils_with_array' || (params && params[:name_override] == 'mutils_with_array')
+  }, serializer: UserConditionalSerializer
 end
 
 class CountrySerializer < Mutils::Serialization::BaseSerializer
@@ -125,6 +127,7 @@ class HouseSerializerNameTag < Mutils::Serialization::BaseSerializer
     scope.rooms.map(&:name).join(',')
   end
 end
+
 class HouseSerializerNameTag2 < Mutils::Serialization::BaseSerializer
   name_tag nil, true
   custom_methods :house_tag
@@ -162,6 +165,7 @@ class UserBlocksParamsSerializer < Mutils::Serialization::BaseSerializer
     "#{user.first_name} #{user.last_name} #{params}"
   end
 end
+
 class UserSerializer < Mutils::Serialization::BaseSerializer
   attributes :first_name, :last_name
   custom_methods :full_name

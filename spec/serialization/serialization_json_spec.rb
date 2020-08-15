@@ -120,6 +120,18 @@ RSpec.describe 'Mutils::Serialization::JSON' do
     expect(result[:users][0][:name]).to eq('mutils')
     expect(result[:users][1][:name]).to eq('mutils')
   end
+
+  it 'it should return user name with mutils: testing conditional relationship' do
+    user1 = UserConditional.new('mutils', nil)
+    user2 = UserConditional.new('mutils', nil)
+    user = UserConditional.new('mutils_without_array', [user1, user2])
+    serializer = UserConditionalSerializer.new(user,{params:{ name_override:'mutils_with_array' }})
+    result = serializer.to_h
+    expect(result[:name]).to eq(nil)
+    expect(result[:users].length).to eq(2)
+    expect(result[:users][0][:name]).to eq('mutils')
+    expect(result[:users][1][:name]).to eq('mutils')
+  end
   it 'it should have full name: block style attributes' do
     user = User.new('FirstName', 'LastName', nil)
     serializer = UserBlocksSerializer.new(user)
