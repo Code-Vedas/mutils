@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/Code-Vedas/mutils/compare/v1.1.0...v1.1.1) (2020-10-05)
+
+
+### Bug Fixes
+
+* **params:** always send hash in params ([7d71b6d](https://github.com/Code-Vedas/mutils/commit/7d71b6d2c89f39883745a40e5472c444b5673e8b))
+
 # [1.1.0](https://github.com/Code-Vedas/mutils/compare/v1.0.1...v1.1.0) (2020-08-15)
 
 
