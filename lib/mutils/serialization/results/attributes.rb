@@ -9,7 +9,7 @@ module Mutils
       module Attributes
         def fetch_block_attributes(attributes, result_hash)
           attributes&.each do |key, s_options|
-            result_hash[key] = s_options[:block].call(scope, options[:params])
+            result_hash[key] = s_options[:block].call(scope, options[:params] || {})
           end
         end
 
