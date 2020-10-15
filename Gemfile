@@ -3,10 +3,10 @@
 source 'https://rubygems.org'
 
 # Specify your gem's dependencies in mutils.gemspec
-gem 'pre-commit', require: false
-gem 'rubocop'
 gem 'coveralls'
+gem 'pre-commit', require: false
 gem 'rspec'
 gem 'rspec-benchmark'
 gem 'rspec-json_expectations'
+gem 'rubocop'
 gemspec
