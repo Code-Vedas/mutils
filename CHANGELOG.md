@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/Code-Vedas/mutils/compare/v1.1.2...v1.1.3) (2020-10-18)
+
+
+### Bug Fixes
+
+* Gemfile to reduce vulnerabilities ([#65](https://github.com/Code-Vedas/mutils/issues/65)) ([49b5ae2](https://github.com/Code-Vedas/mutils/commit/49b5ae2ba795d16976425ddbaf1e1c372a940c1f))
+
 ## [1.1.2](https://github.com/Code-Vedas/mutils/compare/v1.1.1...v1.1.2) (2020-10-15)
 
 
