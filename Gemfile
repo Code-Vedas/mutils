@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 
 # Specify your gem's dependencies in mutils.gemspec
-gem 'coveralls'
+gem 'coveralls', '>= 0.8.23'
 gem 'pre-commit', require: false
 gem 'rspec'
 gem 'rspec-benchmark'
