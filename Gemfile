@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 
 # Specify your gem's dependencies in mutils.gemspec
 gem 'coveralls', '>= 0.8.23'
+gem 'json', '>= 2.3.1'
 gem 'pre-commit', require: false
 gem 'rspec'
 gem 'rspec-benchmark'
