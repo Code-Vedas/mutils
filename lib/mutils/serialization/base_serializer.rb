@@ -7,6 +7,7 @@ module Mutils
     # BaseSerializer: inherit this class to get Serializer functionality
     class BaseSerializer
       attr_reader :scope
+
       include Mutils::Serialization::SerializationIncludes
       include Mutils::Serialization::SerializationMethods
       include Mutils::Serialization::SerializationResults
