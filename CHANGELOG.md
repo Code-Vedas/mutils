@@ -1,3 +1,10 @@
+## [1.1.6](https://github.com/Code-Vedas/mutils/compare/v1.1.5...v1.1.6) (2020-11-21)
+
+
+### Bug Fixes
+
+* **github-token:** use github action token ([9b69a06](https://github.com/Code-Vedas/mutils/commit/9b69a0683a06b6e1659eb2984de273191441cbfd))
+
 ## [1.1.4](https://github.com/Code-Vedas/mutils/compare/v1.1.3...v1.1.4) (2020-10-19)
 
 
