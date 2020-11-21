@@ -2,7 +2,8 @@
 ![](https://ruby-gem-downloads-badge.herokuapp.com/mutils?type=total&color=brightgreen)
 [![Gem Version](https://badge.fury.io/rb/mutils.svg)](https://badge.fury.io/rb/mutils)
 [![Coverage Status](https://coveralls.io/repos/github/Code-Vedas/mutils/badge.svg?branch=master)](https://coveralls.io/github/Code-Vedas/mutils?branch=master)
-![Master](https://github.com/Code-Vedas/mutils/workflows/Master/badge.svg)
+![Master](https://github.com/Code-Vedas/mutils/workflows/Master/badge.svg?branch=master)
+
 # Mutils
 ## Introduction
 `mutils` is collection of useful modules for `ruby on rails` which is tested and benchmarked against high load.
