@@ -23,7 +23,7 @@ jobs:
       - name: Publish
         env:
           RUBYGEMS_AUTH_TOKEN: ${{ secrets.RUBYGEMS_AUTH_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.P_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npm install
           npx semantic-release
