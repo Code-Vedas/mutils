@@ -1,9 +1,7 @@
-name: Pull Requests
+name: Master
 on:
   push:
-    branches:
-      - '*'
-      - '!master'
+    branches: [master]
 jobs:
   testing:
     runs-on: ubuntu-20.04

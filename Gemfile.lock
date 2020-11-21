@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/niteshpurohit/simplecov-lcov
+  revision: f1f759f078b19a2c0c13c1cb16cfff96d915e807
+  specs:
+    simplecov-lcov (0.8.0)
+
 PATH
   remote: .
   specs:
@@ -91,6 +97,7 @@ DEPENDENCIES
   rspec-benchmark
   rspec-json_expectations
   rubocop
+  simplecov-lcov!
 
 BUNDLED WITH
    2.1.4

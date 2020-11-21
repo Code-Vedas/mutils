@@ -1,0 +1,30 @@
+name: Release
+on:
+  push:
+    branches: [master]
+jobs:
+  testing:
+    runs-on: ubuntu-20.04
+    name: Test with ruby ${{ matrix.ruby }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: 13.x
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+          bundler-cache: true
+      - name: Run Rubocop
+        run: bundle exec rubocop lib
+      - name: Run Test
+        run: bundle exec rspec
+      - name: Publish
+        env:
+          RUBYGEMS_AUTH_TOKEN: ${{ secrets.RUBYGEMS_AUTH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.P_GITHUB_TOKEN }}
+        run: |
+          npm install
+          npx semantic-release
+
