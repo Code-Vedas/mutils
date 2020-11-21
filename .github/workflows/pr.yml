@@ -1,0 +1,27 @@
+name: Pull Requests
+on: [pull_request]
+jobs:
+  testing:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        ruby: [ '2.5','2.6.3','2.6.5','2.7.0','2.7.1','jruby-9.2.13.0' ]
+    name: Test with ruby ${{ matrix.ruby }}
+    steps:
+        - uses: actions/checkout@v2
+        - name: Use Node.js ${{ matrix.node-version }}
+          uses: actions/setup-node@v1
+          with:
+            node-version: ${{ matrix.node-version }}
+        - uses: actions/setup-ruby@v1
+          with:
+            ruby-version: ${{ matrix.ruby }}
+        - name: "Install Gems"
+          run:
+            - - gem install bundler -v 2.0.1
+              - gem install rspec
+              - bundle install
+        - name: "Run Rubocop"
+          run: bundle exec rubocop lib
+        - name: "Run rspec"
+          run: bundle exec rspec
