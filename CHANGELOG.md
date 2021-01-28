@@ -1,3 +1,10 @@
+## [1.1.7](https://github.com/Code-Vedas/mutils/compare/v1.1.6...v1.1.7) (2021-01-28)
+
+
+### Bug Fixes
+
+* version file missing ([aed03ed](https://github.com/Code-Vedas/mutils/commit/aed03edeb10efca4307e2ba1f8faca72d98a1f1d))
+
 ## [1.1.6](https://github.com/Code-Vedas/mutils/compare/v1.1.5...v1.1.6) (2020-11-21)
 
 
