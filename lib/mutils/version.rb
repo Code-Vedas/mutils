@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
 module Mutils
-  VERSION = File.read('Version').split("\n").first.gsub('v', '')
+  version_file_path = File.join( File.dirname(__FILE__), '../../Version')
+  VERSION = File.read(version_file_path).split("\n").first.gsub('v', '')
 end
