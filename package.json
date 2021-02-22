@@ -14,7 +14,7 @@
     "@semantic-release/exec": "^5.0.0",
     "@semantic-release/git": "^9.0.0",
     "@semantic-release/github": "^7.2.0",
-    "husky": "^5.0.9",
+    "husky": "^5.1.0",
     "lint-staged": "^10.5.4",
     "semantic-release": "^17.3.9"
   },
