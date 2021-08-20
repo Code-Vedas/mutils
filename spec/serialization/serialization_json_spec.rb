@@ -18,6 +18,12 @@ RSpec.describe 'Mutils::Serialization::JSON' do
     result = serializer.to_h
     expect(result[:houses].length).to eq(1)
   end
+  it 'it should able to serialize object_id as Proc without block' do
+    user = User.new('FirstName', 'LastName', [],"123123")
+    serializer = UserSerializer.new(user)
+    result = serializer.to_h
+    expect(result[:object_id]).to eq("123123")
+  end
   it 'it should serialize method with not always_included' do
     house = House.new('ha', 1)
     serializer = HouseSerializer.new(house, includes: [:house_tag_underscore])

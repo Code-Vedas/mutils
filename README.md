@@ -74,6 +74,8 @@ class UserSerializer < Mutils::Serialization::BaseSerializer
   attributes :id, :first_name, :last_name, :email
   ## OR
   attribute :email, {always_include: true} ## this will allow to selectively include email
+  ## OR
+  attribute :email, &:email ## this will call email attribute from User
 end
 ```
 ### Relations

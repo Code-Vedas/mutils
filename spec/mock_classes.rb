@@ -52,11 +52,12 @@ class Bike
 end
 
 class User
-  attr_accessor :first_name, :last_name, :houses, :country, :cars, :bikes
+  attr_accessor :first_name, :last_name, :houses, :country, :cars, :bikes, :id
 
-  def initialize(first_name, last_name, houses)
+  def initialize(first_name, last_name, houses, id = SecureRandom.hex(10))
     self.first_name = first_name
     self.last_name = last_name
+    self.id = id
     self.houses = houses
     self.country = Country.new('Country')
   end
@@ -173,6 +174,8 @@ class UserSerializer < Mutils::Serialization::BaseSerializer
   belongs_to :country, serializer: CountrySerializer, always_include: true
   has_many :cars, serializer: CarSerializer, label: 'car'
   has_many :bikes, serializer: BikeSerializer, always_include: false
+
+  attribute :object_id, &:id
 
   def full_name
     "#{scope.first_name} #{scope.last_name}"
