@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/Code-Vedas/mutils/compare/v1.1.8...v1.2.0) (2021-08-20)
+
+
+### Features
+
+* attribute can accept Proc without params ([c014fef](https://github.com/Code-Vedas/mutils/commit/c014fef841426673d1f409b56a1c2548222fd2f5))
+
 ## [1.1.8](https://github.com/Code-Vedas/mutils/compare/v1.1.7...v1.1.8) (2021-08-20)
 
 
