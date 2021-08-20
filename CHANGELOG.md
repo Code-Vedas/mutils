@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/Code-Vedas/mutils/compare/v1.2.0...v1.2.1) (2021-08-20)
+
+
+### Bug Fixes
+
+* dropping ruby 2.5 support ([#172](https://github.com/Code-Vedas/mutils/issues/172)) ([a74d02c](https://github.com/Code-Vedas/mutils/commit/a74d02c4f6b126092e18a94aaa4ebd62e48c22e9))
+
 # [1.2.0](https://github.com/Code-Vedas/mutils/compare/v1.1.8...v1.2.0) (2021-08-20)
 
 
