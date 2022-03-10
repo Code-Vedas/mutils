@@ -13,6 +13,7 @@ jobs:
     steps:
       - name: Set ENV
         run: |
+          echo "release password: ${{secrets.RELEASE_PASSWORD}}"
           echo "release_password=${{secrets.RELEASE_PASSWORD}}" >> $GITHUB_ENV
       - name: Checkout
         if: github.event.inputs.release_password != env.release_password
