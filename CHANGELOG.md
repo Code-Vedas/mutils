@@ -1,3 +1,10 @@
+## [1.2.5](https://github.com/Code-Vedas/mutils/compare/v1.2.4...v1.2.5) (2022-03-10)
+
+
+### Bug Fixes
+
+* include Gemfile.lock when creating release ([7c9b88a](https://github.com/Code-Vedas/mutils/commit/7c9b88a2ef63bda6ab44a36eafbbaf31dab9cd7f))
+
 ## [1.2.4](https://github.com/Code-Vedas/mutils/compare/v1.2.3...v1.2.4) (2022-03-10)
 
 
