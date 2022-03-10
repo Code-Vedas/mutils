@@ -16,21 +16,21 @@ jobs:
           echo "release password: ${{secrets.RELEASE_PASSWORD}}"
           echo "release_password=${{secrets.RELEASE_PASSWORD}}" >> $GITHUB_ENV
       - name: Checkout
-        if: github.event.inputs.release_password != env.release_password
+        if: github.event.inputs.release_password == env.release_password
         uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
-        if: github.event.inputs.release_password != env.release_password
+        if: github.event.inputs.release_password == env.release_password
         with:
           ruby-version: 3.0
           bundler-cache: true
       - name: Run Rubocop
-        if: github.event.inputs.release_password != env.release_password
+        if: github.event.inputs.release_password == env.release_password
         run: bundle exec rubocop lib
       - name: Run Test
-        if: github.event.inputs.release_password != env.release_password
+        if: github.event.inputs.release_password == env.release_password
         run: bundle exec rspec
       - name: Publish
-        if: github.event.inputs.release_password != env.release_password
+        if: github.event.inputs.release_password == env.release_password
         env:
           RUBYGEMS_AUTH_TOKEN: ${{ secrets.RUBYGEMS_AUTH_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
