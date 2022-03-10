@@ -24,9 +24,7 @@ prepare:
 - path: "@semantic-release/exec"
   cmd: echo "v${nextRelease.version}" > Version
 - path: "@semantic-release/exec"
-  cmd: 'echo "Deploying Version: $(cat Version)"'
-- path: "@semantic-release/exec"
-  cmd: "./gemdeploy.sh"
+  cmd: 'echo "Creating Version: $(cat Version)"'
 - path: "@semantic-release/git"
   assets:
   - CHANGELOG.md
