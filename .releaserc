@@ -16,8 +16,30 @@ generateNotes:
     - BREAKING
   writerOpts:
     commitsSort:
-    - scope
-    - subject
+      - scope
+      - subject
+  presetConfig:
+    types:
+      - type: chore
+        section: Chores
+      - type: build
+        section: Build Changes
+      - type: docs
+        section: Documentation Changes
+      - type: feat
+        section: Features
+      - type: fix
+        section: Bug Fixes
+      - type: perf
+        section: Performance Improvments
+      - type: refactor
+        section: Refactors
+      - type: revert
+        section: Reverted
+      - type: style
+        section: Styles Changes
+      - type: test
+        section: Test Suite Changes
 prepare:
 - path: "@semantic-release/changelog"
   changelogFile: CHANGELOG.md
