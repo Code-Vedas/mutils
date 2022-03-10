@@ -13,7 +13,7 @@ jobs:
           node-version: 14.x
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7
+          ruby-version: 3.0
           bundler-cache: true
       - name: Run Rubocop
         run: bundle exec rubocop lib
