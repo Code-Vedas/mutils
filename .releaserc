@@ -46,11 +46,16 @@ prepare:
 - path: "@semantic-release/exec"
   cmd: echo "v${nextRelease.version}" > Version
 - path: "@semantic-release/exec"
+  cmd: 'bundle config unset deployment'
+- path: "@semantic-release/exec"
+  cmd: 'bundle install'
+- path: "@semantic-release/exec"
   cmd: 'echo "Creating Version: $(cat Version)"'
 - path: "@semantic-release/git"
   assets:
   - CHANGELOG.md
   - Version
+  - Gemfile.lock
   message: |-
     build(release): v${nextRelease.version} [skip ci]
 
