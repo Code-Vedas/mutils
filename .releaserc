@@ -1,0 +1,39 @@
+branch: master
+ci: false
+verifyConditions:
+- "@semantic-release/changelog"
+- "@semantic-release/git"
+- "@semantic-release/github"
+analyzeCommits:
+- "@semantic-release/commit-analyzer"
+generateNotes:
+  path: "@semantic-release/release-notes-generator"
+  preset: angular
+  parserOpts:
+    noteKeywords:
+    - BREAKING CHANGE
+    - BREAKING CHANGES
+    - BREAKING
+  writerOpts:
+    commitsSort:
+    - scope
+    - subject
+prepare:
+- path: "@semantic-release/changelog"
+  changelogFile: CHANGELOG.md
+- path: "@semantic-release/exec"
+  cmd: echo "v${nextRelease.version}" > Version
+- path: "@semantic-release/exec"
+  cmd: 'echo "Deploying Version: $(cat Version)"'
+- path: "@semantic-release/exec"
+  cmd: "./gemdeploy.sh"
+- path: "@semantic-release/git"
+  assets:
+  - CHANGELOG.md
+  - Version
+  message: |-
+    build(release): v${nextRelease.version} [skip ci]
+
+    ${nextRelease.notes}
+publish:
+- "@semantic-release/github"

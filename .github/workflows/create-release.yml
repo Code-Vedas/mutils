@@ -1,7 +1,6 @@
-name: Release
+name: Create Release
 on:
-  push:
-    branches: [master]
+  workflow_dispatch:
 jobs:
   release:
     runs-on: ubuntu-20.04
@@ -25,6 +24,7 @@ jobs:
           RUBYGEMS_AUTH_TOKEN: ${{ secrets.RUBYGEMS_AUTH_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          npm install
+          npm install -g @commitlint/cli @commitlint/config-angular @semantic-release/changelog @semantic-release/exec
+          npm install -g @semantic-release/git @semantic-release/github semantic-release
           npx semantic-release
 
