@@ -1,4 +1,4 @@
-name: Master
+name: Test Master
 on:
   push:
     branches: [master]
