@@ -1,3 +1,10 @@
+## [1.2.4](https://github.com/Code-Vedas/mutils/compare/v1.2.3...v1.2.4) (2022-03-10)
+
+
+### Bug Fixes
+
+* bundle ([4f70247](https://github.com/Code-Vedas/mutils/commit/4f70247451df4df88397ff51b0dbe382eed02838))
+
 ## [1.2.3](https://github.com/Code-Vedas/mutils/compare/v1.2.2...v1.2.3) (2022-03-10)
 
 
