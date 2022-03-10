@@ -1,3 +1,10 @@
+## [1.2.3](https://github.com/Code-Vedas/mutils/compare/v1.2.2...v1.2.3) (2022-03-10)
+
+
+### Bug Fixes
+
+* release with test ruby 3.0 ([c3a6034](https://github.com/Code-Vedas/mutils/commit/c3a60344f7722552215559f46377dc83d7e33e05))
+
 ## [1.2.2](https://github.com/Code-Vedas/mutils/compare/v1.2.1...v1.2.2) (2021-11-26)
 
 
