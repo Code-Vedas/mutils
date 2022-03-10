@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/Code-Vedas/mutils/compare/v1.2.1...v1.2.2) (2021-11-26)
+
+
+### Bug Fixes
+
+* deps ([a778c53](https://github.com/Code-Vedas/mutils/commit/a778c533db613936e26cbd92caea75c8e87347d6))
+
 ## [1.2.1](https://github.com/Code-Vedas/mutils/compare/v1.2.0...v1.2.1) (2021-08-20)
 
 
