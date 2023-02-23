@@ -1,3 +1,10 @@
+## [1.2.6](https://github.com/Code-Vedas/mutils/compare/v1.2.5...v1.2.6) (2023-02-23)
+
+
+### Bug Fixes
+
+* add upto ruby 3.2 test matrix ([cbeedc3](https://github.com/Code-Vedas/mutils/commit/cbeedc36ca96bb691fa8b6fdc8c19788c7184b4a))
+
 ## [1.2.5](https://github.com/Code-Vedas/mutils/compare/v1.2.4...v1.2.5) (2022-03-10)
 
 
