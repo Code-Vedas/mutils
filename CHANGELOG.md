@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/Code-Vedas/mutils/compare/v1.2.6...v1.3.0) (2023-03-01)
+
+
+### Features
+
+* remove ruby 2.6 support ([0a3cb1f](https://github.com/Code-Vedas/mutils/commit/0a3cb1f657ce4f3a8a153a012933dcb826a74cef))
+
 ## [1.2.6](https://github.com/Code-Vedas/mutils/compare/v1.2.5...v1.2.6) (2023-02-23)
 
 
