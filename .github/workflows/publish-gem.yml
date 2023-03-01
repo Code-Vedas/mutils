@@ -17,7 +17,7 @@ jobs:
           echo "release_password=${{secrets.RELEASE_PASSWORD}}" >> $GITHUB_ENV
       - name: Checkout
         if: github.event.inputs.release_password == env.release_password
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - uses: ruby/setup-ruby@v1
         if: github.event.inputs.release_password == env.release_password
         with:
