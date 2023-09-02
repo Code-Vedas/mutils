@@ -31,7 +31,7 @@ generateNotes:
       - type: fix
         section: Bug Fixes
       - type: perf
-        section: Performance Improvments
+        section: Performance Improvements
       - type: refactor
         section: Refactors
       - type: revert

@@ -23,11 +23,10 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 2.7.0'
   spec.required_rubygems_version = '>= 1.8.11'
   spec.add_dependency('dry-inflector')
-  spec.add_development_dependency 'bundler', '~> 2.0'
-  spec.add_development_dependency 'rake', '~> 13.0'
 
   spec.metadata = {
     'bug_tracker_uri' => 'https://github.com/code-vedas/mutils/issues',
-    'source_code_uri' => "https://github.com/code-vedas/mutils/tree/v#{Mutils::VERSION}"
+    'source_code_uri' => "https://github.com/code-vedas/mutils/tree/v#{Mutils::VERSION}",
+    'rubygems_mfa_required' => 'true'
   }
 end

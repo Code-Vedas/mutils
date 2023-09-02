@@ -24,8 +24,8 @@ module Mutils
           class_name = options[:serializer]
           if class_name.nil?
             raise "Serializer is Required for belongs_to :#{relationship_name}." \
-                    "\nDefine it like:\n#{option_name} :#{relationship_name}, " \
-                    'serializer: SERIALIZER_CLASS'
+                  "\nDefine it like:\n#{option_name} :#{relationship_name}, " \
+                  'serializer: SERIALIZER_CLASS'
           end
           raise "Serializer class not defined for relationship: #{relationship_name}" unless class_exists? class_name
 
