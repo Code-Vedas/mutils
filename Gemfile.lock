@@ -34,7 +34,7 @@ GEM
       ast (~> 2.4.1)
       racc
     pluginator (1.5.0)
-    pre-commit (0.39.0)
+    pre-commit (0.40.0)
       pluginator (~> 1.5)
     racc (1.7.3)
     racc (1.7.3-java)
