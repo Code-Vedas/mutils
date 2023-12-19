@@ -2,6 +2,7 @@ name: Test Master
 on:
   push:
     branches: [master]
+  merge_group:
 jobs:
   testing:
     runs-on: ubuntu-latest
