@@ -1,8 +1,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/42e8a34f839ca0c5ec45/maintainability)](https://codeclimate.com/github/code-vedas/mutils/maintainability)
 ![](https://ruby-gem-downloads-badge.herokuapp.com/mutils?type=total&color=brightgreen)
 [![Gem Version](https://badge.fury.io/rb/mutils.svg)](https://badge.fury.io/rb/mutils)
-[![Coverage Status](https://coveralls.io/repos/github/Code-Vedas/mutils/badge.svg?branch=master)](https://coveralls.io/github/Code-Vedas/mutils?branch=master)
-![Master](https://github.com/Code-Vedas/mutils/workflows/Master/badge.svg?branch=master)
+[![Coverage Status](https://badge.coveralls.io/repos/github/Code-Vedas/mutils/badge.svg?branch=master)](https://badge.coveralls.io/github/Code-Vedas/mutils?branch=master)
 
 # Mutils
 ## Introduction
