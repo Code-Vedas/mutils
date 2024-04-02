@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/Code-Vedas/mutils/compare/v1.3.0...v1.3.1) (2024-04-02)
+
+
+### Bug Fixes
+
+* **maintenance:** maintenance release ([19ef41d](https://github.com/Code-Vedas/mutils/commit/19ef41d754f6b398e4955e8ba40359bf91c3bddd))
+
 # [1.3.0](https://github.com/Code-Vedas/mutils/compare/v1.2.6...v1.3.0) (2023-03-01)
 
 
