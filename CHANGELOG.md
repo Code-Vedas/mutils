@@ -1,3 +1,11 @@
+## [1.3.2](https://github.com/Code-Vedas/mutils/compare/v1.3.1...v1.3.2) (2024-06-28)
+
+
+### Bug Fixes
+
+* bundle updated ([b5770d6](https://github.com/Code-Vedas/mutils/commit/b5770d62edd2566f1d0e581843c4e528c43a8fd4))
+* rubocop >= 1.63.3 ([9d8f944](https://github.com/Code-Vedas/mutils/commit/9d8f944e1277b068a65b068f5b2d7601bbf18704))
+
 ## [1.3.1](https://github.com/Code-Vedas/mutils/compare/v1.3.0...v1.3.1) (2024-04-02)
 
 
