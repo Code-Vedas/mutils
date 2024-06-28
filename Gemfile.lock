@@ -117,7 +117,7 @@ DEPENDENCIES
   rspec
   rspec-benchmark
   rspec-json_expectations
-  rubocop
+  rubocop (>= 1.63.3)
   simplecov-lcov!
 
 BUNDLED WITH

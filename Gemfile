@@ -11,6 +11,6 @@ gem 'rake', '~> 13.2'
 gem 'rspec'
 gem 'rspec-benchmark'
 gem 'rspec-json_expectations'
-gem 'rubocop'
+gem 'rubocop', '>= 1.63.3'
 gem 'simplecov-lcov', git: 'https://github.com/niteshpurohit/simplecov-lcov'
 gemspec
