@@ -1,3 +1,11 @@
+## [1.3.3](https://github.com/Code-Vedas/mutils/compare/v1.3.2...v1.3.3) (2024-09-05)
+
+
+### Bug Fixes
+
+* outdated deps ([dd551fc](https://github.com/Code-Vedas/mutils/commit/dd551fca6ac14e4131ab07eb1261eea6ac3d90f2))
+* outdated deps ([8918619](https://github.com/Code-Vedas/mutils/commit/89186194908af12c167b030ef2c6f8139127748a))
+
 ## [1.3.2](https://github.com/Code-Vedas/mutils/compare/v1.3.1...v1.3.2) (2024-06-28)
 
 
