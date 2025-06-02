@@ -43,7 +43,7 @@ GEM
     racc (1.8.1)
     racc (1.8.1-java)
     rainbow (3.1.1)
-    rake (13.2.1)
+    rake (13.3.0)
     regexp_parser (2.10.0)
     rspec (3.13.1)
       rspec-core (~> 3.13.0)
@@ -105,7 +105,7 @@ DEPENDENCIES
   json (>= 2.3.1)
   mutils!
   pre-commit
-  rake (~> 13.2)
+  rake (~> 13.3)
   rspec
   rspec-benchmark
   rspec-json_expectations
