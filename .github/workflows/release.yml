@@ -35,9 +35,4 @@ jobs:
         with:
           bundler-cache: true
           ruby-version: ruby
-      - name: Debug OIDC
-        run: |
-          echo "Repo: $GITHUB_REPOSITORY"
-          echo "Workflow ref: $GITHUB_WORKFLOW_REF"
-          echo "Workflow file: $GITHUB_WORKFLOW"
-      # - uses: rubygems/release-gem@v1
+      - uses: rubygems/release-gem@v1
