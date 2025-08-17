@@ -2,6 +2,5 @@
 
 # Version
 module Mutils
-  version_file_path = File.join(File.dirname(__FILE__), '../../Version')
-  VERSION = File.read(version_file_path).split("\n").first.gsub('v', '')
+  VERSION = '1.3.4'
 end
