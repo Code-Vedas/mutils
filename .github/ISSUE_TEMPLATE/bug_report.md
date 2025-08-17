@@ -1,41 +1,46 @@
 ---
-name: Bug report
+name: Bug Report
 about: Create a report to help us improve
-title: ''
-labels: ''
-assignees: ''
-
+title: "[BUG] Briefly describe the issue"
+labels: bug
+assignees: ""
 ---
 
-Issue tracker is **ONLY** used for reporting bugs. New features should be discussed on our slack channel. Please use [stackoverflow](https://stackoverflow.com) for supporting issues.
+## Bug Report
 
-<!--- Provide a general summary of the issue in the Title above -->
+### Description:
 
-## Expected Behavior
-<!--- Tell us what should happen -->
+[Provide a clear and concise description of the bug.]
 
-## Current Behavior
-<!--- Tell us what happens instead of the expected behavior -->
+### Steps to Reproduce:
 
-## Possible Solution
-<!--- Not obligatory, but suggest a fix/reason for the bug, -->
+1. [First step]
+2. [Second step]
+3. [Third step]
+   - [If applicable]
 
-## Steps to Reproduce
-<!--- Provide a link to a live example, or an unambiguous set of steps to -->
-<!--- reproduce this bug. Include code to reproduce, if relevant -->
-1.
-2.
-3.
-4.
+### Expected Behavior:
 
-## Context (Environment)
-<!--- How has this issue affected you? What are you trying to accomplish? -->
-<!--- Providing context helps us come up with a solution that is most useful in the real world -->
+[Describe what you expected to happen.]
 
-<!--- Provide a general summary of the issue in the Title above -->
+### Actual Behavior:
 
-## Detailed Description
-<!--- Provide a detailed description of the change or addition you are proposing -->
+[Describe what actually happened.]
 
-## Possible Implementation
-<!--- Not obligatory, but suggest an idea for implementing addition or change -->
+### Screenshots or Additional Information:
+
+[If applicable, add screenshots or other information to help illustrate the issue.]
+
+### Environment:
+
+- Operating System: [e.g., Windows, macOS, Linux]
+- Browser (if applicable): [e.g., Chrome, Firefox, Safari]
+- Version: [e.g., 1.0.0]
+
+### Checklist:
+
+- [ ] I have searched for a similar issue and didn't find any duplicates.
+- [ ] I have included all the required information.
+- [ ] I have tagged the issue with the label "bug."
+
+<!-- Feel free to add any additional details or context that might be helpful in resolving the issue. -->

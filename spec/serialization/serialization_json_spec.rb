@@ -170,7 +170,7 @@ RSpec.describe 'Mutils::Serialization::JSON' do
     expect(result1['house']['house_tag']).to eq("ha--1")
     expect(result[:house_tag]).to eq("ha--1")
   end
-  it 'Throws Exception when serializer for relation is not given' do
+  it 'raises an exception when serializer for relation is not given' do
     begin
       class UserSerializerFailing < Mutils::Serialization::BaseSerializer
         has_many :bikes, serializer: nil, always_include: false
@@ -179,13 +179,33 @@ RSpec.describe 'Mutils::Serialization::JSON' do
       expect(true).to be(true)
     end
   end
-  it 'Throws Exception when serializer for relation is not valid' do
+  it 'raies an exception when serializer for relation is not valid' do
     begin
       class UserSerializerFailing < Mutils::Serialization::BaseSerializer
         has_many :bikes, serializer: 'MyClass', always_include: false
       end
     rescue RuntimeError
       expect(true).to be(true)
+    end
+  end
+
+  it 'raies an exception when if: is not a Proc' do
+    begin
+      class UserSerializerFailing < Mutils::Serialization::BaseSerializer
+        has_many :bikes, if: 'not_a_proc', always_include: false
+      end
+    rescue RuntimeError => e
+      expect(e.message).to eq("if: should be a Proc object for attribute bikes")
+    end
+  end
+
+  it 'raises an exception when attribute\'s proc is not a proc' do
+    begin
+      class UserSerializerFailing < Mutils::Serialization::BaseSerializer
+        attribute :name, if: 'not_a_proc'
+      end
+    rescue RuntimeError => e
+      expect(e.message).to eq("if: should be a Proc object for attribute name")
     end
   end
 end

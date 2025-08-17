@@ -1,0 +1,55 @@
+name: Pull Requests
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.4.3
+          bundler-cache: true
+
+      - name: Lint code for consistent style
+        run: bin/rubocop -f github
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install packages
+        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y build-essential git libpq-dev libyaml-dev pkg-config google-chrome-stable
+
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.4.3
+          bundler-cache: true
+
+      - name: Run tests
+        env:
+          RAILS_ENV: test
+        run: bin/rspec --format documentation --color --profile
+
+      - name: Upload simplecov report
+        uses: actions/upload-artifact@v4
+        with:
+          name: simplecov-report
+          path: ${{ github.workspace }}/mat_views/coverage
+          if-no-files-found: ignore
+
+      - name: Keep screenshots from failed system tests
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: screenshots
+          path: ${{ github.workspace }}/mat_views/tmp/screenshots
+          if-no-files-found: ignore

@@ -3,14 +3,15 @@
 source 'https://rubygems.org'
 
 # Specify your gem's dependencies in mutils.gemspec
-gem 'bundler', '~> 2.0'
+gem 'bundler'
 gem 'coveralls', '>= 0.8.23'
-gem 'json', '>= 2.3.1'
-gem 'pre-commit', require: false
-gem 'rake', '~> 13.2'
+gem 'json'
+gem 'rake'
 gem 'rspec'
 gem 'rspec-benchmark'
 gem 'rspec-json_expectations'
-gem 'rubocop', '>= 1.63.3'
+gem 'rubocop'
+gem 'rubocop-rake'
+gem 'rubocop-rspec'
 gem 'simplecov-lcov', git: 'https://github.com/niteshpurohit/simplecov-lcov'
 gemspec
