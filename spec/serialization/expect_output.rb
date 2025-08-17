@@ -1,8 +1,19 @@
 # frozen_string_literal: true
 
-USERS_JSON = [{ "first_name": 'FirstName1', "last_name": 'LastName1', "full_name": 'FirstName1 LastName1', "country": { "name": 'Country' }, "houses": [{ "house_tag": 'ha--1', "rooms_names": 'room1,room2,room3' }, { "house_tag": 'hb--2', "rooms_names": 'room1,room2,room3' }] }, { "last_name": 'LastName2', "first_name": 'FirstName2', "full_name": 'FirstName2 LastName2', "country": { "name": 'Country' }, "houses": [{ "house_tag": 'hp--1', "rooms_names": 'room1,room2,room3' }, { "house_tag": 'hq--2', "rooms_names": 'room1,room2,room3' }, { "house_tag": 'hr--3', "rooms_names": 'room1,room2,room3' }] }].freeze
-USER_JSON = { "first_name": 'FirstName', "last_name": 'LastName', "full_name": 'FirstName LastName', "country": { "name": 'Country' }, "houses": {} }.freeze
-USER_WITH_HOUSES_JSON = { "last_name": 'LastName', "first_name": 'FirstName', "full_name": 'FirstName LastName', "country": { "name": 'Country' }, "houses": [{ "house_tag": 'ha--1', "rooms_names": 'room1,room2,room3' }] }.freeze
+USERS_JSON = [
+  { first_name: 'FirstName1', last_name: 'LastName1', full_name: 'FirstName1 LastName1', country: { name: 'Country' },
+    houses: [{ house_tag: 'ha--1', rooms_names: 'room1,room2,room3' },
+             { house_tag: 'hb--2', rooms_names: 'room1,room2,room3' }] },
+  { last_name: 'LastName2', first_name: 'FirstName2', full_name: 'FirstName2 LastName2', country: { name: 'Country' },
+    houses: [{ house_tag: 'hp--1', rooms_names: 'room1,room2,room3' },
+             { house_tag: 'hq--2', rooms_names: 'room1,room2,room3' },
+             { house_tag: 'hr--3', rooms_names: 'room1,room2,room3' }] }
+].freeze
+USER_JSON = { first_name: 'FirstName', last_name: 'LastName', full_name: 'FirstName LastName',
+              country: { name: 'Country' }, houses: {} }.freeze
+USER_WITH_HOUSES_JSON = { last_name: 'LastName', first_name: 'FirstName', full_name: 'FirstName LastName',
+                          country: { name: 'Country' },
+                          houses: [{ house_tag: 'ha--1', rooms_names: 'room1,room2,room3' }] }.freeze
 
 USER_XML = <<~XML
   <user>

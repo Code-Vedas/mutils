@@ -1,7 +1,7 @@
 # frozen_string_literal: true
+
 class UserConditional
-  attr_accessor :name
-  attr_accessor :users
+  attr_accessor :name, :users
 
   def initialize(name, users)
     self.name = name

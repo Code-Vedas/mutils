@@ -2,10 +2,12 @@ plugins:
   - rubocop-rake
   - rubocop-rspec
 AllCops:
-  TargetRubyVersion: "2.7.0"
   NewCops: enable
-  Exclude:
-    - "spec/**/*"
-    - "test/**/*"
+  TargetRubyVersion: 3.2
+  SuggestExtensions: true
 Metrics/MethodLength:
   Max: 20
+RSpec/MultipleExpectations:
+  Max: 10
+RSpec/ExampleLength:
+  Max: 15
