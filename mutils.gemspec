@@ -25,7 +25,8 @@ Gem::Specification.new do |spec|
 
   spec.metadata = {
     'bug_tracker_uri' => 'https://github.com/code-vedas/mutils/issues',
-    'source_code_uri' => "https://github.com/code-vedas/mutils/tree/v#{Mutils::VERSION}",
+    'source_code_uri' => 'https://github.com/Code-Vedas/mutils.git',
+    'homepage_uri' => 'https://github.com/code-vedas/mutils',
     'rubygems_mfa_required' => 'true'
   }
 end
