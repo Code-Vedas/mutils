@@ -1,3 +1,29 @@
+## [1.3.4](https://github.com/Code-Vedas/mutils/compare/v1.3.3...v1.3.4) (2025-08-17)
+
+## 🧰 Maintenance
+
+- build: bump dry-inflector from 1.1.0 to 1.2.0 @[dependabot[bot]](https://github.com/apps/dependabot) (#345)
+- build: bump actions/checkout from 3 to 5 @[dependabot[bot]](https://github.com/apps/dependabot) (#344)
+- build: bump github/codeql-action from 2 to 3 @[dependabot[bot]](https://github.com/apps/dependabot) (#343)
+- build: bump rubocop from 1.77.0 to 1.79.2 @[dependabot[bot]](https://github.com/apps/dependabot) (#341)
+- build: bump json from 2.12.2 to 2.13.2 @[dependabot[bot]](https://github.com/apps/dependabot) (#340)
+- build(deps): bump rubocop from 1.75.8 to 1.77.0 @[dependabot[bot]](https://github.com/apps/dependabot) (#339)
+- build(deps): bump rubocop from 1.75.2 to 1.75.8 @[dependabot[bot]](https://github.com/apps/dependabot) (#334)
+- build(deps): bump rspec from 3.13.0 to 3.13.1 @[dependabot[bot]](https://github.com/apps/dependabot) (#333)
+- build(deps): bump json from 2.9.1 to 2.12.2 @[dependabot[bot]](https://github.com/apps/dependabot) (#332)
+- build(deps): bump rubocop from 1.69.2 to 1.75.2 @[dependabot[bot]](https://github.com/apps/dependabot) (#329)
+- build(deps): bump json from 2.8.2 to 2.9.1 @[dependabot[bot]](https://github.com/apps/dependabot) (#315)
+- build(deps): bump rubocop from 1.68.0 to 1.69.2 @[dependabot[bot]](https://github.com/apps/dependabot) (#314)
+- build(deps): bump json from 2.7.6 to 2.8.2 @[dependabot[bot]](https://github.com/apps/dependabot) (#310)
+- build(deps): bump json from 2.7.5 to 2.7.6 @[dependabot[bot]](https://github.com/apps/dependabot) (#308)
+- build(deps): bump rubocop from 1.67.0 to 1.68.0 @[dependabot[bot]](https://github.com/apps/dependabot) (#307)
+- build(deps): bump json from 2.7.2 to 2.7.5 @[dependabot[bot]](https://github.com/apps/dependabot) (#306)
+- build(deps): bump rubocop from 1.66.1 to 1.67.0 @[dependabot[bot]](https://github.com/apps/dependabot) (#303)
+
+## ⚙️ CI
+
+- ci: Refactor CI/CD pipelines and project configuration @niteshpurohit (#342)
+
 ## [1.3.3](https://github.com/Code-Vedas/mutils/compare/v1.3.2...v1.3.3) (2024-09-05)
 
 
