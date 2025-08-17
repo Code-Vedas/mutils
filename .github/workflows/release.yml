@@ -35,4 +35,9 @@ jobs:
         with:
           bundler-cache: true
           ruby-version: ruby
-      - uses: rubygems/release-gem@v1
+      - name: Configure RubyGems Credentials
+        uses: rubygems/configure-rubygems-credentials@main
+      - name: Release
+        run: |
+          gem build mutils.gemspec
+          gem push mutils-*.gem
