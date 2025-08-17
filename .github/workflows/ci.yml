@@ -43,7 +43,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: simplecov-report
-          path: ${{ github.workspace }}/mat_views/coverage
+          path: ${{ github.workspace }}/coverage
           if-no-files-found: ignore
 
       - name: Keep screenshots from failed system tests
@@ -51,5 +51,5 @@ jobs:
         if: failure()
         with:
           name: screenshots
-          path: ${{ github.workspace }}/mat_views/tmp/screenshots
+          path: ${{ github.workspace }}/tmp/screenshots
           if-no-files-found: ignore
