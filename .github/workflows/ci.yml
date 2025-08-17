@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install packages
-        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y build-essential git libpq-dev libyaml-dev pkg-config google-chrome-stable
+        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y build-essential git libyaml-dev pkg-config
 
       - name: Checkout code
         uses: actions/checkout@v5
@@ -35,8 +35,6 @@ jobs:
           bundler-cache: true
 
       - name: Run tests
-        env:
-          RAILS_ENV: test
         run: bin/rspec --format documentation --color --profile
 
       - name: Upload simplecov report
@@ -44,12 +42,4 @@ jobs:
         with:
           name: simplecov-report
           path: ${{ github.workspace }}/coverage
-          if-no-files-found: ignore
-
-      - name: Keep screenshots from failed system tests
-        uses: actions/upload-artifact@v4
-        if: failure()
-        with:
-          name: screenshots
-          path: ${{ github.workspace }}/tmp/screenshots
           if-no-files-found: ignore

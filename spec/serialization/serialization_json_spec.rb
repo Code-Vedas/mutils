@@ -20,7 +20,7 @@ RSpec.describe 'Mutils::Serialization::JSON' do
     expect(result[:houses].length).to eq(1)
   end
 
-  it 'ables to serialize object_id as Proc without block' do
+  it 'is able to serialize object_id as Proc without block' do
     user = User.new('FirstName', 'LastName', [], '123123')
     serializer = UserSerializer.new(user)
     result = serializer.to_h

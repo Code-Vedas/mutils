@@ -3,6 +3,7 @@
 source 'https://rubygems.org'
 
 # Specify your gem's dependencies in mutils.gemspec
+gem 'benchmark'
 gem 'bundler'
 gem 'coveralls', '>= 0.8.23'
 gem 'json'
