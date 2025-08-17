@@ -1,0 +1,64 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*" # e.g., v1.0.0
+
+jobs:
+  test:
+    name: Run RSpec
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          # If your repo has .ruby-version, this action will respect it.
+          bundler-cache: true
+
+      - name: RSpec
+        run: bin/rspec
+
+  build-and-publish:
+    name: Build & Push to RubyGems
+    needs: test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Build gem
+        run: |
+          set -euo pipefail
+          GEMSPEC=$(ls *.gemspec | head -n 1)
+          if [ -z "$GEMSPEC" ]; then
+            echo "No gemspec found in repo root"; exit 1
+          fi
+          gem build "$GEMSPEC"
+          mkdir -p pkg
+          mv ./*.gem pkg/
+          echo "GEM_FILE=$(ls pkg/*.gem)" >> "$GITHUB_ENV"
+
+      - name: Publish to RubyGems
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          RUBYGEMS_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.gem
+          cat > ~/.gem/credentials <<EOF
+          ---
+          :rubygems_api_key: ${RUBYGEMS_API_KEY}
+          EOF
+          chmod 0600 ~/.gem/credentials
+          gem push "${GEM_FILE}"

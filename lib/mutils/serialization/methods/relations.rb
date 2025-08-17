@@ -9,7 +9,9 @@ module Mutils
       # Module Relations
       module Relations
         def relationship(relationship_name, options = {})
-          raise "if: should be a Proc object for attribute #{relationship_name}" if options[:if] && !options[:if].instance_of?(Proc)
+          if options[:if] && !options[:if].instance_of?(Proc)
+            raise "if: should be a Proc object for attribute #{relationship_name}"
+          end
 
           options = prepare_options(relationship_name, options, __callee__)
           self.relationships = {} if relationships.nil?

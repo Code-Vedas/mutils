@@ -25,7 +25,9 @@ module Mutils
         end
 
         def attribute(method_name, options = {}, &proc)
-          raise "if: should be a Proc object for attribute #{method_name}" if options[:if] && !options[:if].instance_of?(Proc)
+          if options[:if] && !options[:if].instance_of?(Proc)
+            raise "if: should be a Proc object for attribute #{method_name}"
+          end
 
           if proc.instance_of? Proc
             self.attributes_to_serialize_blocks = {} if attributes_to_serialize_blocks.nil?
