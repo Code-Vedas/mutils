@@ -38,7 +38,7 @@ jobs:
         run: bin/rspec --format documentation --color --profile
 
       - name: Upload simplecov report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: simplecov-report
           path: ${{ github.workspace }}/coverage
