@@ -1,3 +1,28 @@
+## [1.3.5](https://github.com/Code-Vedas/mutils/compare/v1.3.4...v1.3.5) (2026-02-14)
+
+## 🧰 Maintenance
+
+- build: bump json from 2.16.0 to 2.18.0 @[dependabot[bot]](https://github.com/apps/dependabot) (#369)
+- build: bump rubocop from 1.81.7 to 1.82.0 @[dependabot[bot]](https://github.com/apps/dependabot) (#371)
+- build: bump actions/upload-artifact from 5 to 6 @[dependabot[bot]](https://github.com/apps/dependabot) (#370)
+- build: bump actions/checkout from 5 to 6 @[dependabot[bot]](https://github.com/apps/dependabot) (#366)
+- build: bump rubocop-rspec from 3.7.0 to 3.8.0 @[dependabot[bot]](https://github.com/apps/dependabot) (#365)
+- build: bump json from 2.15.2 to 2.16.0 @[dependabot[bot]](https://github.com/apps/dependabot) (#364)
+- build: bump rubocop from 1.81.6 to 1.81.7 @[dependabot[bot]](https://github.com/apps/dependabot) (#363)
+- build: bump rake from 13.3.0 to 13.3.1 @[dependabot[bot]](https://github.com/apps/dependabot) (#362)
+- build: bump actions/upload-artifact from 4 to 5 @[dependabot[bot]](https://github.com/apps/dependabot) (#361)
+- build: bump json from 2.15.1 to 2.15.2 @[dependabot[bot]](https://github.com/apps/dependabot) (#360)
+- build: bump rubocop from 1.81.1 to 1.81.6 @[dependabot[bot]](https://github.com/apps/dependabot) (#358)
+- build: bump rspec from 3.13.1 to 3.13.2 @[dependabot[bot]](https://github.com/apps/dependabot) (#359)
+- build: bump benchmark from 0.4.1 to 0.5.0 @[dependabot[bot]](https://github.com/apps/dependabot) (#357)
+- build: bump github/codeql-action from 3 to 4 @[dependabot[bot]](https://github.com/apps/dependabot) (#356)
+- build: bump json from 2.15.0 to 2.15.1 @[dependabot[bot]](https://github.com/apps/dependabot) (#355)
+- build: bump rubocop from 1.80.2 to 1.81.1 @[dependabot[bot]](https://github.com/apps/dependabot) (#354)
+- build: bump json from 2.14.1 to 2.15.0 @[dependabot[bot]](https://github.com/apps/dependabot) (#352)
+- build: bump json from 2.13.2 to 2.14.1 @[dependabot[bot]](https://github.com/apps/dependabot) (#351)
+- build: bump rubocop from 1.79.2 to 1.80.2 @[dependabot[bot]](https://github.com/apps/dependabot) (#350)
+- build: bump rubocop-rspec from 3.6.0 to 3.7.0 @[dependabot[bot]](https://github.com/apps/dependabot) (#349)
+
 ## [1.3.4](https://github.com/Code-Vedas/mutils/compare/v1.3.3...v1.3.4) (2025-08-17)
 
 ## 🧰 Maintenance
