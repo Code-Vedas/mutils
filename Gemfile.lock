@@ -7,7 +7,7 @@ GIT
 PATH
   remote: .
   specs:
-    mutils (1.3.4)
+    mutils (1.3.5)
       dry-inflector
 
 GEM
