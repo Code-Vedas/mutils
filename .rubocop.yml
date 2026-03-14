@@ -5,6 +5,10 @@ AllCops:
   NewCops: enable
   TargetRubyVersion: 3.2
   SuggestExtensions: true
+  Exclude:
+    - 'vendor/**/*'
+    - 'vendor/bundle/**/*'
+    - spec/mock_classes.rb
 Metrics/MethodLength:
   Max: 20
 RSpec/MultipleExpectations:
