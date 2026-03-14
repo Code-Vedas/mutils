@@ -5,6 +5,8 @@ AllCops:
   NewCops: enable
   TargetRubyVersion: 3.2
   SuggestExtensions: true
+  Exclude:
+    - spec/mock_classes.rb
 Metrics/MethodLength:
   Max: 20
 RSpec/MultipleExpectations:
