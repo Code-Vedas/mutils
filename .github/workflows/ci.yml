@@ -1,45 +1,22 @@
-name: Pull Requests
+name: CI
+
+permissions:
+  contents: read
+
 on:
+  pull_request:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || format('ref-{0}', github.ref) }}
+  cancel-in-progress: true
+
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v6
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 3.4.3
-          bundler-cache: true
-
-      - name: Lint code for consistent style
-        run: bin/rubocop -f github
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Install packages
-        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y build-essential git libyaml-dev pkg-config
-
-      - name: Checkout code
-        uses: actions/checkout@v6
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 3.4.3
-          bundler-cache: true
-
-      - name: Run tests
-        run: bin/rspec --format documentation --color --profile
-
-      - name: Upload simplecov report
-        uses: actions/upload-artifact@v7
-        with:
-          name: simplecov-report
-          path: ${{ github.workspace }}/coverage
-          if-no-files-found: ignore
+  ci:
+    permissions:
+      contents: read
+    uses: ./.github/workflows/shared-ci.yml
+    secrets: inherit
+    with:
+      upload_coverage: true

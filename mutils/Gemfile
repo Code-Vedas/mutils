@@ -1,0 +1,28 @@
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
+
+gemspec
+
+group :development, :test do
+  gem 'benchmark'
+  gem 'json'
+  gem 'reek'
+  gem 'rspec'
+  gem 'rspec-benchmark'
+  gem 'rspec-json_expectations'
+  gem 'rubocop-factory_bot'
+  gem 'rubocop-performance'
+  gem 'rubocop-rake'
+  gem 'rubocop-rspec'
+end
+
+group :test do
+  gem 'simplecov', require: false
+  gem 'simplecov-console', require: false
+end
+
+group :development do
+  gem 'ruby-lsp', require: false
+  gem 'ruby-lsp-rspec', require: false
+end

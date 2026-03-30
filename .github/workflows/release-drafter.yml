@@ -1,27 +1,38 @@
+permissions:
+  contents: read
 name: Release Drafter
-
 on:
   push:
     branches:
       - main
   pull_request:
-    types: [opened, reopened, synchronize]
+    types: [opened, synchronize, reopened]
 
-permissions:
-  contents: write
-  pull-requests: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || format('ref-{0}', github.ref) }}
+  cancel-in-progress: true
 
 jobs:
-  release_drafter:
+  update_release_draft:
     permissions:
       contents: write
-      pull-requests: write
+      pull-requests: read
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
       - uses: release-drafter/release-drafter@v7
         with:
           config-name: release-drafter.yml
-          disable-releaser: ${{ github.event_name != 'push' }}
-          disable-autolabeler: ${{ github.event_name != 'pull_request' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  auto_label_pull_request:
+    permissions:
+      pull-requests: write
+      contents: read
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: release-drafter/release-drafter/autolabeler@v7
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

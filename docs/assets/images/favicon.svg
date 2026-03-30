@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <style>
+    rect {
+      fill: white;
+    }
+
+    text {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-weight: 700;
+      font-size: 60px;
+      dominant-baseline: middle;
+      text-anchor: middle;
+      fill: #FF8A00; /* your brand orange */
+    }
+
+    @media (prefers-color-scheme: dark) {
+      rect {
+        fill: black;
+      }
+    }
+  </style>
+
+  <!-- background -->
+  <rect width="100" height="100" rx="18"/>
+
+  <!-- logo -->
+  <text x="50" y="55">M&gt;</text>
+</svg>
