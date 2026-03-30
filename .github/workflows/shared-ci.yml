@@ -1,0 +1,141 @@
+name: Shared CI
+permissions:
+  contents: read
+
+env:
+  APP_DIR: ${{ github.workspace }}/mutils
+  BUNDLE_PATH: ${{ github.workspace }}/vendor/bundle
+  BUNDLE_JOBS: "4"
+  BUNDLE_RETRY: "3"
+
+on:
+  workflow_call:
+    inputs:
+      upload_coverage:
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  rubocop:
+    name: RuboCop · Ruby ${{ matrix.ruby_version }}
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby_version:
+          - "3.2"
+          - "3.4"
+          - "4.0"
+    steps:
+      - uses: actions/checkout@v6
+      - name: Install apt packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y \
+            build-essential git libyaml-dev pkg-config
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby_version }}
+          bundler-cache: false
+      - name: Restore bundle cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.BUNDLE_PATH }}
+          key: ${{ runner.os }}-ruby-${{ matrix.ruby_version }}-bundle-${{ hashFiles('mutils/Gemfile.lock', 'mutils/mutils.gemspec') }}
+          restore-keys: |
+            ${{ runner.os }}-ruby-${{ matrix.ruby_version }}-bundle-
+      - name: Install bundle
+        working-directory: ${{ env.APP_DIR }}
+        run: bundle install --jobs "${BUNDLE_JOBS}" --retry "${BUNDLE_RETRY}"
+      - name: Run RuboCop
+        working-directory: ${{ env.APP_DIR }}
+        run: bin/rubocop -f github
+
+  reek:
+    name: Reek · Ruby ${{ matrix.ruby_version }}
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    needs: rubocop
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby_version:
+          - "3.2"
+          - "3.4"
+          - "4.0"
+    steps:
+      - uses: actions/checkout@v6
+      - name: Install apt packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y \
+            build-essential git libyaml-dev pkg-config
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby_version }}
+          bundler-cache: false
+      - name: Restore bundle cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.BUNDLE_PATH }}
+          key: ${{ runner.os }}-ruby-${{ matrix.ruby_version }}-bundle-${{ hashFiles('mutils/Gemfile.lock', 'mutils/mutils.gemspec') }}
+          restore-keys: |
+            ${{ runner.os }}-ruby-${{ matrix.ruby_version }}-bundle-
+      - name: Install bundle
+        working-directory: ${{ env.APP_DIR }}
+        run: bundle install --jobs "${BUNDLE_JOBS}" --retry "${BUNDLE_RETRY}"
+      - name: Run Reek
+        working-directory: ${{ env.APP_DIR }}
+        run: bin/reek
+
+  test:
+    name: Unit Tests · Ruby ${{ matrix.ruby_version }}
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    needs: reek
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby_version:
+          - "3.2"
+          - "3.4"
+          - "4.0"
+    steps:
+      - uses: actions/checkout@v6
+      - name: Install apt packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y \
+            build-essential git libyaml-dev pkg-config
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby_version }}
+          bundler-cache: false
+      - name: Restore bundle cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.BUNDLE_PATH }}
+          key: ${{ runner.os }}-ruby-${{ matrix.ruby_version }}-bundle-${{ hashFiles('mutils/Gemfile.lock', 'mutils/mutils.gemspec') }}
+          restore-keys: |
+            ${{ runner.os }}-ruby-${{ matrix.ruby_version }}-bundle-
+      - name: Install bundle
+        working-directory: ${{ env.APP_DIR }}
+        run: bundle install --jobs "${BUNDLE_JOBS}" --retry "${BUNDLE_RETRY}"
+      - name: Run unit tests
+        working-directory: ${{ env.APP_DIR }}
+        run: bin/rspec --format documentation --color --profile
+      - name: Upload simplecov report
+        if: inputs.upload_coverage && matrix.ruby_version == '3.4'
+        uses: actions/upload-artifact@v4
+        with:
+          name: simplecov-report-ruby-${{ matrix.ruby_version }}
+          path: ${{ env.APP_DIR }}/coverage
+          if-no-files-found: ignore

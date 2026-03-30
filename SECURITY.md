@@ -10,4 +10,4 @@ Versions currently being supported with security updates.
 
 ## Reporting a Vulnerability
 
-Create an issue or email at security@codevedas.com
+Create an issue or email at <security@codevedas.com>

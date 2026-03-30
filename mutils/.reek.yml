@@ -1,0 +1,46 @@
+---
+detectors:
+  UncommunicativeVariableName:
+    accept:
+      - e
+      - t
+      - _
+  TooManyStatements:
+    enabled: true
+    max_statements: 20
+  TooManyMethods:
+    enabled: true
+    max_methods: 40
+  BooleanParameter:
+    enabled: false
+  ControlParameter:
+    enabled: false
+  TooManyConstants:
+    enabled: true
+    max_constants: 40
+  LongParameterList:
+    enabled: false
+  TooManyInstanceVariables:
+    enabled: true
+    max_instance_variables: 10
+  DataClump:
+    enabled: false
+  DuplicateMethodCall:
+    enabled: false
+  ManualDispatch:
+    enabled: false
+  NilCheck:
+    enabled: false
+  UtilityFunction:
+    enabled: false
+  IrresponsibleModule:
+    enabled: false
+  Attribute:
+    exclude:
+      - Mutils::Serialization::SerializationIncludes#self.included
+exclude_paths:
+  - spec/**/*
+  - db/**/*
+  - bin/*
+  - config/**/*
+  - vendor/**/*

@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# Copyright Codevedas Inc. 2019-present
+#
+# This source code is licensed under the MIT license found in the
+# LICENSE file in the root directory of this source tree.
+require 'pty'
+
+root_dir = File.expand_path('..', __dir__)
+Dir.chdir(root_dir)
+
+command = ['bundle', 'exec', 'reek', *ARGV]
+output = +''
+status = nil
+
+PTY.spawn(*command) do |reader, _writer, pid|
+  reader.each { |line| output << line }
+rescue Errno::EIO
+  nil
+ensure
+  _, status = Process.wait2(pid)
+end
+
+print(output.gsub("\r\n", "\n"))
+exit(status.exitstatus || 1)
