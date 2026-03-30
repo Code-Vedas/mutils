@@ -23,10 +23,8 @@ Gem::Specification.new do |spec|
   spec.metadata['rubygems_uri'] = 'https://rubygems.org/gems/mutils'
   spec.metadata['rubygems_mfa_required'] = 'true'
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
-    Dir['bin/**/*', 'lib/**/*', 'LICENSE', 'Rakefile', 'README.md'].reject { |f| File.directory?(f) || f.end_with?('.DS_Store') }
+    Dir['{bin,exe,lib}/**/*', 'LICENSE', 'Rakefile', 'README.md']
   end
-  spec.bindir = 'bin'
-  spec.executables = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
   spec.required_ruby_version = '>= 3.2'
   spec.add_dependency 'dry-inflector', '~> 1.3'
