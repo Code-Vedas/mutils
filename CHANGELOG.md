@@ -1,8 +1,24 @@
 # Changelog
 
+## [1.3.6](https://github.com/Code-Vedas/mutils/compare/v1.3.5...v1.3.6) (2026-03-30)
+
+### 🧰 Maintenance
+
+- build: bump actions/configure-pages from 5 to 6 @[dependabot[bot]](https://github.com/apps/dependabot) (#551)
+- build: bump actions/deploy-pages from 4 to 5 @[dependabot[bot]](https://github.com/apps/dependabot) (#549)
+- build: bump rubygems/configure-rubygems-credentials from c631c084989f8f5953cd1cdbfb04e4cf3dba10aa to f623036f13ddde19c3dc555bdcc20059c18dc042 @[dependabot[bot]](https://github.com/apps/dependabot) (#550)
+- build: bump release-drafter/release-drafter from 6 to 7 @[dependabot[bot]](https://github.com/apps/dependabot) (#386)
+- build: bump json from 2.19.1 to 2.19.2 @[dependabot[bot]](https://github.com/apps/dependabot) (#387)
+- build: bump actions/upload-artifact from 6 to 7 @[dependabot[bot]](https://github.com/apps/dependabot) (#382)
+- chore: dependencies @niteshpurohit (#385)
+
+### ⚙️ CI
+
+- ci: uplift the repo process @niteshpurohit (#548)
+
 ## [1.3.5](https://github.com/Code-Vedas/mutils/compare/v1.3.4...v1.3.5) (2026-02-14)
 
-## 🧰 Maintenance
+### 🧰 Maintenance
 
 - build: bump json from 2.16.0 to 2.18.0 @[dependabot[bot]](https://github.com/apps/dependabot) (#369)
 - build: bump rubocop from 1.81.7 to 1.82.0 @[dependabot[bot]](https://github.com/apps/dependabot) (#371)
@@ -27,7 +43,7 @@
 
 ## [1.3.4](https://github.com/Code-Vedas/mutils/compare/v1.3.3...v1.3.4) (2025-08-17)
 
-## 🧰 Maintenance
+### 🧰 Maintenance
 
 - build: bump dry-inflector from 1.1.0 to 1.2.0 @[dependabot[bot]](https://github.com/apps/dependabot) (#345)
 - build: bump actions/checkout from 3 to 5 @[dependabot[bot]](https://github.com/apps/dependabot) (#344)
@@ -47,7 +63,7 @@
 - build(deps): bump json from 2.7.2 to 2.7.5 @[dependabot[bot]](https://github.com/apps/dependabot) (#306)
 - build(deps): bump rubocop from 1.66.1 to 1.67.0 @[dependabot[bot]](https://github.com/apps/dependabot) (#303)
 
-## ⚙️ CI
+### ⚙️ CI
 
 - ci: Refactor CI/CD pipelines and project configuration @niteshpurohit (#342)
 
