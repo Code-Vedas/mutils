@@ -8,9 +8,9 @@ nav_order: 1
 
 {: .note }
 
-> Mutils is a focused serializer DSL for Ruby and Rails apps. It gives you explicit control over attributes, computed fields, relationships, and JSON root naming without depending on Active Model Serializers.
+> Mutils is a general-purpose helper gem for Ruby and Rails apps. Serialization is one supported feature today, with room for more reusable utilities over time.
 
-Mutils centers on one job: turn Ruby objects into predictable hashes or JSON with a small class-based API.
+Today, Mutils primarily provides a class-based serialization API for turning Ruby objects into predictable hashes or JSON.
 
 ## What it provides
 

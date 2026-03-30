@@ -7,9 +7,9 @@
 
 ## Introduction
 
-`mutils` is collection of useful modules for `ruby on rails` which is tested and benchmarked against high load.
+`mutils` is a collection of useful helpers for Ruby and Rails applications.
 
-These collection of modules are built by developer for developers :-)
+Serialization is one of the features available today, and the gem is intended to grow into a broader utility toolkit over time.
 
 ## Table of Contents
 

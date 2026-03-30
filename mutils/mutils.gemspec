@@ -9,8 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors = ['Nitesh Purohit', 'Codevedas Inc.']
   spec.email = ['nitesh.purohit.it@gmail.com', 'team@codevedas.com']
 
-  spec.summary = 'mutils Utilities for rails app'
-  spec.description = 'mutils Utilities for rails app'
+  spec.summary = 'General-purpose Ruby helpers for application development'
+  spec.description = 'Mutils is a general-purpose Ruby helper gem for application development. It currently includes a lightweight serialization toolkit and is designed to grow with additional reusable helpers over time.'
+  spec.homepage = 'https://github.com/Code-Vedas/mutils'
   spec.license = 'MIT'
   spec.metadata['bug_tracker_uri'] = 'https://github.com/Code-Vedas/mutils/issues'
   spec.metadata['changelog_uri'] = 'https://github.com/Code-Vedas/mutils/blob/main/CHANGELOG.md'
@@ -22,11 +23,11 @@ Gem::Specification.new do |spec|
   spec.metadata['rubygems_uri'] = 'https://rubygems.org/gems/mutils'
   spec.metadata['rubygems_mfa_required'] = 'true'
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
-    `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+    Dir['bin/**/*', 'lib/**/*', 'LICENSE', 'Rakefile', 'README.md'].reject { |f| File.directory?(f) || f.end_with?('.DS_Store') }
   end
-  spec.bindir = 'exe'
-  spec.executables = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.bindir = 'bin'
+  spec.executables = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
   spec.required_ruby_version = '>= 3.2'
-  spec.add_dependency('dry-inflector')
+  spec.add_dependency 'dry-inflector', '~> 1.3'
 end
