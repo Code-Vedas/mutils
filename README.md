@@ -13,19 +13,29 @@ These collection of modules are built by developer for developers :-)
 
 ## Table of Contents
 
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-  - [Rails Generator](#rails-generator)
-  - [Attributes](#attributes)
-  - [Relations](#relations)
-  - [Conditional Attributes](#conditional-attributes)
-  - [Conditional Relations](#conditional-relations)
-  - [Attributes Block](#attributes-blocks)
-  - [Attributes Block with Params](#attributes-blocks-with-params)
-  - [Custom Methods](#custom-methods)
-  - [Name Tag](#name-tag)
-  - [Sample Usage](#sample-usage)
+- [Mutils](#mutils)
+  - [Introduction](#introduction)
+  - [Table of Contents](#table-of-contents)
+  - [Features](#features)
+  - [Installation](#installation)
+  - [Usage](#usage)
+    - [Rails Generator](#rails-generator)
+    - [Attributes](#attributes)
+    - [Relations](#relations)
+    - [Conditional Attributes](#conditional-attributes)
+    - [Conditional Relations](#conditional-relations)
+    - [Attributes Blocks](#attributes-blocks)
+    - [Attributes Blocks with Params](#attributes-blocks-with-params)
+    - [Custom Methods](#custom-methods)
+    - [Name Tag](#name-tag)
+      - [Options](#options)
+    - [Sample Usage](#sample-usage)
+      - [Or](#or)
+      - [Or In Controllers](#or-in-controllers)
+  - [Contributing](#contributing)
+  - [License](#license)
+  - [Code of Conduct](#code-of-conduct)
+  - [Security](#security)
 
 ## Features
 
@@ -172,7 +182,7 @@ UserSerializer.new(user,{params:{show_account:true}}) # With params
 
 ### Attributes Blocks
 
-While writting attribute a block can be provided for useful transformations like `full_name` as shown below
+While writing attribute a block can be provided for useful transformations like `full_name` as shown below
 
 ```ruby
 # frozen_string_literal: true
@@ -188,7 +198,7 @@ end
 
 ### Attributes Blocks with Params
 
-While writting attribute a block can be provided for useful transformations like `full_name` as shown below
+While writing attribute a block can be provided for useful transformations like `full_name` as shown below
 
 ```ruby
 # frozen_string_literal: true
