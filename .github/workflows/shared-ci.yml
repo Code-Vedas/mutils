@@ -15,6 +15,9 @@ on:
         required: false
         type: boolean
         default: false
+    secrets:
+      QLTY_COVERAGE_TOKEN:
+        required: false
 
 jobs:
   rubocop:
@@ -42,7 +45,7 @@ jobs:
           ruby-version: ${{ matrix.ruby_version }}
           bundler-cache: false
       - name: Restore bundle cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ${{ env.BUNDLE_PATH }}
           key: ${{ runner.os }}-ruby-${{ matrix.ruby_version }}-bundle-${{ hashFiles('mutils/Gemfile.lock', 'mutils/mutils.gemspec') }}
@@ -81,7 +84,7 @@ jobs:
           ruby-version: ${{ matrix.ruby_version }}
           bundler-cache: false
       - name: Restore bundle cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ${{ env.BUNDLE_PATH }}
           key: ${{ runner.os }}-ruby-${{ matrix.ruby_version }}-bundle-${{ hashFiles('mutils/Gemfile.lock', 'mutils/mutils.gemspec') }}
@@ -120,7 +123,7 @@ jobs:
           ruby-version: ${{ matrix.ruby_version }}
           bundler-cache: false
       - name: Restore bundle cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ${{ env.BUNDLE_PATH }}
           key: ${{ runner.os }}-ruby-${{ matrix.ruby_version }}-bundle-${{ hashFiles('mutils/Gemfile.lock', 'mutils/mutils.gemspec') }}
