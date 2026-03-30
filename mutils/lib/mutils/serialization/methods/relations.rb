@@ -35,7 +35,7 @@ module Mutils
 
         def fetch_serializer!(relationship_name, serializer, option_name)
           if serializer.nil?
-            raise "Serializer is Required for belongs_to :#{relationship_name}." \
+            raise "Serializer is Required for #{option_name} :#{relationship_name}." \
                   "\nDefine it like:\n#{option_name} :#{relationship_name}, " \
                   'serializer: SERIALIZER_CLASS'
           end
