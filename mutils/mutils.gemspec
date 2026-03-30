@@ -10,7 +10,10 @@ Gem::Specification.new do |spec|
   spec.email = ['nitesh.purohit.it@gmail.com', 'team@codevedas.com']
 
   spec.summary = 'General-purpose Ruby helpers for application development'
-  spec.description = 'Mutils is a general-purpose Ruby helper gem for application development. It currently includes a lightweight serialization toolkit and is designed to grow with additional reusable helpers over time.'
+  spec.description = <<~DESC
+    Mutils is a general-purpose Ruby helper gem for application development.
+    It currently includes a lightweight serialization toolkit and is designed to grow with additional reusable helpers over time.
+  DESC
   spec.homepage = 'https://github.com/Code-Vedas/mutils'
   spec.license = 'MIT'
   spec.metadata['bug_tracker_uri'] = 'https://github.com/Code-Vedas/mutils/issues'
