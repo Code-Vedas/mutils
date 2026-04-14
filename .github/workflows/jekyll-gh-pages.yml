@@ -36,7 +36,7 @@ jobs:
           PAGES_REPO_NWO: ${{ github.repository }}
           JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: ${{ env.DOCS_DIR }}/_site
   deploy:
