@@ -45,7 +45,7 @@ jobs:
           bundler-cache: true
           working-directory: ${{ env.APP_DIR }}
       - name: Configure RubyGems Credentials
-        uses: rubygems/configure-rubygems-credentials@cb088735f97e735ff769f8f7c24158151cc9ca6b
+        uses: rubygems/configure-rubygems-credentials@720fbb1addb287ba7f0a0416d905217c77cd88ec
       - name: Build and push gem
         working-directory: ${{ env.APP_DIR }}
         run: |
