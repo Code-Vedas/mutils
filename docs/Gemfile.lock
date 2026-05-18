@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/niteshpurohit/just-the-docs.git
-  revision: 933dc227584741c30a343cec25a1f315a3153988
+  revision: 9a9b62e78f16bc8b5ae992283a67433ffc898979
   specs:
     just-the-docs (0.12.0)
       jekyll (>= 3.8.5)
@@ -56,14 +56,14 @@ GEM
       logger
     faraday-net_http (3.4.2)
       net-http (~> 0.5)
-    ffi (1.17.3-aarch64-linux-gnu)
-    ffi (1.17.3-aarch64-linux-musl)
-    ffi (1.17.3-arm-linux-gnu)
-    ffi (1.17.3-arm-linux-musl)
-    ffi (1.17.3-arm64-darwin)
-    ffi (1.17.3-x86_64-darwin)
-    ffi (1.17.3-x86_64-linux-gnu)
-    ffi (1.17.3-x86_64-linux-musl)
+    ffi (1.17.4-aarch64-linux-gnu)
+    ffi (1.17.4-aarch64-linux-musl)
+    ffi (1.17.4-arm-linux-gnu)
+    ffi (1.17.4-arm-linux-musl)
+    ffi (1.17.4-arm64-darwin)
+    ffi (1.17.4-x86_64-darwin)
+    ffi (1.17.4-x86_64-linux-gnu)
+    ffi (1.17.4-x86_64-linux-musl)
     forwardable-extended (2.6.0)
     gemoji (4.1.0)
     github-pages (232)
@@ -279,7 +279,7 @@ GEM
     prism (1.9.0)
     public_suffix (5.1.1)
     racc (1.8.1)
-    rake (13.3.1)
+    rake (13.4.2)
     rb-fsevent (0.11.2)
     rb-inotify (0.11.1)
       ffi (~> 1.0)
