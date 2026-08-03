@@ -20,7 +20,7 @@ jobs:
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
-      - uses: release-drafter/release-drafter@v7.6.0
+      - uses: release-drafter/release-drafter@v7.7.0
         with:
           config-name: release-drafter.yml
         env:
@@ -33,6 +33,6 @@ jobs:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
-      - uses: release-drafter/release-drafter/autolabeler@v7.6.0
+      - uses: release-drafter/release-drafter/autolabeler@v7.7.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
